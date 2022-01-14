@@ -75,7 +75,7 @@ async def start(client, message):
             btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"checksub#{message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!\n\n Then return here and press <b>🔄 Try Again</b> button below.**",
+            text="**Please Join My Updates Channel to use this Bot!\n\n Then return here and press 🔄 Try Again button below👇🏾.**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode="markdown"
             )
@@ -83,9 +83,7 @@ async def start(client, message):
     if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
             InlineKeyboardButton('➕ Groups ➕', url=f'https://t.me/cinemazhub/13')
-            ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/CineHub02')
+            ],[InlineKeyboardButton('🤖 Updates', url='https://t.me/CineHub02')
             ],[
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
