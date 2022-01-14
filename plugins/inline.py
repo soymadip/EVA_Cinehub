@@ -104,9 +104,10 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
+            InlineKeyboardButton('👉Join CineHub for more', url='https://t.me/+acH3TO8Vw-E0OWVl')
         ]
         ]
+    return InlineKeyboardMarkup(buttons)
 
 
 
