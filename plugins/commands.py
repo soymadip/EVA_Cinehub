@@ -45,7 +45,6 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('🤖 Updates', url='https://t.me/CineHub02')
             ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -84,7 +83,6 @@ async def start(client, message):
             InlineKeyboardButton(' Join Groups ', url=f'https://t.me/cinemazhub/13')
             ],[InlineKeyboardButton('🤖 Updates', url='https://t.me/CineHub02')
             ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -232,7 +230,7 @@ async def channel_info(bot, message):
     else:
         raise ValueError("Unexpected type of CHANNELS")
 
-    text = '📑 **Indexed channels/groups**\n'
+    text = '📑 **Here are Indexed channels/groups**\n'
     for channel in channels:
         chat = await bot.get_chat(channel)
         if chat.username:
