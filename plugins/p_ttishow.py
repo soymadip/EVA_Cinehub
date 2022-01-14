@@ -94,7 +94,7 @@ async def disable_chat(bot, message):
     try:
         chat_ = int(chat)
     except:
-        return await message.reply('Give Me A Valid Chat ID')
+        return await message.reply('❌❌')
     cha_t = await db.get_chat(int(chat_))
     if not cha_t:
         return await message.reply("Chat Not Found In DB")
@@ -125,7 +125,7 @@ async def re_enable_chat(bot, message):
     try:
         chat_ = int(chat)
     except:
-        return await message.reply('Give Me A Valid Chat ID')
+        return await message.reply('❌❌')
     sts = await db.get_chat(int(chat))
     if not sts:
         return await message.reply("Chat Not Found In DB !")
@@ -159,7 +159,7 @@ async def gen_invite(bot, message):
     try:
         chat = int(chat)
     except:
-        return await message.reply('Give Me A Valid Chat ID')
+        return await message.reply('❌❌')
     try:
         link = await bot.create_chat_invite_link(chat)
     except ChatAdminRequired:
