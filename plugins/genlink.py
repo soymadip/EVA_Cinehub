@@ -19,7 +19,7 @@ async def gen_link_s(bot, message):
     if not replied:
         return await message.reply('Reply to a message to get a shareable link.')
     file_type = replied.media
-    if file_type not in ["video", 'audio', 'document', 'sticker']:
+    if file_type not in ["video", 'audio', 'document', 'sticker', 'photo']:
         return await message.reply("Reply to a supported media")
     file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
     await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={file_id}")
