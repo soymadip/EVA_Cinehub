@@ -2,13 +2,13 @@
   <img src="assets/logo.jpg" alt="Eva Maria Logo">
 </p>
 <h1 align="center">
-  <b>Modified versiom of EvaMaria Bot</b>
+  <b>CINEMAHUB versiom of EvaMaria Bot</b>
 </h1>
 
 
-[![Size](https://img.shields.io/github/repo-size/EvamariaTG/EvaMaria?style=flat-square&color=green)](https://github.com/EvamariaTG/EvaMaria/)   
-[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/EvamariaTG/EvaMaria)   
-[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/EvamariaTG/EvaMaria/blob/main/LICENSE)
+[![Size](https://img.shields.io/github/repo-size/EvamariaTG/EvaMaria?style=flat-square&color=green)](https://github.com/soymadip/EVA_Cinehub.git)   
+[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/soymadip/EVA_Cinehub.git)   
+[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/soymadip/EVA_Cinehub.git/blob/main/LICENSE)
 
 
 ## Features
@@ -42,7 +42,6 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 ### Optional Variables
 * `PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
-* Check [info.py](https://github.com/EvamariaTG/evamaria/blob/master/info.py) for more
 
 
 ## Deploy
@@ -62,7 +61,7 @@ You can deploy this bot anywhere.
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
-git clone https://github.com/EvamariaTG/evamaria
+git clone https://github.com/soymadip/EVA_Cinehub.git
 # Install Packages
 pip3 install -r requirements.txt
 Edit info.py with variables as given below then run bot
@@ -96,16 +95,13 @@ python3 bot.py
 • /ban  - to ban a user.
 • /unban  - to unban a user.
 • /channel - to get list of total connected channels
-• /broadcast - to broadcast a message to all Eva Maria users
+• /broadcast - to broadcast a message to all users
 • /batch - to create link for multiple posts
 • /link - to create link for one post
 ```
 
-## Credits 
-* [![EvaMaria-Devs](https://img.shields.io/static/v1?label=EvaMaria&message=devs&color=critical)](https://telegram.dog/EvaMariaDevs)
-
-
 ## Thanks to 
+* [![EvaMaria-Devs](https://img.shields.io/static/v1?label=EvaMaria&message=devs&color=critical)](https://telegram.dog/EvaMariaDevs)
  - Thanks To Dan For His Awesome [Library](https://github.com/pyrogram/pyrogram)
  - Thanks To Mahesh For His Awesome [Media-Search-bot](https://github.com/Mahesh0253/Media-Search-bot)
  - Thanks To [Trojanz](https://github.com/trojanzhex) for Their Awesome [Unlimited Filter Bot](https://github.com/TroJanzHEX/Unlimited-Filter-Bot) And [AutoFilterBoT](https://github.com/trojanzhex/auto-filter-bot)
@@ -115,12 +111,12 @@ python3 bot.py
 
 [Note To A So Called Dev](https://telegram.dog/subin_works/203): 
 
-I am just editing it for my persinal use. Kanging this codes and and editing a few lines and releasing a V.x  or an [alpha](https://telegram.dog/subin_works/204), beta , gama branches of your repo won't make you a Developer.
+<b>I am just editing it for my persinal use</b>. Kanging this codes and and editing a few lines and releasing a V.x  or an [alpha](https://telegram.dog/subin_works/204), beta , gama branches of your repo won't make you a Developer.
 Fork the repo and edit as per your needs.
 
 ## Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
-Licensed under [GNU AGPL 2.0.](https://github.com/EvamariaTG/evamaria/blob/master/LICENSE)
+Licensed under [GNU AGPL 2.0.](https://github.com/soymadip/EVA_Cinehub.git/blob/master/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.
 
 ## Inspiration
