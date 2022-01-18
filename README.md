@@ -1,14 +1,14 @@
 <p align="center">
-  <img src="assets/logo.jpg" alt="Eva Maria Logo">
+  <img src="https://telegra.ph/Sd-01-18-3" alt="Eva Maria Logo">
 </p>
 <h1 align="center">
   <b>CINEMAHUB versiom of EvaMaria Bot</b>
 </h1>
 
 
-[![Size](https://img.shields.io/github/repo-size/EvamariaTG/EvaMaria?style=flat-square&color=green)](https://github.com/soymadip/EVA_Cinehub.git)   
+[![Size](https://img.shields.io/github/repo-size/soymadip/EVA_Cinehub?style=flat-square&color=green)](https://github.com/soymadip/EVA_Cinehub.git)   
 [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/soymadip/EVA_Cinehub.git)   
-[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/soymadip/EVA_Cinehub.git/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/soymadip/EVA_Cinehub/blob/main/LICENSE)
 
 
 ## Features
