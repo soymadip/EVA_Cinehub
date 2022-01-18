@@ -18,7 +18,7 @@ async def inline_users(query: InlineQuery):
 
 @Client.on_inline_query(filters.user(ADMINS))
 async def answer(bot, query):
-    """Show search results for given inline query"""
+    """𝕊𝕙𝕠𝕨 𝕤𝕖𝕒𝕣𝕔𝕙 𝕣𝕖𝕤𝕦𝕝𝕥𝕤 𝕗𝕠𝕣 𝕘𝕚𝕧𝕖𝕟 𝕚𝕟𝕝𝕚𝕟𝕖 𝕢𝕦𝕖𝕣𝕪"""
     
     if not await inline_users(query):
         await query.answer(results=[],
@@ -83,7 +83,7 @@ async def answer(bot, query):
                            switch_pm_text=str(e)[:63],
                            switch_pm_parameter="error")
     else:
-        switch_pm_text = f'{emoji.CROSS_MARK} No results'
+        switch_pm_text = f'{emoji.CROSS_MARK} ℕ𝕠 𝕣𝕖𝕤𝕦𝕝𝕥𝕤'
         if string:
             switch_pm_text += f' for "{string}"'
 
@@ -97,7 +97,7 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('⚡️ Join CineHub for more ⚡️', url='https://t.me/+acH3TO8Vw-E0OWVl')
+            InlineKeyboardButton('⚡️ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖ℍ𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖 ⚡️', url='https://t.me/+acH3TO8Vw-E0OWVl')
         ]
         ]
     return InlineKeyboardMarkup(buttons)

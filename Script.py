@@ -52,8 +52,8 @@ class script(object):
  𝕀'𝕝𝕝 𝕒𝕕𝕕 𝕒𝕝𝕝 𝕥𝕙𝕖 𝕗𝕚𝕝𝕖𝕤 𝕚𝕟 𝕥𝕙𝕒𝕥 𝕔𝕙𝕒𝕟𝕟𝕖𝕝 𝕥𝕠 𝕞𝕪 𝕕𝕓."""
     CONNECTION_TXT = """Help: <b>Connections</b>
 
-- Used to connect bot to PM for managing filters 
-- it helps to avoid spamming in groups.
+- 𝕌𝕤𝕖𝕕 𝕥𝕠 𝕔𝕠𝕟𝕟𝕖𝕔𝕥 𝕓𝕠𝕥 𝕥𝕠 ℙ𝕄 𝕗𝕠𝕣 𝕞𝕒𝕟𝕒𝕘𝕚𝕟𝕘 𝕗𝕚𝕝𝕥𝕖𝕣𝕤 
+- 𝕚𝕥 𝕙𝕖𝕝𝕡𝕤 𝕥𝕠 𝕒𝕧𝕠𝕚𝕕 𝕤𝕡𝕒𝕞𝕞𝕚𝕟𝕘 𝕚𝕟 𝕘𝕣𝕠𝕦𝕡𝕤.
 
 <b>NOTE:</b>
 1. Only admins can add a connection.
