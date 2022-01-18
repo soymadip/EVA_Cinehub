@@ -42,14 +42,13 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 ## Deploy
 You can deploy this bot anywhere.
 
-<details><summary>Deploy To Heroku</summary>
+Deploy To Heroku
 <p>
 <br>
 <a href="https://heroku.com/deploy?template=https://github.com/soymadip/Eva-Cinehub.git">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
-</details>
 
 
 ## Commands
