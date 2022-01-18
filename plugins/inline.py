@@ -4,7 +4,7 @@ from pyrogram.errors.exceptions.bad_request_400 import QueryIdInvalid
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument, InlineQuery
 from database.ia_filterdb import get_search_results
 from utils import is_subscribed, get_size, temp
-from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, ADMINS
+from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 
 logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
@@ -16,7 +16,7 @@ async def inline_users(query: InlineQuery):
         return True
     return False
 
-@Client.on_inline_query(filters.user(ADMINS))
+@Client.on_inline_query()
 async def answer(bot, query):
     """𝕊𝕙𝕠𝕨 𝕤𝕖𝕒𝕣𝕔𝕙 𝕣𝕖𝕤𝕦𝕝𝕥𝕤 𝕗𝕠𝕣 𝕘𝕚𝕧𝕖𝕟 𝕚𝕟𝕝𝕚𝕟𝕖 𝕢𝕦𝕖𝕣𝕪"""
     
