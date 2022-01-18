@@ -76,7 +76,6 @@ these are the extra features
     ADMIN_TXT = """Help: <b>Admin mods</b>
 
 <b>NOTE:</b>
-𝕋𝕙𝕚𝕤 𝕞𝕠𝕕𝕦𝕝𝕖 𝕠𝕟𝕝𝕪 𝕨𝕠𝕣𝕜𝕤 𝕗𝕠𝕣 𝕞𝕪 𝕒𝕕𝕞𝕚𝕟𝕤
 
 
     STATUS_TXT = """★ 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
