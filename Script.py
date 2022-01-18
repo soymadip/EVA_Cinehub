@@ -1,15 +1,15 @@
 class script(object):
-    START_TXT = """𝙷𝙴𝙻𝙾 {},
-I AM <a href=https://t.me/{}>{}</a>\n\nI DELIVIER REQUESTED MEDIA TO PEOPLE.\nDONT FORGET TO FOLLOW MY UODATES CHANNEL BEFORE USING ME.."""
+    START_TXT = """ℍ𝔼𝕃𝕃𝕆 {},
+𝕀 𝔸𝕄 <a href=https://t.me/{}>{}</a>\n\n 𝕀 𝔻𝔼𝕃𝕀𝕍𝕀𝔼ℝ ℝ𝔼ℚ𝕌𝔼𝕊𝕋𝔼𝔻 𝕄𝔼𝔻𝕀𝔸 𝕋𝕆 ℙ𝔼𝕆ℙ𝕃𝔼.\n𝔻𝕆ℕ𝕋 𝔽𝕆ℝ𝔾𝔼𝕋 𝕋𝕆 𝔽𝕆𝕃𝕃𝕆𝕎 𝕄𝕐 𝕌𝕆𝔻𝔸𝕋𝔼𝕊 ℂℍ𝔸ℕℕ𝔼𝕃 𝔹𝔼𝔽𝕆ℝ𝔼 𝕌𝕊𝕀ℕ𝔾 𝕄𝔼."""
     HELP_TXT = """𝙷𝙴𝚈 {}
-𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂."""
+ℍ𝔼ℝ𝔼 𝕀𝕊 𝕄𝕐 ℂ𝕆𝕄𝕄𝔸ℕ𝔻𝕊."""
     ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴: {}
 ✯ 𝙲𝚁𝙴𝙰𝚃𝙾𝚁: <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>
 ✯ 𝙻𝙸𝙱𝚁𝙰𝚁𝚈: 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
 ✯ 𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴: 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
 ✯ 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
 ✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
-✯ 𝙱𝚄𝙸𝙻𝙳: v1.0.1 [ CINEHUB VERSION ]"""
+✯ 𝙱𝚄𝙸𝙻𝙳: v1.0.1 [ ℂ𝕀ℕ𝔼ℍ𝕌𝔹 𝕍𝔼ℝ𝕊𝕀𝕆ℕ ]"""
     SOURCE_TXT = """<b>NOTE:</b> 
 - OWNER - <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>
 
@@ -20,9 +20,9 @@ I AM <a href=https://t.me/{}>{}</a>\n\nI DELIVIER REQUESTED MEDIA TO PEOPLE.\nDO
 - Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message
 
 <b>NOTE:</b>
-1. should have admin privillage.
-2. only admins can add filters in a chat.
-3. alert buttons have a limit of 64 characters.
+𝟙. 𝕤𝕙𝕠𝕦𝕝𝕕 𝕙𝕒𝕧𝕖 𝕒𝕕𝕞𝕚𝕟 𝕡𝕣𝕚𝕧𝕚𝕝𝕝𝕒𝕘𝕖.
+𝟚. 𝕠𝕟𝕝𝕪 𝕒𝕕𝕞𝕚𝕟𝕤 𝕔𝕒𝕟 𝕒𝕕𝕕 𝕗𝕚𝕝𝕥𝕖𝕣𝕤 𝕚𝕟 𝕒 𝕔𝕙𝕒𝕥.
+𝟛. 𝕒𝕝𝕖𝕣𝕥 𝕓𝕦𝕥𝕥𝕠𝕟𝕤 𝕙𝕒𝕧𝕖 𝕒 𝕝𝕚𝕞𝕚𝕥 𝕠𝕗 𝟞𝟜 𝕔𝕙𝕒𝕣𝕒𝕔𝕥𝕖𝕣𝕤.
 
 <b>Commands and Usage:</b>
 • /filter - <code>add a filter in chat</code>
@@ -31,12 +31,12 @@ I AM <a href=https://t.me/{}>{}</a>\n\nI DELIVIER REQUESTED MEDIA TO PEOPLE.\nDO
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
     BUTTON_TXT = """Help: <b>Buttons</b>
 
-- Eva Maria Supports both url and alert inline buttons.
+- 𝔼𝕧𝕒 𝕄𝕒𝕣𝕚𝕒 𝕊𝕦𝕡𝕡𝕠𝕣𝕥𝕤 𝕓𝕠𝕥𝕙 𝕦𝕣𝕝 𝕒𝕟𝕕 𝕒𝕝𝕖𝕣𝕥 𝕚𝕟𝕝𝕚𝕟𝕖 𝕓𝕦𝕥𝕥𝕠𝕟𝕤.
 
 <b>NOTE:</b>
-1. Telegram will not allows you to send buttons without any content, so content is mandatory.
-2. support buttons with any telegram media type.
-3. Buttons should be properly parsed as markdown format
+𝟙. 𝕋𝕖𝕝𝕖𝕘𝕣𝕒𝕞 𝕨𝕚𝕝𝕝 𝕟𝕠𝕥 𝕒𝕝𝕝𝕠𝕨𝕤 𝕪𝕠𝕦 𝕥𝕠 𝕤𝕖𝕟𝕕 𝕓𝕦𝕥𝕥𝕠𝕟𝕤 𝕨𝕚𝕥𝕙𝕠𝕦𝕥 𝕒𝕟𝕪 𝕔𝕠𝕟𝕥𝕖𝕟𝕥, 𝕤𝕠 𝕔𝕠𝕟𝕥𝕖𝕟𝕥 𝕚𝕤 𝕞𝕒𝕟𝕕𝕒𝕥𝕠𝕣𝕪.
+𝟚. 𝕤𝕦𝕡𝕡𝕠𝕣𝕥 𝕓𝕦𝕥𝕥𝕠𝕟𝕤 𝕨𝕚𝕥𝕙 𝕒𝕟𝕪 𝕥𝕖𝕝𝕖𝕘𝕣𝕒𝕞 𝕞𝕖𝕕𝕚𝕒 𝕥𝕪𝕡𝕖.
+𝟛. 𝔹𝕦𝕥𝕥𝕠𝕟𝕤 𝕤𝕙𝕠𝕦𝕝𝕕 𝕓𝕖 𝕡𝕣𝕠𝕡𝕖𝕣𝕝𝕪 𝕡𝕒𝕣𝕤𝕖𝕕 𝕒𝕤 𝕞𝕒𝕣𝕜𝕕𝕠𝕨𝕟 𝕗𝕠𝕣𝕞𝕒𝕥
 
 <b>URL buttons:</b>
 <code>[Button Text](buttonurl:https://t.me/Bot)</code>
@@ -46,10 +46,10 @@ I AM <a href=https://t.me/{}>{}</a>\n\nI DELIVIER REQUESTED MEDIA TO PEOPLE.\nDO
     AUTOFILTER_TXT = """Help: <b>Auto Filter</b>
 
 <b>NOTE:</b>
-1. Make me the admin of your channel if it's private.
-2. make sure that your channel does not contains camrips, porn and fake files.
-3. Forward the last message to me with quotes.
- I'll add all the files in that channel to my db."""
+𝟙. 𝕄𝕒𝕜𝕖 𝕞𝕖 𝕥𝕙𝕖 𝕒𝕕𝕞𝕚𝕟 𝕠𝕗 𝕪𝕠𝕦𝕣 𝕔𝕙𝕒𝕟𝕟𝕖𝕝 𝕚𝕗 𝕚𝕥'𝕤 𝕡𝕣𝕚𝕧𝕒𝕥𝕖.
+𝟚. 𝕞𝕒𝕜𝕖 𝕤𝕦𝕣𝕖 𝕥𝕙𝕒𝕥 𝕪𝕠𝕦𝕣 𝕔𝕙𝕒𝕟𝕟𝕖𝕝 𝕕𝕠𝕖𝕤 𝕟𝕠𝕥 𝕔𝕠𝕟𝕥𝕒𝕚𝕟𝕤 𝕔𝕒𝕞𝕣𝕚𝕡𝕤, 𝕡𝕠𝕣𝕟 𝕒𝕟𝕕 𝕗𝕒𝕜𝕖 𝕗𝕚𝕝𝕖𝕤.
+𝟛. 𝔽𝕠𝕣𝕨𝕒𝕣𝕕 𝕥𝕙𝕖 𝕝𝕒𝕤𝕥 𝕞𝕖𝕤𝕤𝕒𝕘𝕖 𝕥𝕠 𝕞𝕖 𝕨𝕚𝕥𝕙 𝕢𝕦𝕠𝕥𝕖𝕤.
+ 𝕀'𝕝𝕝 𝕒𝕕𝕕 𝕒𝕝𝕝 𝕥𝕙𝕖 𝕗𝕚𝕝𝕖𝕤 𝕚𝕟 𝕥𝕙𝕒𝕥 𝕔𝕙𝕒𝕟𝕟𝕖𝕝 𝕥𝕠 𝕞𝕪 𝕕𝕓."""
     CONNECTION_TXT = """Help: <b>Connections</b>
 
 - Used to connect bot to PM for managing filters 
@@ -76,7 +76,7 @@ these are the extra features
     ADMIN_TXT = """Help: <b>Admin mods</b>
 
 <b>NOTE:</b>
-This module only works for my admins
+𝕋𝕙𝕚𝕤 𝕞𝕠𝕕𝕦𝕝𝕖 𝕠𝕟𝕝𝕪 𝕨𝕠𝕣𝕜𝕤 𝕗𝕠𝕣 𝕞𝕪 𝕒𝕕𝕞𝕚𝕟𝕤
 
 <b>Commands and Usage:</b>
 • /logs - <code>to get the rescent errors</code>
@@ -97,10 +97,10 @@ This module only works for my admins
 ★ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱"""
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
-Total Members = <code>{}</code>
+𝕋𝕠𝕥𝕒𝕝 𝕄𝕖𝕞𝕓𝕖𝕣𝕤 = <code>{}</code>
 Added By - {}
 """
     LOG_TEXT_P = """#NewUser
-ID - <code>{}</code>
-Name - {}
+𝕀𝔻 - <code>{}</code>
+Nᴀᴍᴇ - {}
 """
