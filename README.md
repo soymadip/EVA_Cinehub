@@ -20,11 +20,9 @@
 - [x] Broadcast
 - [x] Index
 - [x] IMDB search
-- [x] Inline Search
+- [x] Inline Search (Restricted to ADMINS).
 - [x] Random pics
 - [x] ids and User info 
-- [x] Stats, Users, Chats, Ban, Unban, Leave, Disable, Channel
-- [x] Spelling Check Feature
 - [x] File Store
 ## Variables
 
@@ -47,26 +45,12 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 ## Deploy
 You can deploy this bot anywhere.
 
-<i>**[Watch Deploying Tutorial...](https://youtu.be/1G1XwEOnxxo)**</i>
-
 <details><summary>Deploy To Heroku</summary>
 <p>
 <br>
 <a href="https://heroku.com/deploy?template=https://github.com/soymadip/Eva-Cinehub.git">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
-</p>
-</details>
-
-<details><summary>Deploy To VPS</summary>
-<p>
-<pre>
-git clone https://github.com/soymadip/EVA_Cinehub.git
-# Install Packages
-pip3 install -r requirements.txt
-Edit info.py with variables as given below then run bot
-python3 bot.py
-</pre>
 </p>
 </details>
 
@@ -101,7 +85,7 @@ python3 bot.py
 ```
 
 ## Thanks to 
-* [![EvaMaria-Devs](https://img.shields.io/static/v1?label=EvaMaria&message=devs&color=critical)](https://telegram.dog/EvaMariaDevs)
+* [EvaMaria-Devs](https://telegram.dog/EvaMariaDevs)
  - Thanks To Dan For His Awesome [Library](https://github.com/pyrogram/pyrogram)
  - Thanks To Mahesh For His Awesome [Media-Search-bot](https://github.com/Mahesh0253/Media-Search-bot)
  - Thanks To [Trojanz](https://github.com/trojanzhex) for Their Awesome [Unlimited Filter Bot](https://github.com/TroJanzHEX/Unlimited-Filter-Bot) And [AutoFilterBoT](https://github.com/trojanzhex/auto-filter-bot)
