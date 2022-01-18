@@ -15,69 +15,66 @@ class script(object):
 
 <b>DEVS:</b>
 - <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>"""
-    MANUELFILTER_TXT = """Help: <b>Filters</b>
-
+     MANUELFILTER_TXT = """Help: <b>Filters</b>
 - Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message
-
 <b>NOTE:</b>
-𝟙. 𝕤𝕙𝕠𝕦𝕝𝕕 𝕙𝕒𝕧𝕖 𝕒𝕕𝕞𝕚𝕟 𝕡𝕣𝕚𝕧𝕚𝕝𝕝𝕒𝕘𝕖.
-𝟚. 𝕠𝕟𝕝𝕪 𝕒𝕕𝕞𝕚𝕟𝕤 𝕔𝕒𝕟 𝕒𝕕𝕕 𝕗𝕚𝕝𝕥𝕖𝕣𝕤 𝕚𝕟 𝕒 𝕔𝕙𝕒𝕥.
-𝟛. 𝕒𝕝𝕖𝕣𝕥 𝕓𝕦𝕥𝕥𝕠𝕟𝕤 𝕙𝕒𝕧𝕖 𝕒 𝕝𝕚𝕞𝕚𝕥 𝕠𝕗 𝟞𝟜 𝕔𝕙𝕒𝕣𝕒𝕔𝕥𝕖𝕣𝕤.
-
+1. eva maria should have admin privillage.
+2. only admins can add filters in a chat.
+3. alert buttons have a limit of 64 characters.
 <b>Commands and Usage:</b>
 • /filter - <code>add a filter in chat</code>
 • /filters - <code>list all the filters of a chat</code>
 • /del - <code>delete a specific filter in chat</code>
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
     BUTTON_TXT = """Help: <b>Buttons</b>
-
-- 𝔼𝕧𝕒 𝕄𝕒𝕣𝕚𝕒 𝕊𝕦𝕡𝕡𝕠𝕣𝕥𝕤 𝕓𝕠𝕥𝕙 𝕦𝕣𝕝 𝕒𝕟𝕕 𝕒𝕝𝕖𝕣𝕥 𝕚𝕟𝕝𝕚𝕟𝕖 𝕓𝕦𝕥𝕥𝕠𝕟𝕤.
-
+- Eva Maria Supports both url and alert inline buttons.
 <b>NOTE:</b>
-𝟙. 𝕋𝕖𝕝𝕖𝕘𝕣𝕒𝕞 𝕨𝕚𝕝𝕝 𝕟𝕠𝕥 𝕒𝕝𝕝𝕠𝕨𝕤 𝕪𝕠𝕦 𝕥𝕠 𝕤𝕖𝕟𝕕 𝕓𝕦𝕥𝕥𝕠𝕟𝕤 𝕨𝕚𝕥𝕙𝕠𝕦𝕥 𝕒𝕟𝕪 𝕔𝕠𝕟𝕥𝕖𝕟𝕥, 𝕤𝕠 𝕔𝕠𝕟𝕥𝕖𝕟𝕥 𝕚𝕤 𝕞𝕒𝕟𝕕𝕒𝕥𝕠𝕣𝕪.
-𝟚. 𝕤𝕦𝕡𝕡𝕠𝕣𝕥 𝕓𝕦𝕥𝕥𝕠𝕟𝕤 𝕨𝕚𝕥𝕙 𝕒𝕟𝕪 𝕥𝕖𝕝𝕖𝕘𝕣𝕒𝕞 𝕞𝕖𝕕𝕚𝕒 𝕥𝕪𝕡𝕖.
-𝟛. 𝔹𝕦𝕥𝕥𝕠𝕟𝕤 𝕤𝕙𝕠𝕦𝕝𝕕 𝕓𝕖 𝕡𝕣𝕠𝕡𝕖𝕣𝕝𝕪 𝕡𝕒𝕣𝕤𝕖𝕕 𝕒𝕤 𝕞𝕒𝕣𝕜𝕕𝕠𝕨𝕟 𝕗𝕠𝕣𝕞𝕒𝕥
-
+1. Telegram will not allows you to send buttons without any content, so content is mandatory.
+2. Eva Maria supports buttons with any telegram media type.
+3. Buttons should be properly parsed as markdown format
 <b>URL buttons:</b>
-<code>[Button Text](buttonurl:https://t.me/Bot)</code>
-
+<code>[Button Text](buttonurl:https://t.me/EvaMariaBot)</code>
 <b>Alert buttons:</b>
 <code>[Button Text](buttonalert:This is an alert message)</code>"""
     AUTOFILTER_TXT = """Help: <b>Auto Filter</b>
-
 <b>NOTE:</b>
-𝟙. 𝕄𝕒𝕜𝕖 𝕞𝕖 𝕥𝕙𝕖 𝕒𝕕𝕞𝕚𝕟 𝕠𝕗 𝕪𝕠𝕦𝕣 𝕔𝕙𝕒𝕟𝕟𝕖𝕝 𝕚𝕗 𝕚𝕥'𝕤 𝕡𝕣𝕚𝕧𝕒𝕥𝕖.
-𝟚. 𝕞𝕒𝕜𝕖 𝕤𝕦𝕣𝕖 𝕥𝕙𝕒𝕥 𝕪𝕠𝕦𝕣 𝕔𝕙𝕒𝕟𝕟𝕖𝕝 𝕕𝕠𝕖𝕤 𝕟𝕠𝕥 𝕔𝕠𝕟𝕥𝕒𝕚𝕟𝕤 𝕔𝕒𝕞𝕣𝕚𝕡𝕤, 𝕡𝕠𝕣𝕟 𝕒𝕟𝕕 𝕗𝕒𝕜𝕖 𝕗𝕚𝕝𝕖𝕤.
-𝟛. 𝔽𝕠𝕣𝕨𝕒𝕣𝕕 𝕥𝕙𝕖 𝕝𝕒𝕤𝕥 𝕞𝕖𝕤𝕤𝕒𝕘𝕖 𝕥𝕠 𝕞𝕖 𝕨𝕚𝕥𝕙 𝕢𝕦𝕠𝕥𝕖𝕤.
- 𝕀'𝕝𝕝 𝕒𝕕𝕕 𝕒𝕝𝕝 𝕥𝕙𝕖 𝕗𝕚𝕝𝕖𝕤 𝕚𝕟 𝕥𝕙𝕒𝕥 𝕔𝕙𝕒𝕟𝕟𝕖𝕝 𝕥𝕠 𝕞𝕪 𝕕𝕓."""
+1. Make me the admin of your channel if it's private.
+2. make sure that your channel does not contains camrips, porn and fake files.
+3. Forward the last message to me with quotes.
+ I'll add all the files in that channel to my db."""
     CONNECTION_TXT = """Help: <b>Connections</b>
-
-- 𝕌𝕤𝕖𝕕 𝕥𝕠 𝕔𝕠𝕟𝕟𝕖𝕔𝕥 𝕓𝕠𝕥 𝕥𝕠 ℙ𝕄 𝕗𝕠𝕣 𝕞𝕒𝕟𝕒𝕘𝕚𝕟𝕘 𝕗𝕚𝕝𝕥𝕖𝕣𝕤 
-- 𝕚𝕥 𝕙𝕖𝕝𝕡𝕤 𝕥𝕠 𝕒𝕧𝕠𝕚𝕕 𝕤𝕡𝕒𝕞𝕞𝕚𝕟𝕘 𝕚𝕟 𝕘𝕣𝕠𝕦𝕡𝕤.
-
+- Used to connect bot to PM for managing filters 
+- it helps to avoid spamming in groups.
 <b>NOTE:</b>
 1. Only admins can add a connection.
 2. Send <code>/connect</code> for connecting me to ur PM
-
 <b>Commands and Usage:</b>
 • /connect  - <code>connect a particular chat to your PM</code>
 • /disconnect  - <code>disconnect from a chat</code>
 • /connections - <code>list all your connections</code>"""
     EXTRAMOD_TXT = """Help: <b>Extra Modules</b>
-
 <b>NOTE:</b>
-these are the extra features
-
+these are the extra features of Eva Maria
 <b>Commands and Usage:</b>
 • /id - <code>get id of a specified user.</code>
 • /info  - <code>get information about a user.</code>
 • /imdb  - <code>get the film information from IMDb source.</code>
 • /search  - <code>get the film information from various sources.</code>"""
     ADMIN_TXT = """Help: <b>Admin mods</b>
-
 <b>NOTE:</b>
-
-
+This module only works for my admins
+<b>Commands and Usage:</b>
+• /logs - <code>to get the rescent errors</code>
+• /stats - <code>to get status of files in db.</code>
+• /delete - <code>to delete a specific file from db.</code>
+• /users - <code>to get list of my users and ids.</code>
+• /chats - <code>to get list of the my chats and ids </code>
+• /leave  - <code>to leave from a chat.</code>
+• /disable  -  <code>do disable a chat.</code>
+• /ban  - <code>to ban a user.</code>
+• /unban  - <code>to unban a user.</code>
+• /channel - <code>to get list of total connected channels</code>
+• /broadcast - <code>to broadcast a message to all users</code>"""
     STATUS_TXT = """★ 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
 ★ 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
 ★ 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
@@ -85,10 +82,10 @@ these are the extra features
 ★ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱"""
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
-𝕋𝕠𝕥𝕒𝕝 𝕄𝕖𝕞𝕓𝕖𝕣𝕤 = <code>{}</code>
+Total Members = <code>{}</code>
 Added By - {}
 """
     LOG_TEXT_P = """#NewUser
-𝕀𝔻 - <code>{}</code>
-Nᴀᴍᴇ - {}
+ID - <code>{}</code>
+Name - {}
 """
