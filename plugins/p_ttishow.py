@@ -52,7 +52,7 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>")
+                temp.MELCOW['welcome'] = await message.reply(f" {u.mention}, 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝘀𝘂𝘀𝗰𝗿𝗶𝗯𝗲 𝘁𝗼 𝗰𝗵𝗮𝗻𝗻𝗲𝗹☝🏼☝🏼.</b>")
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
@@ -71,7 +71,7 @@ async def leave_a_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b>',
+            text='<b>Hello Friends, \n𝕄𝕪 𝕒𝕕𝕞𝕚𝕟 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠! 𝕀𝕗 𝕪𝕠𝕦 𝕨𝕒𝕟𝕟𝕒 𝕒𝕕𝕕 𝕞𝕖 𝕒𝕘𝕒𝕚𝕟 𝕔𝕠𝕟𝕥𝕒𝕔𝕥 𝕞𝕪 𝕤𝕦𝕡𝕡𝕠𝕣𝕥 𝕘𝕣𝕠𝕦𝕡!</b>',
             reply_markup=reply_markup,
         )
 
@@ -102,7 +102,7 @@ async def disable_chat(bot, message):
         return await message.reply(f"This chat is already disabled:\nReason-<code> {cha_t['reason']} </code>")
     await db.disable_chat(int(chat_), reason)
     temp.BANNED_CHATS.append(int(chat_))
-    await message.reply('Chat Successfully Disabled')
+    await message.reply('ℂ𝕙𝕒𝕥 𝕊𝕦𝕔𝕔𝕖𝕤𝕤𝕗𝕦𝕝𝕝𝕪 Disabled')
     try:
         buttons = [[
             InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
@@ -110,7 +110,7 @@ async def disable_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat_, 
-            text=f'<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b> \nReason : <code>{reason}</code>',
+            text=f'<b>ℍ𝕖𝕝𝕝𝕠 𝔽𝕣𝕚𝕖𝕟𝕕𝕤, \n𝕄𝕪 𝕒𝕕𝕞𝕚𝕟 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠! 𝕀𝕗 𝕪𝕠𝕦 𝕨𝕒𝕟𝕟𝕒 𝕒𝕕𝕕 𝕞𝕖 𝕒𝕘𝕒𝕚𝕟 𝕔𝕠𝕟𝕥𝕒𝕔𝕥 𝕞𝕪 𝕤𝕦𝕡𝕡𝕠𝕣𝕥 𝕘𝕣𝕠𝕦𝕡.</b> \nReason : <code>{reason}</code>',
             reply_markup=reply_markup)
         await bot.leave_chat(chat_)
     except Exception as e:
@@ -133,7 +133,7 @@ async def re_enable_chat(bot, message):
         return await message.reply('This chat is not yet disabled.')
     await db.re_enable_chat(int(chat_))
     temp.BANNED_CHATS.remove(int(chat_))
-    await message.reply("Chat Successfully re-enabled")
+    await message.reply("ℂ𝕙𝕒𝕥 𝕊𝕦𝕔𝕔𝕖𝕤𝕤𝕗𝕦𝕝𝕝𝕪 re-enabled")
 
 
 @Client.on_message(filters.command('stats') & filters.incoming)
@@ -172,7 +172,7 @@ async def gen_invite(bot, message):
 async def ban_a_user(bot, message):
     # https://t.me/GetTGLink/4185
     if len(message.command) == 1:
-        return await message.reply('Give me a user id / username')
+        return await message.reply('❌❌')
     r = message.text.split(None)
     if len(r) > 2:
         reason = message.text.split(None, 2)[2]
@@ -205,7 +205,7 @@ async def ban_a_user(bot, message):
 @Client.on_message(filters.command('unban') & filters.user(ADMINS))
 async def unban_a_user(bot, message):
     if len(message.command) == 1:
-        return await message.reply('Give me a user id / username')
+        return await message.reply('✅')
     r = message.text.split(None)
     if len(r) > 2:
         reason = message.text.split(None, 2)[2]

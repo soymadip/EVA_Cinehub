@@ -23,7 +23,7 @@ async def index_files(bot, query):
     if raju == 'reject':
         await query.message.delete()
         await bot.send_message(int(from_user),
-                               f'Your Submission for indexing {chat} has been decliened by our moderators.',
+                               f'Y͟o͟u͟r͟ S͟u͟b͟m͟i͟s͟s͟i͟o͟n͟ f͟o͟r͟ i͟n͟d͟e͟x͟i͟n͟g͟  {chat} h͟a͟s͟ b͟e͟e͟n͟ d͟e͟c͟l͟i͟e͟n͟e͟d͟ b͟y͟ o͟u͟r͟ m͟o͟d͟e͟r͟a͟t͟o͟r͟s͟.',
                                reply_to_message_id=int(lst_msg_id))
         return
 
@@ -34,10 +34,10 @@ async def index_files(bot, query):
     await query.answer('Processing...⏳', show_alert=True)
     if int(from_user) not in ADMINS:
         await bot.send_message(int(from_user),
-                               f'Your Submission for indexing {chat} has been accepted by our moderators and will be added soon.',
+                               f'Y͟o͟u͟r͟ S͟u͟b͟m͟i͟s͟s͟i͟o͟n͟ f͟o͟r͟ i͟n͟d͟e͟x͟i͟n͟g͟  {chat} h͟a͟s͟ b͟e͟e͟n͟ d͟e͟c͟l͟i͟e͟n͟e͟d͟ b͟y͟ o͟u͟r͟ m͟o͟d͟e͟r͟a͟t͟o͟r͟s͟.',
                                reply_to_message_id=int(lst_msg_id))
     await msg.edit(
-        "Starting Indexing",
+        "S͟t͟a͟r͟t͟i͟n͟g͟ I͟n͟d͟e͟x͟i͟n͟g͟",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
         )
