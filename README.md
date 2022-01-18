@@ -1,8 +1,5 @@
-<p align="center">
-  <img src="https://telegra.ph/Sd-01-18-3" alt="Eva Maria Logo">
-</p>
 <h1 align="center">
-  <b>CINEMAHUB versiom of EvaMaria Bot</b>
+  <b>𝐶𝐼𝑁𝐸𝑀𝐴𝐻𝑈𝐵 𝑣𝑒𝑟𝑠𝑖𝑜𝑚 𝑜𝑓 𝐸𝑣𝑎𝑀𝑎𝑟𝑖𝑎 𝐵𝑜𝑡</b>
 </h1>
 
 
