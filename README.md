@@ -3,11 +3,7 @@
 </h1>
 
 
-[![Size](https://img.shields.io/github/repo-size/soymadip/EVA_Cinehub?style=flat-square&color=green)](https://github.com/soymadip/EVA_Cinehub.git)   
-[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/soymadip/EVA_Cinehub.git)   
-[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/soymadip/EVA_Cinehub/blob/main/LICENSE)
-
-
+   [![Size](https://img.shields.io/github/repo-size/soymadip/EVA_Cinehub?style=flat-square&color=green)](https://github.com/soymadip/EVA_Cinehub.git) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/soymadip/EVA_Cinehub.git)
 ## Features
 
 - [x] Auto Filter
@@ -41,8 +37,7 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 
 ## Deploy
 You can deploy this bot anywhere.
-
-𝕺𝖊𝖕𝖑𝖔𝖞 𝕿𝖔 𝕳𝖊𝖗𝖔𝖐𝖚
+𝕺𝖊𝖕𝖑𝖔𝖞 𝕿𝖔 𝕳𝖊𝖗𝖔𝖐𝖚:-
 <p>
 <br>
 <a href="https://heroku.com/deploy?template=https://github.com/soymadip/Eva-Cinehub.git">
