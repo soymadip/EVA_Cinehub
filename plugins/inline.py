@@ -16,7 +16,7 @@ async def inline_users(query: InlineQuery):
         return True
     return False
 
-@Client.on_inline_query()
+@Client.on_inline_query(filters.user(ADMINS))
 async def answer(bot, query):
     """Show search results for given inline query"""
     
