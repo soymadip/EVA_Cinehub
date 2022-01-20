@@ -1,12 +1,15 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
+from info import CACHE_TIME,ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
 from database.users_chats_db import db
 from database.ia_filterdb import Media
 from utils import get_size, temp
 from Script import script
 from pyrogram.errors import ChatAdminRequired
+
+logger = logging.getLogger(__name__)
+cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 
@@ -52,7 +55,7 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f" {u.mention}, 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝘀𝘂𝘀𝗰𝗿𝗶𝗯𝗲 𝘁𝗼 𝗰𝗵𝗮𝗻𝗻𝗲𝗹☝🏼☝🏼.</b>")
+                temp.MELCOW['welcome'] = await message.reply(f" {u.mention}, 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝘀𝘂𝘀𝗰𝗿𝗶𝗯𝗲 𝘁𝗼 𝗰𝗵𝗮𝗻𝗻𝗲𝗹☝🏼☝🏼.</b>",cache_time=cache_time)
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
