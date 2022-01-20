@@ -55,7 +55,7 @@ async def save_group(bot, message):
                 temp.MELCOW['welcome'] = await message.reply(f" {u.mention}, 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝘀𝘂𝘀𝗰𝗿𝗶𝗯𝗲 𝘁𝗼 𝗰𝗵𝗮𝗻𝗻𝗲𝗹☝🏼☝🏼.</b>")
 
 
-@Client.on_message(filters.command('leave') & filters.user(ADMINS))
+@Client.on_message(filters.command('leaveChat') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
         return await message.reply('Give me a chat id')
