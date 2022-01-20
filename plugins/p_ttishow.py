@@ -8,7 +8,6 @@ from utils import get_size, temp
 from Script import script
 from pyrogram.errors import ChatAdminRequired
 
-logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
@@ -74,7 +73,7 @@ async def leave_a_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello Friends, \n𝕄𝕪 𝕒𝕕𝕞𝕚𝕟 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠! 𝕀𝕗 𝕪𝕠𝕦 𝕨𝕒𝕟𝕟𝕒 𝕒𝕕𝕕 𝕞𝕖 𝕒𝕘𝕒𝕚𝕟 𝕔𝕠𝕟𝕥𝕒𝕔𝕥 𝕞𝕪 𝕤𝕦𝕡𝕡𝕠𝕣𝕥 𝕘𝕣𝕠𝕦𝕡!</b>',
+            text='<b>Hello Friends, \n🆂🅾️🆄🅼🅰️🅳🅸🅿️ 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠!!</b>',
             reply_markup=reply_markup,
         )
 
