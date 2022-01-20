@@ -19,7 +19,7 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
-    if message.chat.type in ['pm']:
+    if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
                 InlineKeyboardButton('🤖 Updates', url='https://t.me/CineHub02')
@@ -219,7 +219,7 @@ async def start(client, message):
         )
                     
 
-@Client.on_message(filters.command('channel') & filters.user(ADMINS),filters)
+@Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
            
     """Send basic information of channel"""
