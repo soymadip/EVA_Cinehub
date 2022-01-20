@@ -219,7 +219,7 @@ async def start(client, message):
         )
                     
 
-@Client.on_message(filters.command('channels') & filters.user(ADMINS))
+@Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
            
     """Send basic information of channel"""
