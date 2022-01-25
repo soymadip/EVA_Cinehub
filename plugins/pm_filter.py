@@ -152,7 +152,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     return
             else:
                 await query.message.edit_text(
-                    "𝕀'𝕞 𝕟𝕠𝕥 𝕔𝕠𝕟𝕟𝕖𝕔𝕥𝕖𝕕 𝕥𝕠 𝕒𝕟𝕪 𝕘𝕣𝕠𝕦𝕡𝕤!\nCheck /connections or 𝕔𝕠𝕟𝕟𝕖𝕔𝕥 𝕥𝕠 𝕒𝕟𝕪 𝕘𝕣𝕠𝕦𝕡𝕤",
+                    "𝕀'𝕞 𝕟𝕠𝕥 𝕔𝕠𝕟𝕟𝕖𝕔𝕥𝕖𝕕 𝕥𝕠 𝕒𝕟𝕪 𝕘𝕣𝕠𝕦𝕡𝕤!",
                     quote=True
                 )
                 return
