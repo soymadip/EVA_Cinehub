@@ -490,8 +490,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
       )
     
 
-async def auto_filter(client, msg, spoll=False,):
-    if message.from_user else None
+async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
         if message.text.startswith("/"): return # ignore commands
