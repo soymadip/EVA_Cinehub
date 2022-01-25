@@ -490,7 +490,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
       )
     
 
-async def auto_filter(client, msg, spoll=False):
+async def auto_filter(client, msg, spoll=False, userid = message.from_user.id if message.from_user else None):
     if not spoll:
         message = msg
         if message.text.startswith("/"): return # ignore commands
@@ -509,7 +509,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         message = msg.message.reply_to_message # msg will be callback query
         search, files, offset, total_results = spoll
-    if SINGLE_BUTTON( userid = message.from_user.id if message.from_user else None): 
+    if SINGLE_BUTTON: 
         btn = [
             [
                 InlineKeyboardButton(
