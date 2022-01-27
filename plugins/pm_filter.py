@@ -49,8 +49,6 @@ async def next_page(bot, query):
         return
 
     files, n_offset, total = await get_search_results(search, offset=offset, filter=True) 
-    if int(req) not in [query.from_user.id, 0]:
-        return await query.answer("𝕀𝕗 𝕪𝕠𝕦 𝕨𝕒𝕟𝕥 𝕥𝕙𝕚𝕤 𝕞𝕠𝕧𝕚𝕖 𝕥𝕙𝕖𝕟 𝕤𝕚𝕞𝕡𝕝𝕪 𝕨𝕣𝕚𝕥𝕖 𝕥𝕙𝕖 𝕟𝕒𝕞𝕖 𝕒𝕘𝕒𝕚𝕟😇\n\n𝔻𝕠𝕟'𝕥 𝕓𝕠𝕥𝕙𝕖𝕣 𝕨𝕚𝕥𝕙 𝕠𝕥𝕙𝕖𝕣'𝕤 𝕣𝕖𝕢𝕦𝕖𝕤𝕥..", show_alert=True)
     try:
         n_offset = int(n_offset)
     except:
