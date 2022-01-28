@@ -824,7 +824,7 @@ async def manual_filters(client, message, text=False):
                         else:
                             button = eval(btn)
                              await message.reply_text(
-                                reply_text.format(
+                             reply_text.format(
                                     first = message.from_user.first_name,
                                     last = message.from_user.last_name,
                                     fullname = message.from_user.first_name + " " + message.from_user.last_name,
