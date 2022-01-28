@@ -42,9 +42,9 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('➕ Group ➕', url=f'https://t.me/cinemazhub/13')
+            InlineKeyboardButton('➕ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ➕', url=f'https://t.me/cinemaforyou07')
             ],[
-            InlineKeyboardButton('🔍DONT TOUCH', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('🔍DONT TOUCH', url=f'https://t.me/cinemaforyou07'),
             InlineKeyboardButton('🤖 Updates', url='https://t.me/CineHub02')
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -82,7 +82,7 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('➕ Group ➕', url=f'https://t.me/cinemazhub/13')
+            InlineKeyboardButton('➕ Group ➕', url=f'https://t.me/cinemahub02/13')
             ],[
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat='')
             ]]
