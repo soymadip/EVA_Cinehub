@@ -38,7 +38,7 @@ async def save_group(bot, message):
             return
         buttons = [[
             InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 Updates', url='https://t.me/CineHub02')
+            InlineKeyboardButton('📢 Updates', url='https://t.me/TeamEvamaria')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -53,7 +53,7 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f"<b{u.mention}, 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝘀𝘂𝘀𝗰𝗿𝗶𝗯𝗲 𝘁𝗼 𝗰𝗵𝗮𝗻𝗻𝗲𝗹☝🏼☝🏼.</b>")
+                temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>")
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
@@ -72,7 +72,7 @@ async def leave_a_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello Friends, \n🆂🅾️🆄🅼🅰️🅳🅸🅿️ 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠!! told me to leave from group so i go! If you wanna add me again contact my support group.</b>',
+            text='<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b>',
             reply_markup=reply_markup,
         )
 
@@ -111,7 +111,7 @@ async def disable_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat_, 
-            text=f'<b>Hello Friends, \n🆂🅾️🆄🅼🅰️🅳🅸🅿️ 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠!! told me to leave from group so i go! If you wanna add me again contact my support group.</b> \nReason : <code>{reason}</code>',
+            text=f'<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b> \nReason : <code>{reason}</code>',
             reply_markup=reply_markup)
         await bot.leave_chat(chat_)
     except Exception as e:
@@ -137,7 +137,7 @@ async def re_enable_chat(bot, message):
     await message.reply("Chat Successfully re-enabled")
 
 
-@Client.on_message(filters.command('stats') & filters.user(ADMINS))
+@Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
     rju = await message.reply('Fetching stats..')
     total_users = await db.total_users_count()
@@ -152,7 +152,7 @@ async def get_ststs(bot, message):
 
 # a function for trespassing into others groups, Inspired by a Vazha
 # Not to be used , But Just to showcase his vazhatharam.
- @Client.on_message(filters.command('invite') & filters.user(ADMINS))
+# @Client.on_message(filters.command('invite') & filters.user(ADMINS))
 async def gen_invite(bot, message):
     if len(message.command) == 1:
         return await message.reply('Give me a chat id')
@@ -169,7 +169,7 @@ async def gen_invite(bot, message):
         return await message.reply(f'Error {e}')
     await message.reply(f'Here is your Invite Link {link.invite_link}')
 
-@Client.on_message(filters.command('bans') & filters.user(ADMINS))
+@Client.on_message(filters.command('ban') & filters.user(ADMINS))
 async def ban_a_user(bot, message):
     # https://t.me/GetTGLink/4185
     if len(message.command) == 1:
@@ -203,7 +203,7 @@ async def ban_a_user(bot, message):
 
 
     
-@Client.on_message(filters.command('unbans') & filters.user(ADMINS))
+@Client.on_message(filters.command('unban') & filters.user(ADMINS))
 async def unban_a_user(bot, message):
     if len(message.command) == 1:
         return await message.reply('Give me a user id / username')
