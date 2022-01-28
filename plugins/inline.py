@@ -18,13 +18,20 @@ async def inline_users(query: InlineQuery):
 
 @Client.on_inline_query(filters.user(AUTH_USERS) if AUTH_USERS else None)
 async def answer(bot, query):
-    """𝕊𝕙𝕠𝕨 𝕤𝕖𝕒𝕣𝕔𝕙 𝕣𝕖𝕤𝕦𝕝𝕥𝕤 𝕗𝕠𝕣 𝕘𝕚𝕧𝕖𝕟 𝕚𝕟𝕝𝕚𝕟𝕖 𝕢𝕦𝕖𝕣𝕪"""
+    """Show search results for given inline query"""
     
     if not await inline_users(query):
         await query.answer(results=[],
                            cache_time=0,
                            switch_pm_text='okDa',
                            switch_pm_parameter="hehe")
+        return
+
+    if AUTH_CHANNEL and not await is_subscribed(bot, query):
+        await query.answer(results=[],
+                           cache_time=0,
+                           switch_pm_text='You have to subscribe my channel to use the bot',
+                           switch_pm_parameter="subscribe")
         return
 
     results = []
@@ -78,12 +85,8 @@ async def answer(bot, query):
             pass
         except Exception as e:
             logging.exception(str(e))
-            await query.answer(results=[], is_personal=True,
-                           cache_time=cache_time,
-                           switch_pm_text=str(e)[:63],
-                           switch_pm_parameter="error")
     else:
-        switch_pm_text = f'{emoji.CROSS_MARK} ℕ𝕠 𝕣𝕖𝕤𝕦𝕝𝕥𝕤'
+        switch_pm_text = f'{emoji.CROSS_MARK} No results'
         if string:
             switch_pm_text += f' for "{string}"'
 
@@ -97,7 +100,7 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('⚡️ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖ℍ𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖 ⚡️', url='https://t.me/+acH3TO8Vw-E0OWVl')
+            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
         ]
         ]
     return InlineKeyboardMarkup(buttons)

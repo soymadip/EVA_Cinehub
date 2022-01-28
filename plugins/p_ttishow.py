@@ -1,10 +1,10 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import CACHE_TIME,ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
+from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
 from database.users_chats_db import db
 from database.ia_filterdb import Media
-from utils import get_size, temp
+from utils import get_size, temp, get_settings
 from Script import script
 from pyrogram.errors import ChatAdminRequired
 
@@ -45,17 +45,18 @@ async def save_group(bot, message):
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
     else:
-        if MELCOW_NEW_USERS:
+        settings = await get_settings(message.chat.id)
+        if settings["welcome"]:
             for u in message.new_chat_members:
                 if (temp.MELCOW).get('welcome') is not None:
                     try:
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f" {u.mention}, 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝘀𝘂𝘀𝗰𝗿𝗶𝗯𝗲 𝘁𝗼 𝗰𝗵𝗮𝗻𝗻𝗲𝗹☝🏼☝🏼.</b>")
+                temp.MELCOW['welcome'] = await message.reply(f"<b{u.mention}, 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝘀𝘂𝘀𝗰𝗿𝗶𝗯𝗲 𝘁𝗼 𝗰𝗵𝗮𝗻𝗻𝗲𝗹☝🏼☝🏼.</b>")
 
 
-@Client.on_message(filters.command('leaveChat') & filters.user(ADMINS))
+@Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
         return await message.reply('Give me a chat id')
@@ -71,7 +72,7 @@ async def leave_a_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello Friends, \n🆂🅾️🆄🅼🅰️🅳🅸🅿️ 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠!!</b>',
+            text='<b>Hello Friends, \n🆂🅾️🆄🅼🅰️🅳🅸🅿️ 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠!! told me to leave from group so i go! If you wanna add me again contact my support group.</b>',
             reply_markup=reply_markup,
         )
 
@@ -94,7 +95,7 @@ async def disable_chat(bot, message):
     try:
         chat_ = int(chat)
     except:
-        return await message.reply('❌❌')
+        return await message.reply('Give Me A Valid Chat ID')
     cha_t = await db.get_chat(int(chat_))
     if not cha_t:
         return await message.reply("Chat Not Found In DB")
@@ -102,7 +103,7 @@ async def disable_chat(bot, message):
         return await message.reply(f"This chat is already disabled:\nReason-<code> {cha_t['reason']} </code>")
     await db.disable_chat(int(chat_), reason)
     temp.BANNED_CHATS.append(int(chat_))
-    await message.reply('ℂ𝕙𝕒𝕥 𝕊𝕦𝕔𝕔𝕖𝕤𝕤𝕗𝕦𝕝𝕝𝕪 Disabled')
+    await message.reply('Chat Successfully Disabled')
     try:
         buttons = [[
             InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
@@ -110,7 +111,7 @@ async def disable_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat_, 
-            text=f'<b>ℍ𝕖𝕝𝕝𝕠 𝔽𝕣𝕚𝕖𝕟𝕕𝕤, \n𝕄𝕪 𝕒𝕕𝕞𝕚𝕟 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠! 𝕀𝕗 𝕪𝕠𝕦 𝕨𝕒𝕟𝕟𝕒 𝕒𝕕𝕕 𝕞𝕖 𝕒𝕘𝕒𝕚𝕟 𝕔𝕠𝕟𝕥𝕒𝕔𝕥 𝕞𝕪 𝕤𝕦𝕡𝕡𝕠𝕣𝕥 𝕘𝕣𝕠𝕦𝕡.</b> \nReason : <code>{reason}</code>',
+            text=f'<b>Hello Friends, \n🆂🅾️🆄🅼🅰️🅳🅸🅿️ 𝕙𝕒𝕤 𝕥𝕠𝕝𝕕 𝕞𝕖 𝕥𝕠 𝕝𝕖𝕒𝕧𝕖 𝕗𝕣𝕠𝕞 𝕘𝕣𝕠𝕦𝕡 𝕤𝕠 𝕚 𝕘𝕠!! told me to leave from group so i go! If you wanna add me again contact my support group.</b> \nReason : <code>{reason}</code>',
             reply_markup=reply_markup)
         await bot.leave_chat(chat_)
     except Exception as e:
@@ -125,7 +126,7 @@ async def re_enable_chat(bot, message):
     try:
         chat_ = int(chat)
     except:
-        return await message.reply('❌❌')
+        return await message.reply('Give Me A Valid Chat ID')
     sts = await db.get_chat(int(chat))
     if not sts:
         return await message.reply("Chat Not Found In DB !")
@@ -133,7 +134,7 @@ async def re_enable_chat(bot, message):
         return await message.reply('This chat is not yet disabled.')
     await db.re_enable_chat(int(chat_))
     temp.BANNED_CHATS.remove(int(chat_))
-    await message.reply("ℂ𝕙𝕒𝕥 𝕊𝕦𝕔𝕔𝕖𝕤𝕤𝕗𝕦𝕝𝕝𝕪 re-enabled")
+    await message.reply("Chat Successfully re-enabled")
 
 
 @Client.on_message(filters.command('stats') & filters.user(ADMINS))
@@ -151,7 +152,7 @@ async def get_ststs(bot, message):
 
 # a function for trespassing into others groups, Inspired by a Vazha
 # Not to be used , But Just to showcase his vazhatharam.
-@Client.on_message(filters.command('invite') & filters.user(ADMINS))
+ @Client.on_message(filters.command('invite') & filters.user(ADMINS))
 async def gen_invite(bot, message):
     if len(message.command) == 1:
         return await message.reply('Give me a chat id')
@@ -159,7 +160,7 @@ async def gen_invite(bot, message):
     try:
         chat = int(chat)
     except:
-        return await message.reply('❌❌')
+        return await message.reply('Give Me A Valid Chat ID')
     try:
         link = await bot.create_chat_invite_link(chat)
     except ChatAdminRequired:
@@ -168,11 +169,11 @@ async def gen_invite(bot, message):
         return await message.reply(f'Error {e}')
     await message.reply(f'Here is your Invite Link {link.invite_link}')
 
-@Client.on_message(filters.command('ban') & filters.user(ADMINS))
+@Client.on_message(filters.command('bans') & filters.user(ADMINS))
 async def ban_a_user(bot, message):
     # https://t.me/GetTGLink/4185
     if len(message.command) == 1:
-        return await message.reply('❌❌')
+        return await message.reply('Give me a user id / username')
     r = message.text.split(None)
     if len(r) > 2:
         reason = message.text.split(None, 2)[2]
@@ -205,7 +206,7 @@ async def ban_a_user(bot, message):
 @Client.on_message(filters.command('unbans') & filters.user(ADMINS))
 async def unban_a_user(bot, message):
     if len(message.command) == 1:
-        return await message.reply('✅')
+        return await message.reply('Give me a user id / username')
     r = message.text.split(None)
     if len(r) > 2:
         reason = message.text.split(None, 2)[2]

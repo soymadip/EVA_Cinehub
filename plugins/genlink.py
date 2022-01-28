@@ -1,7 +1,7 @@
 import re
 from pyrogram import filters, Client
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
-from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL
+from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, PUBLIC_FILE_STORE
 from database.ia_filterdb import unpack_new_file_id
 from utils import temp
 import re
@@ -13,26 +13,38 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-@Client.on_message(filters.command('links') & filters.user(ADMINS))
+async def allowed(_, __, message):
+    if PUBLIC_FILE_STORE:
+        return True
+    if message.from_user and message.from_user.id in ADMINS:
+        return True
+    return False
+
+@Client.on_message(filters.command(['links', 'plink']) & filters.create(allowed))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
-        return await message.reply('R͟e͟p͟l͟y͟ t͟o͟ a͟ m͟e͟s͟s͟a͟g͟e͟ t͟o͟ g͟e͟t͟ a͟ s͟h͟a͟r͟e͟a͟b͟l͟e͟ l͟i͟n͟k͟.')
+        return await message.reply('Reply to a message to get a shareable link.')
     file_type = replied.media
-    if file_type not in ["video", 'audio', 'document', 'sticker', 'photo']:
+    if file_type not in ["video", 'audio', 'document']:
         return await message.reply("Reply to a supported media")
+    if message.has_protected_content and message.chat.id not in ADMINS:
+        return await message.reply("okDa")
     file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
-    await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={file_id}")
+    string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
+    string += file_id
+    outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
+    await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={outstr}")
     
     
-@Client.on_message(filters.command('batch') & filters.user(ADMINS))
+@Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
         return await message.reply("Use correct format.\nExample <code>/batch https://t.me/TeamEvamaria/10 https://t.me/TeamEvamaria/20</code>.")
     links = message.text.strip().split(" ")
     if len(links) != 3:
         return await message.reply("Use correct format.\nExample <code>/batch https://t.me/TeamEvamaria/10 https://t.me/TeamEvamaria/20</code>.")
-    _, first, last = links
+    cmd, first, last = links
     regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
     match = regex.match(first)
     if not match:
@@ -61,16 +73,16 @@ async def gen_link_batch(bot, message):
     except Exception as e:
         return await message.reply(f'Errors - {e}')
 
-    sts = await message.reply("G͟e͟n͟e͟r͟a͟t͟i͟n͟g͟ l͟i͟n͟k͟ f͟o͟r͟ y͟o͟u͟r͟ m͟e͟s͟s͟a͟g͟e͟.\nT͟h͟i͟s͟ m͟a͟y͟ t͟a͟k͟e͟ t͟i͟m͟e͟ d͟e͟p͟e͟n͟d͟i͟n͟g͟ u͟p͟o͟n͟ n͟u͟m͟b͟e͟r͟ o͟f͟ m͟e͟s͟s͟a͟g͟e͟s͟")
+    sts = await message.reply("Generating link for your message.\nThis may take time depending upon number of messages")
     if chat_id in FILE_STORE_CHANNEL:
-        string = f"{f_msg_id}_{l_msg_id}_{chat_id}"
+        string = f"{f_msg_id}_{l_msg_id}_{chat_id}_{cmd.lower().strip()}"
         b_64 = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
         return await sts.edit(f"Here is your link https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}")
- 
-    FRMT = "G͟e͟n͟e͟r͟a͟t͟i͟n͟g͟ l͟i͟n͟k͟ f͟o͟r͟ y͟o͟u͟r͟ m͟e͟s͟s͟a͟g͟e͟...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`\nStatus: `{sts}`"
+
+    FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`\nStatus: `{sts}`"
 
     outlist = []
-    
+
     # file store without db channel
     og_msg = 0
     tot = 0
@@ -93,7 +105,9 @@ async def gen_link_batch(bot, message):
                     "caption": caption,
                     "title": getattr(file, "file_name", ""),
                     "size": file.file_size,
+                    "protect": cmd.lower().strip() == "/pbatch",
                 }
+
                 og_msg +=1
                 outlist.append(file)
         except:
@@ -105,7 +119,7 @@ async def gen_link_batch(bot, message):
                 pass
     with open(f"batchmode_{message.from_user.id}.json", "w+") as out:
         json.dump(outlist, out)
-    post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Batch.json", disable_notification=True)
+    post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Batch.json", caption="⚠️Generated for filestore.")
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
     await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{temp.U_NAME}?start=BATCH-{file_id}")
