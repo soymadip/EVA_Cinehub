@@ -344,6 +344,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption=f_caption
         if f_caption is None:
             f_caption = f"{files.file_name}"
+        buttons = [
+            [
+                InlineKeyboardButton('support', url='https://t.me/cinemaforyou07'),
+                InlineKeyboardButton('channel', url='https://t.me/cinemahub02/9')
+                  ] 
+            ]
             
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -356,7 +362,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
-                    caption=f_caption
+                    caption=f_caption, 
+                    reply_markup=InlineKeyboardMarkup(buttons)
                     )
                 await query.answer('ℂ𝕙𝕖𝕔𝕜 ℙ𝕄, 𝕀 𝕙𝕒𝕧𝕖 𝕤𝕖𝕟𝕥 𝕗𝕚𝕝𝕖𝕤 𝕚𝕟 𝕡𝕞',show_alert = True)
         except UserIsBlocked:
@@ -386,11 +393,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f_caption=f_caption
         if f_caption is None:
             f_caption = f"{title}"
-        await query.answer()
+        buttons = [
+            [
+                InlineKeyboardButton('support', url='https://t.me/cinemaforyou07'),
+                InlineKeyboardButton('channel', url='https://t.me/cinemahub02/9')
+                  ] 
+            ]
+        await query.answe
         await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
-            caption=f_caption
+            caption=f_caption, 
+            reply_markup=InlineKeyboardMarkup(buttons)
             )
 
     elif query.data == "pages":
