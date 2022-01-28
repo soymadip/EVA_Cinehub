@@ -823,8 +823,8 @@ async def manual_filters(client, message, text=False):
                             )
                         else:
                             button = eval(btn)
-                             await message.reply_text(
-                             reply_text.format(
+                            await message.reply_text(
+                                reply_text.format(
                                     first = message.from_user.first_name,
                                     last = message.from_user.last_name,
                                     fullname = message.from_user.first_name + " " + message.from_user.last_name,
@@ -836,10 +836,9 @@ async def manual_filters(client, message, text=False):
                                     query = name
                                 ),
                                 group_id,
-                                reply_text,
                                 disable_web_page_preview=True,
                                 reply_markup=InlineKeyboardMarkup(button),
-                                reply_to_message_id=reply_id
+                                reply_to_message_id = reply_id
                             )
                     elif btn == "[]":
                         await client.send_cached_media(
