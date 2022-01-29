@@ -27,7 +27,7 @@ async def jsonify(_, message):
                 ]
             ]
         )
-        await message.reply_text(f"<code>{the_real_message}</code>", reply_markup=pk, quote=True)
+        await message.reply_text(f"{the_real_message}", reply_markup=pk, quote=True)
     except Exception as e:
         with open("json.text", "w+", encoding="utf8") as out_file:
             out_file.write(str(the_real_message))
