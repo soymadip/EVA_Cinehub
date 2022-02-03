@@ -24,9 +24,6 @@ async def start(client, message):
         buttons = [
             [
                 InlineKeyboardButton('🤖 Updates', url='https://t.me/CineHub02')
-            ],
-            [
-                InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -44,8 +41,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ➕', url=f'https://t.me/cinemaforyou07')
             ],[
-            InlineKeyboardButton('🔍DONT TOUCH', url=f'https://t.me/cinemaforyou07'),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/CineHub02')
+            InlineKeyboardButton('😊 About', callback_data='about')],
+           [ InlineKeyboardButton('🤖 Updates', url='https://t.me/CineHub02')
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -75,16 +72,16 @@ async def start(client, message):
             btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!\n Then return here and press 🔄 Try Again button below👇🏾.\n\n\n প্রথমে আমার Channel join করুন।\n\n তারপর 🔄 Try Again buttonটি টিপুন।\n আপনার ফাইল পেয়ে যাবেন তারপর।**",
+            text="**Please Join My Updates Channel to use me!\n Then return here and press 🔄 Try Again button below👇🏾.\n\n\n প্রথমে আমার Channel join করুন।\n\n তারপর 🔄 Try Again buttonটি টিপুন।\n আপনার ফাইল পেয়ে যাবেন তারপর।**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode="markdown"
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('➕ Group ➕', url=f'https://t.me/cinemahub02/13')
+            InlineKeyboardButton('➕ Group ➕', url=f'https://t.me/cinemaforyou07')
             ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔍 Request', url=f'https://t.me/cinemaforyou07')
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -111,7 +108,7 @@ async def start(client, message):
                     msgs=json.loads(file_data.read())
             except:
                 await sts.edit("FAILED")
-                return await client.send_message(LOG_CHANNEL, "UNABLE TO OPEN FILE.")
+                return await client.send_message(LOG_CHANNEL, "It's broken💤")
             os.remove(file)
             BATCH_FILES[file_id] = msgs
         for msg in msgs:
@@ -149,7 +146,7 @@ async def start(client, message):
         await sts.delete()
         return
     elif data.split("-", 1)[0] == "DSTORE":
-        sts = await message.reply("Please wait")
+        sts = await message.reply("wait")
         b_string = data.split("-", 1)[1]
         decoded = (base64.urlsafe_b64decode(b_string + "=" * (-len(b_string) % 4))).decode("ascii")
         try:

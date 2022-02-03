@@ -7,20 +7,28 @@
 
 ## Features
 
-- [x] Auto Filter
-- [x] Manual Filter
+ STOCK:-
+- [x] Manual Filter (Manual & Auto)
 - [x] IMDB
 - [x] Admin Commands
 - [x] Broadcast
-- [x] Index
 - [x] IMDB search
 - [x] Inline Search (Restricted to ADMINS).
 - [x] Random pics
 - [x] ids and User info 
 - [x] File Store
+
+CINEHUB FEATURES:-
+- [x] Blocking (tmute,mute,kick)
+- [x] telegraph
+- [x] sharable link 
+- [x] link shortner
+- [x] Many others developing.....
+
+
 ## Variables
 
-Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up with your edits.
+Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with your edits.
 
 ### Required Variables
 * `BOT_TOKEN`: Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token.
@@ -29,7 +37,7 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 * `CHANNELS`: Username or ID of channel or group. Separate multiple IDs by space
 * `ADMINS`: Username or ID of Admin. Separate multiple Admins by space
 * `DATABASE_URI`: [mongoDB](https://www.mongodb.com) URI. Get this value from [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/1G1XwEOnxxo)
-* `DATABASE_NAME`: Name of the database in [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/1G1XwEOnxxo)
+* `DATABASE_NAME`: Name of the database in [mongoDB](https://www.mongodb.com). 
 * `LOG_CHANNEL` : A channel to log the activities of bot. Make sure bot is an admin in the channel.
 ### Optional Variables
 * `PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
@@ -74,7 +82,7 @@ You can deploy this bot anywhere.
 • /channel - to get list of total connected channels
 • /broadcast - to broadcast a message to all users
 • /batch - to create link for multiple posts
-• /link - to create link for one post
+• /links - to create link for one post
 ```
 
 ## Thanks to 
@@ -86,9 +94,9 @@ You can deploy this bot anywhere.
 
 ### Note
 
-[Note To A So Called Dev](https://telegram.dog/subin_works/203): 
+Note To A So Called Dev: 
 
-<b>I am just editing it for my persinal use</b>. Kanging this codes and and editing a few lines and releasing a V.x  or an [alpha](https://telegram.dog/subin_works/204), beta , gama branches of your repo won't make you a Developer.
+<b>I am just editing it for my persinal use</b>. Kanging this codes and and editing a few lines and releasing a V.x  or an alpha, beta , gama branches of your repo won't make you a Developer.
 Fork the repo and edit as per your needs.
 
 ## Disclaimer
