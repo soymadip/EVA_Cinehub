@@ -37,8 +37,7 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-            InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help")
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -50,7 +49,7 @@ async def save_group(bot, message):
             for u in message.new_chat_members:
                 if (temp.MELCOW).get('welcome') is not None:
                     try:
-                        await (temp.MELCOW['welcome']).delete()
+                        await (temp.MELCOW['welcome'])
                     except:
                         pass
                 temp.MELCOW['welcome'] = await message.reply(f"<b>Hey, {u.mention} Don't forget to suscribe channel.</b>")
