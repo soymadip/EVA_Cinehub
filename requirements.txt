@@ -18,3 +18,4 @@ youtube-search-python==1.4.6
 yt-dlp
 youtube-dl
 youtube_search
+ytthumb
