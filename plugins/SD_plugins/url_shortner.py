@@ -176,7 +176,7 @@ async def short(link):
     
     # Send the text
     try:
-        shorten_urls += "\n\nmade by <a href=https://t.me/{}>{}</a>🔥"
+        shorten_urls += "\n\nThere are shortened links of various providers.🔥"
         return shorten_urls
     except Exception as error:
         return error
