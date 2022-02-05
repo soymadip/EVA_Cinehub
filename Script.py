@@ -9,9 +9,8 @@ class script(object):
 ✯ 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
 ✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
 ✯ 𝙱𝚄𝙸𝙻𝙳: v1.0.1 [ ℂ𝕀ℕ𝔼ℍ𝕌𝔹 𝕍𝔼ℝ𝕊𝕀𝕆ℕ ]"""
-    SOURCE_TXT = """<b>NOTE:</b> 
-- OWNER - <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>
-
+    SOURCE_TXT = """<b>SOURCE:</b> 
+- THIS PIECE OF SOFTWARE IS TOTALY PRVATE.\nALTHOUGH IF YOU WANT MY CODE THEN PLEASE CONTACT MY <b>DEV</b>.
 <b>𝔻𝔼𝕍:</b>
 - <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
@@ -30,7 +29,7 @@ class script(object):
 2. 𝑀𝐸 𝑠𝑢𝑝𝑝𝑜𝑟𝑡𝑠 𝑏𝑢𝑡𝑡𝑜𝑛𝑠 𝑤𝑖𝑡ℎ 𝑎𝑛𝑦 𝑡𝑒𝑙𝑒𝑔𝑟𝑎𝑚 𝑚𝑒𝑑𝑖𝑎 𝑡𝑦𝑝𝑒.
 3. 𝐵𝑢𝑡𝑡𝑜𝑛𝑠 𝑠ℎ𝑜𝑢𝑙𝑑 𝑏𝑒 𝑝𝑟𝑜𝑝𝑒𝑟𝑙𝑦 𝑝𝑎𝑟𝑠𝑒𝑑 𝑎𝑠 𝑚𝑎𝑟𝑘𝑑𝑜𝑤𝑛 𝑓𝑜𝑟𝑚𝑎𝑡
 <b>URL buttons:</b>
-<code>[Button Text](buttonurl:https://t.me/EvaMariaBot)</code>
+<code>[Button Text](buttonurl:https://t.me/Eva)</code>
 <b>Alert buttons:</b>
 <code>[Button Text](buttonalert:This is an alert message)</code>"""
     AUTOFILTER_TXT = """Help: <b>Auto Filter</b>
@@ -60,17 +59,17 @@ these are the extra features of ME
     ADMIN_TXT = """Help: <b>Admin mods</b>
 <b>NOTE:</b>
 𝑇ℎ𝑖𝑠 𝑚𝑜𝑑𝑢𝑙𝑒 𝑜𝑛𝑙𝑦 𝑤𝑜𝑟𝑘𝑠 𝑓𝑜𝑟 𝑚𝑦 𝑎𝑑�"""
-    STATUS_TXT = """★ 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
-★ 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
-★ 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
-★ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>
-★ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>"""
+    STATUS_TXT = """✗ 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
+✗ 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
+✗ 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
+✗ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>
+✗ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>"""
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
 Added By - {}
 """
-    LOG_TEXT_P = """#🅽🅴🆆 🆄🆂🅴🆁
+    LOG_TEXT_P = """🅽🅴🆆 🆄🆂🅴🆁
 🅘🅓 - <code>{}</code>
 ⓃⒶⓂ️Ⓔ - {}
 """
