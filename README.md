@@ -8,31 +8,32 @@
 
 ## A fully functional Group Management Bot with Auto Filter and File store Feature.
 
-## Features
+## Features--
 
- STOCK:-
+✗ STOCK:-
 - [x] Manual Filter (Manual & Auto)
-- [x] IMDB
+- [x] IMDB poster search
 - [x] Admin Commands
 - [x] Broadcast
 - [x] IMDB search
-- [x] Inline Search (Restricted to ADMINS).
+- [x] Inline Search (ADMINS Exclusive).
 - [x] Random pics
 - [x] ids and User info 
 - [x] File Store
 
-CINEHUB FEATURES:-
+✗ CINEHUB FEATURES:-
 - [x] Blocking (tmute,mute,kick)
 - [x] telegraph
 - [x] sharable link 
 - [x] link shortner
 - [x] Text to speech
+- [x] Url Shortner
 - [x] Many others developing.....
 
 
 ## Variables
 
-Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with your edits.
+Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
 
 ### Required Variables
 * `BOT_TOKEN`: Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token.

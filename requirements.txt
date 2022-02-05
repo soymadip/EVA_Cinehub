@@ -12,3 +12,4 @@ googletrans==3.1.0a0
 gTTS
 aiohttp==3.7.4
 aiofiles
+pyshorteners
