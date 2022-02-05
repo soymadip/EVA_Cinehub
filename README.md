@@ -33,7 +33,7 @@
 
 ## Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
 
-### Variables
+### Variables--
 * `BOT_TOKEN`: Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token.
 * `API_ID`: Get this value from [telegram.org](https://my.telegram.org/apps)
 * `API_HASH`: Get this value from [telegram.org](https://my.telegram.org/apps)
@@ -47,7 +47,7 @@
 * `SUPPORT_CHAT` - Add your own chat as a support chat
 * `P_TTI_SHOW_OFF` - (Use True or False) - Users will be redirected to send /start to Bot PM if set to True else files will be sent directly to users PM
 
-## Deploy
+## Deploy--
 
 <b>𝕺𝖊𝖕𝖑𝖔𝖞 𝕿𝖔 𝕳𝖊𝖗𝖔𝖐𝖚</b>:-
 <p>
@@ -78,7 +78,7 @@ python3 bot.py
 </p>
 
 
-## Commands
+## Commands--
 ```
 • /logs - to get the rescent errors
 • /stats - to get status of files in db.
@@ -110,7 +110,7 @@ python3 bot.py
 • /tmute <time> - temporarily mute user .
 ```
 
-## Thanks to 
+## Thanks to- 
  - At first [EvaMaria-Devs](https://telegram.dog/EvaMariaDevs)
  - Thanks To Dan For His Awesome [Library](https://github.com/pyrogram/pyrogram)
  - Thanks To Mahesh For His Awesome [Media-Search-bot](https://github.com/Mahesh0253/Media-Search-bot)
@@ -119,6 +119,6 @@ python3 bot.py
 
 
 
-## Disclaimer
+## Disclaimer--
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.
