@@ -1,7 +1,5 @@
-__all__ = ["logging"]
-
-import logging
 import asyncio
+
 from bot import bot, HU_APP
 from pyromod import listen
 from asyncio.exceptions import TimeoutError
@@ -14,16 +12,11 @@ from pyrogram.errors import (
     PhoneCodeInvalid, PhoneCodeExpired
 )
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-
 API_TEXT = """Hi, {}.
 This is Pyrogram's String Session Generator Bot. I will generate String Session of your Telegram Account.
+
 By @Discovery_Updates
+
 Now send your `API_ID` same as `APP_ID` to Start Generating Session."""
 HASH_TEXT = "Now send your `API_HASH`.\n\nPress /cancel to Cancel Task."
 PHONE_NUMBER_TEXT = (
@@ -154,10 +147,13 @@ async def restart(_, msg: Message):
     out = f"""
 Hi, {msg.from_user.mention}. This is Pyrogram Session String Generator Bot. \
 I will give you `STRING_SESSION` for your UserBot.
+
 It needs `API_ID`, `API_HASH`, Phone Number and One Time Verification Code. \
 Which will be sent to your Phone Number.
 You have to put **OTP** in `1 2 3 4 5` this format. __(Space between each numbers!)__
+
 **NOTE:** If bot not Sending OTP to your Phone Number than send /restart Command and again send /start to Start your Process. 
+
 Must Join Channel for Bot Updates !!
 """
     reply_markup = InlineKeyboardMarkup(
