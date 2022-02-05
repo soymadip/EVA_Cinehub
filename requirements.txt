@@ -8,3 +8,4 @@ requests
 bs4
 imdbpy
 telegraph==1.4.1
+gTTS

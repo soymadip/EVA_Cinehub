@@ -23,6 +23,7 @@ CINEHUB FEATURES:-
 - [x] telegraph
 - [x] sharable link 
 - [x] link shortner
+- [x] Text to speech
 - [x] Many others developing.....
 
 
