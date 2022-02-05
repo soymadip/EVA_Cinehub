@@ -19,3 +19,6 @@ yt-dlp
 youtube-dl
 youtube_search
 ytthumb
+heroku3
+pyromod
+pyrogram
