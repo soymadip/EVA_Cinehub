@@ -19,8 +19,3 @@ yt-dlp
 youtube-dl
 youtube_search
 ytthumb
-ethon
-cryptg
-python-decouple
-telethon-tgcrypto
-https://github.com/New-dev0/Telethon/archive/Vector.zip #Until telethon update
