@@ -55,6 +55,22 @@ these are the extra features of ME
 • /info  - <code>get information about a user.</code>
 • /imdb  - <code>get the film information from IMDb source.</code>
 • /search  - <code>get the film information from various sources.</code>"""
+    CREATOR_REQUIRED = """❗You have to be the group creator to do that."""
+      
+    INPUT_REQUIRED = "❗ **Arguments Required**"
+      
+    KICKED = """✔️ Successfully Kicked {} members according to the arguments provided."""
+      
+    START_KICK = """🚮 Removing inactive members this may take a while..."""
+      
+    ADMIN_REQUIRED = """❗I am not an admin here\n__Leaving this chat, add me again as admin with ban user permission."""
+      
+    DKICK = """✔️ Kicked {} Deleted Accounts Successfully."""
+      
+    FETCHING_INFO = """Collecting users information..."""
+      
+    STATUS = """{}\nChat Member Status**\n\n```recently``` - {}\n```within_week``` - {}\n```within_month``` - {}\n```long_time_ago``` - {}\nDeleted Account - {}\nBot - {}\nUnCached - {}
+"""
     ADMIN_TXT = """Help: <b>Admin mods</b>
 <b>NOTE:</b>
 𝑇ℎ𝑖𝑠 𝑚𝑜𝑑𝑢𝑙𝑒 𝑜𝑛𝑙𝑦 𝑤𝑜𝑟𝑘𝑠 𝑓𝑜𝑟 𝑚𝑦 𝑎𝑑�"""
