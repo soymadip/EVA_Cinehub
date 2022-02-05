@@ -8,7 +8,7 @@ from pyrogram import (
 from info import (
     ADMINS
 )
-from plugins.SD_plugins.admin_check import admin_check
+from plugins.SD_plugins.Help_Functions.admin_check import admin_check
 
 
 def f_sudo_filter(filt, client, message):
