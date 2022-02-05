@@ -31,7 +31,7 @@ async def index_files(bot, query):
         return await query.answer('Wait until previous process complete.', show_alert=True)
     msg = query.message
 
-    await query.answer('Processing...⏳', show_alert=True)
+    await query.answer('wait a minute...⏳', show_alert=True)
     if int(from_user) not in ADMINS:
         await bot.send_message(int(from_user),
                                f'Y͟o͟u͟r͟ S͟u͟b͟m͟i͟s͟s͟i͟o͟n͟ f͟o͟r͟ i͟n͟d͟e͟x͟i͟n͟g͟  {chat} h͟a͟s͟ b͟e͟e͟n͟ d͟e͟c͟l͟i͟e͟n͟e͟d͟ b͟y͟ o͟u͟r͟ m͟o͟d͟e͟r͟a͟t͟o͟r͟s͟.',

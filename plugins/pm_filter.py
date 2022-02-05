@@ -290,7 +290,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f"Some error occurred!!",
                 parse_mode="md"
             )
-        return await query.answer('Piracy Is Crime')
+        return await query.answer('✘')
     elif query.data == "backcb":
         await query.answer()
 
@@ -301,7 +301,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit_text(
                 "There are no active connections!! Connect to some groups first.",
             )
-            return await query.answer('Piracy Is Crime')
+            return await query.answer('✘')
         buttons = []
         for groupid in groupids:
             try:
@@ -408,7 +408,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "start":
         buttons = [[
             InlineKeyboardButton('✗ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ✗', url=f'https://t.me/cinemaforyou07')
-        ], [InlineKeyboardButton('✗ Updates ✗', url='https://t.me/cinemaforyou07')
+        ], [InlineKeyboardButton('✗ Updates ✗', url='https://t.me/CineHub02')
         ], [
             InlineKeyboardButton('✗ About ✗', callback_data='about')
         ]]
@@ -667,7 +667,7 @@ async def auto_filter(client, msg, spoll=False):
         req = message.from_user.id if message.from_user else 0
         btn.append(
             [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results) / 10)}", callback_data="pages"),
-             InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
+             InlineKeyboardButton(text="✘ NEXT ✘", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
