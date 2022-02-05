@@ -8,4 +8,5 @@ requests
 bs4
 imdbpy
 telegraph==1.4.1
+googletrans==3.1.0a0
 gTTS
