@@ -4,11 +4,11 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from telegraph import upload_file
 
-@Client.on_message(filters.command(["tgmedia", "tgraph", "telegraph"]))
+@Client.on_message(filters.command(["telegraph"]))
 async def telegraph(client, message):
     replied = message.reply_to_message
     if not replied:
-        await message.reply("Reply to a supported media file")
+        await message.reply("Reply to photo<5MB media file")
         return
     if not (
         (replied.photo and replied.photo.file_size <= 5242880)

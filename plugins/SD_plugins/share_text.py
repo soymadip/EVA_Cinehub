@@ -7,7 +7,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 def share_link(text: str) -> str:
     return "**Here is Your Sharing Text 👇**\n\nhttps://t.me/share/url?url=" + quote(text)
 
-@Client.on_message(filters.command(["share", "sharetext", "st", "stxt", "shtxt", "shtext"]))
+@Client.on_message(filters.command(["share"]))
 async def share_text(client, message):
     reply = message.reply_to_message
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
