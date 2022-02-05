@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from plugins.SD_plugins.cust_p_filters import (
+from plugins.SD_plugins.Help_Functions.cust_p_filters import (
     admin_fliter
 )
 
