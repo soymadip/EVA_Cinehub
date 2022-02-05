@@ -10,7 +10,7 @@
 ## Features--
 
 ✗ STOCK:-
-- [x] Manual Filter (Manual & Auto)
+- [x] Filter (Manual & Auto)
 - [x] IMDB poster search
 - [x] Admin Commands
 - [x] Broadcast
