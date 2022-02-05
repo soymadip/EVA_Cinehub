@@ -11,11 +11,12 @@ import aiohttp
 import wget
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, MessageNotModified
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
 import youtube_dl
 from youtube_search import YoutubeSearch
+import ytthumb
 import requests
 
 # Convert hh:mm:ss to seconds
@@ -300,3 +301,34 @@ async def vsong(client, message: Message):
     for files in (sedlyf, file_stark):
         if files and os.path.exists(files):
             os.remove(files)
+
+@Client.on_message(filters.command(["thumb", 'dlthumb']))
+async def send_thumbnail(bot, update):
+    message = await update.reply_text(
+        text="`Analysing...`",
+        disable_web_page_preview=True,
+        quote=True
+    )
+    try:
+        if " | " in update.text:
+            video = update.text.split(" | ", -1)[0]
+            quality = update.text.split(" | ", -1)[1]
+        else:
+            video = update.text
+            quality = "sd"
+        thumbnail = ytthumb.thumbnail(
+            video=video,
+            quality=quality
+        )
+        await update.reply_photo(
+            photo=thumbnail,
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('join projects channel', url='https://telegram.me/josprojects')]]),
+            quote=True
+        )
+        await message.delete()
+    except Exception as error:
+        await message.edit_text(
+            text="**Please Use** /ytthumb (youtube link)\n\n**Example:** `/ytthumb https://youtu.be/h6PtzFYaMxQ`",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('join projects channel', url='https://telegram.me/josprojects')]])
+        )           
