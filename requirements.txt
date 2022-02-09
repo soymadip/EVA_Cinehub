@@ -19,3 +19,4 @@ yt-dlp
 youtube-dl
 youtube_search
 ytthumb
+tglogging
