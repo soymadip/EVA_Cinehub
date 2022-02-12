@@ -25,12 +25,6 @@ bot = Client('Doodstream bot',
              sleep_threshold=0)
 
 
-@bot.on_message(filters.command('start') & filters.private)
-async def start(bot, message):
-    await message.reply(
-        f"**Hi, {message.chat.first_name} !!**\n\n"
-        "**I am your Personal MDisk Bot 🤗, Made by @Shashwat_Bhai💞 Send me a MDisk Post to see the Magic 😅**")
-    
 @bot.on_message(filters.text & filters.private)
 async def Doodstream_uploader(bot, message):
     new_string = str(message.text)
@@ -166,4 +160,3 @@ async def addFooter(str):
 """ + CHANNEL + """ """
     return str + footer
 
-bot.run()
