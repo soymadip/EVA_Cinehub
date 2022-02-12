@@ -14,7 +14,7 @@ import requests
 import re
 
 
-@bot.on_message(filters.text & filters.private)
+@Client.on_message(filters.text & filters.private)
 async def Doodstream_uploader(bot, message):
     new_string = str(message.text)
     conv = await message.reply("Ruko jara Sabar kro ✋")
@@ -27,7 +27,7 @@ async def Doodstream_uploader(bot, message):
         await message.reply(f'Error: {e}', quote=True)
 
 
-@bot.on_message(filters.photo & filters.private)
+@Client.on_message(filters.photo & filters.private)
 async def Doodstream_uploader(bot, message):
     new_string = str(message.caption)
     conv = await message.reply("Ruko jara Sabar kro ✋")
