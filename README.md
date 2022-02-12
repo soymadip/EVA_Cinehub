@@ -30,6 +30,7 @@
 - [x] link shortner
 - [x] Text to speech
 - [x] Url Shortner
+- [x] Mdisk converter (under development)
 - [x] Many others developing.....
 
 ## Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
