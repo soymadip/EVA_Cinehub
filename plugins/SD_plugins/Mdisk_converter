@@ -9,20 +9,9 @@ from pyrogram import Client, filters
 from pyshorteners import Shortener
 from bs4 import BeautifulSoup
 #from doodstream import DoodStream
+from info import MDISK_TOKEN, CHANNEL
 import requests
 import re
-
-API_ID = environ.get('API_ID')
-API_HASH = environ.get('API_HASH')
-BOT_TOKEN = environ.get('BOT_TOKEN')
-CHANNEL = environ.get('CUSTOM_FOOTER')
-MDISK_TOKEN = environ.get('MDISK_TOKEN')
-bot = Client('Doodstream bot',
-             api_id=API_ID,
-             api_hash=API_HASH,
-             bot_token=BOT_TOKEN,
-             workers=50,
-             sleep_threshold=0)
 
 
 @bot.on_message(filters.text & filters.private)
