@@ -51,18 +51,7 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome'])
                     except:
                         pass
-                await message.reply_text(f"{MELCOW_NEW_TEXT}",
-                reply_text.format(
-                                 first = message.from_user.first_name,
-                                 last = message.from_user.last_name,
-                                 fullname = message.from_user.first_name + " " + message.from_user.last_name,
-                                 username = None if not message.from_user.username else '@' + message.from_user.username,
-                                 mention = message.from_user.mention,
-                                 id = message.from_user.id,
-                                 dcid = message.from_user.dc_id,
-                                 chatname = message.chat.title,
-                                 query = name
-                             ))
+                temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}")
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
