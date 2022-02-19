@@ -249,7 +249,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
         else:
             await query.message.edit_text('Some error occurred!!', parse_mode="md")
-        return await query.answer('Piracy Is Crime')
+        return await query.answer('✘')
     elif "disconnect" in query.data:
         await query.answer()
 

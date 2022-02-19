@@ -78,7 +78,7 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [
-            InlineKeyboardButton('✗ Request ✗', url=f'https://t.me/cinemaforyou07')
+            InlineKeyboardButton('✗ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ✗', url=f'https://t.me/cinemaforyou07')
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -344,7 +344,7 @@ async def delete_all_index(bot, message):
 @Client.on_callback_query(filters.regex(r'^autofilter_delete'))
 async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
-    await message.answer('Piracy Is Crime')
+    await message.answer('✘')
     await message.message.edit('Succesfully Deleted All The Indexed Files.')
 
 
