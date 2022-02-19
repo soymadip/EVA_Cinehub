@@ -1,14 +1,13 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
+from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_NEW_TEXT
 from database.users_chats_db import db
 from database.ia_filterdb import Media
 from utils import get_size, temp, get_settings
 from Script import script
 from pyrogram.errors import ChatAdminRequired
 
-"""-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 
 @Client.on_message(filters.new_chat_members & filters.group)
 async def save_group(bot, message):
@@ -52,7 +51,7 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome'])
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f"<b>Hey, {u.mention} Don't forget to suscribe channel.</b>")
+                temp.MELCOW['welcome'] = await message.reply(f"{MELCOW_NEW_TEXT}")
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
@@ -148,9 +147,9 @@ async def get_ststs(bot, message):
     free = get_size(free)
     await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free))
 
-@Client.on_message(filters.command('banuser') & filters.user(ADMINS))
+@Client.on_message(filters.command('ban_user') & filters.user(ADMINS))
 async def ban_a_user(bot, message):
-    # https://t.me/GetTGLink/4185
+
     if len(message.command) == 1:
         return await message.reply('Give me a user id / username')
     r = message.text.split(None)
@@ -217,7 +216,7 @@ async def unban_a_user(bot, message):
     
 @Client.on_message(filters.command('users') & filters.user(ADMINS))
 async def list_users(bot, message):
-    # https://t.me/GetTGLink/4184
+
     raju = await message.reply('Getting List Of Users')
     users = await db.get_all_users()
     out = "Users Saved In DB Are:\n\n"

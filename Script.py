@@ -2,15 +2,15 @@ class script(object):
     START_TXT = """ℍ𝔼𝕃𝕃𝕆 {}\n\n 𝕀 𝔸𝕄 <a href=https://t.me/{}>{}</a>\n 𝕀 𝔻𝔼𝕃𝕀𝕍𝕀𝔼ℝ ℝ𝔼ℚ𝕌𝔼𝕊𝕋𝔼𝔻 𝕄𝔼𝔻𝕀𝔸 𝕋𝕆 ℙ𝔼𝕆ℙ𝕃𝔼.\n𝔻𝕆ℕ𝕋 𝔽𝕆ℝ𝔾𝔼𝕋 𝕋𝕆 𝔽𝕆𝕃𝕃𝕆𝕎 𝕄𝕐 𝕌𝕆𝔻𝔸𝕋𝔼𝕊 ℂℍ𝔸ℕℕ𝔼𝕃 𝔹𝔼𝔽𝕆ℝ𝔼 𝕌𝕊𝕀ℕ𝔾 𝕄𝔼."""
     HELP_TXT = """𝙷𝙴𝚈 {}
 ℍ𝔼ℝ𝔼 𝕀𝕊 𝕄𝕐 ℂ𝕆𝕄𝕄𝔸ℕ𝔻𝕊."""
-    ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴: {}
-✯ 𝙲𝚁𝙴𝙰𝚃𝙾𝚁: <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>
-✯ 𝙻𝙸𝙱𝚁𝙰𝚁𝚈: 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
-✯ 𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴: 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
-✯ 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
-✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
-✯ 𝙱𝚄𝙸𝙻𝙳: v1.0.1 [ ℂ𝕀ℕ𝔼ℍ𝕌𝔹 𝕍𝔼ℝ𝕊𝕀𝕆ℕ ]"""
+    ABOUT_TXT = """
+> 𝙼𝚈 𝙲𝚁𝙴𝙰𝚃𝙾𝚁: <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>
+> 𝙻𝙸𝙱𝚁𝙰𝚁𝚈: 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
+> 𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴: 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
+> 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
+> 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
+> 𝙱𝚄𝙸𝙻𝙳: v1.0.1 [ ℂ𝕀ℕ𝔼ℍ𝕌𝔹 𝕍𝔼ℝ𝕊𝕀𝕆ℕ ]"""
     SOURCE_TXT = """<b>SOURCE:</b> 
-- THIS PIECE OF SOFTWARE IS TOTALY PRVATE.\nALTHOUGH IF YOU WANT MY CODE THEN PLEASE CONTACT MY <b>DEV</b>.\n
+- 𝕄𝕐 𝕊𝕆𝕌ℝℂ𝔼:- <a href= https://github.com/soymadip/EVA_Cinehub.git>Eva_Cinehub</a>.\n
 <b>𝔻𝔼𝕍:-</b> <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 - 𝔽𝕚𝕝𝕥𝕖𝕣 𝕚𝕤 𝕥𝕙𝕖 𝕗𝕖𝕒𝕥𝕦𝕣𝕖 𝕨𝕖𝕣𝕖 𝕦𝕤𝕖𝕣𝕤 𝕔𝕒𝕟 𝕤𝕖𝕥 𝕒𝕦𝕥𝕠𝕞𝕒𝕥𝕖𝕕 𝕣𝕖𝕡𝕝𝕚𝕖𝕤 𝕗𝕠𝕣 𝕒 𝕡𝕒𝕣𝕥𝕚𝕔𝕦𝕝𝕒𝕣 𝕜𝕖𝕪𝕨𝕠𝕣𝕕 𝕒𝕟𝕕 𝔼𝕧𝕒𝕄𝕒𝕣𝕚𝕒 𝕨𝕚𝕝𝕝 𝕣𝕖𝕤𝕡𝕠𝕟𝕕 𝕨𝕙𝕖𝕟𝕖𝕧𝕖𝕣 𝕒 𝕜𝕖𝕪𝕨𝕠𝕣𝕕 𝕚𝕤 𝕗𝕠𝕦𝕟𝕕 𝕥𝕙𝕖 𝕞𝕖𝕤𝕤𝕒𝕘𝕖.
