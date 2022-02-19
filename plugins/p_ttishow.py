@@ -51,15 +51,8 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome'])
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}", reply_markup=InlineKeyboardMarkup(hmms))
+                temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}")
 
-                hmms = InlineKeyboardMarkup(
-        [
-            [
-                 InlineKeyboardButton("UPDATE CHANNEL", url=f"https://t.me/cinemahub02")
-            ]
-        ]
-    )
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
