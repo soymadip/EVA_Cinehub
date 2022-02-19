@@ -51,13 +51,6 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome'])
                     except:
                         pass
-        hmms = InlineKeyboardMarkup(
-        [
-            [
-                 InlineKeyboardButton("UPDATE CHANNEL", url=f"https://t.me/cinemahub02")
-            ]
-        ]
-    )
                 temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}",
                     reply_markup=InlineKeyboardMarkup(hmms))
 
