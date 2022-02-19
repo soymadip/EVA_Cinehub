@@ -39,13 +39,6 @@ async def save_group(bot, message):
             InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help")
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
-        hmms = InlineKeyboardMarkup(
-        [
-            [
-                 InlineKeyboardButton("UPDATE CHANNEL", url=f"https://t.me/cinemahub02")
-            ]
-        ]
-    )
         await message.reply_text(
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️</b>",
             reply_markup=reply_markup)
@@ -59,6 +52,14 @@ async def save_group(bot, message):
                     except:
                         pass
                 temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}", reply_markup=InlineKeyboardMarkup(hmms))
+
+                hmms = InlineKeyboardMarkup(
+        [
+            [
+                 InlineKeyboardButton("UPDATE CHANNEL", url=f"https://t.me/cinemahub02")
+            ]
+        ]
+    )
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
