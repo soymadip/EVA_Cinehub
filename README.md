@@ -58,14 +58,14 @@
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
-<b>Deploy to Railway</b>
-<br/>
+
+
 
 
 <b>Deploy to VPS</b>:-
 <p>
 <pre>
-git clone https://github.com/soymadip/Eva-Cinehub.git
+git clone https://github.com/soymadip/EVA_Cinehub.git
 # Install Packages
 pip3 install -r requirements.txt
 Edit info.py with variables as given below then run bot
