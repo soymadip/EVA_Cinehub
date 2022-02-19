@@ -20,5 +20,3 @@ youtube-dl
 youtube_search
 ytthumb
 tglogging
-#doodstream
-unshortenit
