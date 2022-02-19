@@ -40,10 +40,9 @@ async def start(client, message):
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('✗ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ✗', url=f'https://t.me/cinemaforyou07')
-            ],[
-            InlineKeyboardButton('✗ About ✗', callback_data='about')],
-           [ InlineKeyboardButton('✗ Updates ✗', url='https://t.me/CineHub02')
-            ]]
+            ],[ InlineKeyboardButton('✗ Updates ✗', url='https://t.me/CineHub02')
+            ],
+           [InlineKeyboardButton('✗ About ✗', callback_data='about')]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
