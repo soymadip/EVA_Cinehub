@@ -23,7 +23,7 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('✘ Updates ✘', url='https://t.me/CineHub02')
+                InlineKeyboardButton('✘ Updates ✘', url='https://t.me/cinemahub02')
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -40,7 +40,7 @@ async def start(client, message):
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('✗ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ✗', url=f'https://t.me/cinemaforyou07')
-            ],[ InlineKeyboardButton('✗ Updates ✗', url='https://t.me/CineHub02')
+            ],[ InlineKeyboardButton('✗ Updates ✗', url='https://t.me/CinemaHub02')
             ],
            [InlineKeyboardButton('✗ About ✗', callback_data='about')]]
         reply_markup = InlineKeyboardMarkup(buttons)
