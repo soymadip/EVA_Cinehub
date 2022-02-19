@@ -61,12 +61,6 @@
 <b>Deploy to Railway</b>
 <br/>
 
-<p align="left">
-<a href="https://railway.app/new/template?template=https://github.com/soymadip/Eva-Cinehub.git"
-">
-     <img height="30px" src="https://railway.app/button.svg">
-  </a>
-  </p>
 
 <b>Deploy to VPS</b>:-
 <p>
