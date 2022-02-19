@@ -77,11 +77,9 @@ async def start(client, message):
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
-        buttons = [[
-            InlineKeyboardButton('✗ Group ✗', url=f'https://t.me/cinemaforyou07')
-            ],[
+        buttons = [
             InlineKeyboardButton('✗ Request ✗', url=f'https://t.me/cinemaforyou07')
-            ]]
+            ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
