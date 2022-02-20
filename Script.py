@@ -9,9 +9,9 @@ class script(object):
 > 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
 > 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
 > 𝙱𝚄𝙸𝙻𝙳: v1.0.1 [ ℂ𝕀ℕ𝔼ℍ𝕌𝔹 𝕍𝔼ℝ𝕊𝕀𝕆ℕ ]"""
-    SOURCE_TXT = """<b>SOURCE:</b> 
-- 𝕄𝕐 𝕊𝕆𝕌ℝℂ𝔼:- <a href= https://github.com/soymadip/EVA_Cinehub.git>Eva_Cinehub</a>.\n
-<b>𝔻𝔼𝕍:-</b> <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>"""
+    SOURCE_TXT = """<b>SOURCE:--</b> 
+>𝕄𝕐 𝕊𝕆𝕌ℝℂ𝔼:- <a href= https://github.com/soymadip/EVA_Cinehub.git>𝗘𝘃𝗮_𝗖𝗶𝗻𝗲𝗵𝘂𝗯</a>.\n
+>𝔻𝔼𝕍:- <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 - 𝔽𝕚𝕝𝕥𝕖𝕣 𝕚𝕤 𝕥𝕙𝕖 𝕗𝕖𝕒𝕥𝕦𝕣𝕖 𝕨𝕖𝕣𝕖 𝕦𝕤𝕖𝕣𝕤 𝕔𝕒𝕟 𝕤𝕖𝕥 𝕒𝕦𝕥𝕠𝕞𝕒𝕥𝕖𝕕 𝕣𝕖𝕡𝕝𝕚𝕖𝕤 𝕗𝕠𝕣 𝕒 𝕡𝕒𝕣𝕥𝕚𝕔𝕦𝕝𝕒𝕣 𝕜𝕖𝕪𝕨𝕠𝕣𝕕 𝕒𝕟𝕕 𝔼𝕧𝕒𝕄𝕒𝕣𝕚𝕒 𝕨𝕚𝕝𝕝 𝕣𝕖𝕤𝕡𝕠𝕟𝕕 𝕨𝕙𝕖𝕟𝕖𝕧𝕖𝕣 𝕒 𝕜𝕖𝕪𝕨𝕠𝕣𝕕 𝕚𝕤 𝕗𝕠𝕦𝕟𝕕 𝕥𝕙𝕖 𝕞𝕖𝕤𝕤𝕒𝕘𝕖.
 <b>NOTE:</b>
@@ -22,7 +22,7 @@ class script(object):
 • /del - <code>delete a specific filter in chat</code>
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
     BUTTON_TXT = """Help: <b>Buttons</b>
-- ME Supports both url and alert inline buttons.
+- I Support both url and alert inline buttons.
 <b>NOTE:</b>
 1. 𝑇𝑒𝑙𝑒𝑔𝑟𝑎𝑚 𝑤𝑖𝑙𝑙 𝑛𝑜𝑡 𝑎𝑙𝑙𝑜𝑤𝑠 𝑦𝑜𝑢 𝑡𝑜 𝑠𝑒𝑛𝑑 𝑏𝑢𝑡𝑡𝑜𝑛𝑠 𝑤𝑖𝑡ℎ𝑜𝑢𝑡 𝑎𝑛𝑦 𝑐𝑜𝑛𝑡𝑒𝑛𝑡, 𝑠𝑜 𝑐𝑜𝑛𝑡𝑒𝑛𝑡 𝑖𝑠 𝑚𝑎𝑛𝑑𝑎𝑡𝑜𝑟𝑦.
 2. 𝑀𝐸 𝑠𝑢𝑝𝑝𝑜𝑟𝑡𝑠 𝑏𝑢𝑡𝑡𝑜𝑛𝑠 𝑤𝑖𝑡ℎ 𝑎𝑛𝑦 𝑡𝑒𝑙𝑒𝑔𝑟𝑎𝑚 𝑚𝑒𝑑𝑖𝑎 𝑡𝑦𝑝𝑒.
