@@ -51,7 +51,7 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome'])
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}")
+                temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}", parse_mode='html')
 
 
 
