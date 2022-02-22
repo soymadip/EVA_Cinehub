@@ -115,8 +115,11 @@ async def next_page(bot, query):
     await query.answer()
     
 @Client.on_message(filters.private & filters.text & filters.incoming)
-async def private_give_filter(client, message):
-        await manual_filters(client, message)
+async def give_filter(client, message):
+    k = await manual_filters(client, message)
+    if k == False:
+        await auto_filter(client, message)
+
     
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
