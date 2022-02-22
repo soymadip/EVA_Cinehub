@@ -590,7 +590,7 @@ async def auto_filter(client, msg, spoll=False):
              InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text"⭕️ 𝕁𝕠𝕚𝕟 𝕆𝕦𝕣 ℂ𝕙𝕒𝕟𝕟𝕖𝕝 ⭕️",url="https://t.me/cinemahub02")]
+            [InlineKeyboardButton(text="⭕️ 𝕁𝕠𝕚𝕟 𝕆𝕦𝕣 ℂ𝕙𝕒𝕟𝕟𝕖𝕝 ⭕️",url="https://t.me/cinemahub02")]
         )
     else:
         btn.append(
