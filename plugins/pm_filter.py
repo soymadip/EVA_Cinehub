@@ -114,7 +114,7 @@ async def next_page(bot, query):
         pass
     await query.answer()
 
-@Client.on_message(filters.private & filters.text & filters.incoming & filters.user(ADMINS)if ADMINS else query.answer(("ss"), show_alert=True))
+@Client.on_message(filters.private & filters.text & filters.incoming & filters.user(ADMINS)if ADMINS else query.answer("ss", show_alert=True))
 async def private_give_filter(client, message):
         await auto_filter(client, message)
 
