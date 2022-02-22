@@ -729,7 +729,7 @@ async def auto_filter(client, msg, spoll=False):
     if spoll:
         await msg.message.delete()
         await asyncio.sleep(10)
-    await message.edit('This Movie Not Found In DataBase')
+    await m.edit('This Movie Not Found In DataBase')
 
 
 
