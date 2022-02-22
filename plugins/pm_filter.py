@@ -115,6 +115,11 @@ async def next_page(bot, query):
         pass
     await query.answer()
 
+@Client.on_message(filters.private & filters.text & filters.incoming & filters.user(ADMINS))
+async def private_give_filter(client, message):
+        await auto_filter(client, message)
+
+
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
