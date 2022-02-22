@@ -635,7 +635,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-         cap = f"🔰ℝ𝔼𝕊𝕌𝕃𝕋 𝕆𝔽: 「{search}」\n🔰ℝ𝕖𝕢𝕦𝕤𝕥𝕖𝕕 𝕓𝕪:- 「{message.from_user.mention}」\n\n☢️<b> USE BUTTONS BETWEEN 7AM to 11PM  ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
+         cap = f"\n🔰ℝ𝔼𝕊𝕌𝕃𝕋 𝕆𝔽: 「{search}」\n🔰ℝ𝕖𝕢𝕦𝕤𝕥𝕖𝕕 𝕓𝕪:- 「{message.from_user.mention}」\n\n☢️<b> USE BUTTONS BETWEEN 7AM to 11PM  ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
@@ -651,12 +651,12 @@ async def auto_filter(client, msg, spoll=False):
             await message.delete()
         except Exception as e:
             logger.exception(e)
-            fek = await message.reply_photo(photo="https://telegra.ph/file/82b5bbbab6d5e5593b6b2.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+            fek = await message.reply_photo(photo="https://telegra.ph/file/473735000c944f51b38bd.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600)
             await fek.delete()
             await msg.delete()
     else:
-        fuk = await message.reply_photo(photo="https://telegra.ph/file/8b42f6caf6ef5fd76766f.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+        fuk = await message.reply_photo(photo="https://telegra.ph/file/473735000c944f51b38bd.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(600)
         await fuk.delete()
         await msg.delete()
