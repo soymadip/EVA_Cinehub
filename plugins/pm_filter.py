@@ -115,13 +115,9 @@ async def next_page(bot, query):
     await query.answer()
 
 @Client.on_message(filters.private & filters.text & filters.incoming & filters.user(ADMINS))
-    if query.from_user in ADMINS:
         async def private_give_filter(client, message):
-           await auto_filter(client, message)
-    else: 
-        await query.answer('wait a minute...⏳', show_alert=True)
-        
-
+         await auto_filter(client, message)
+    
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
