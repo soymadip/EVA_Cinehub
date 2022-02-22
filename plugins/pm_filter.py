@@ -113,10 +113,10 @@ async def next_page(bot, query):
     except MessageNotModified:
         pass
     await query.answer()
-
+    
 @Client.on_message(filters.private & filters.text & filters.incoming & filters.user(ADMINS))
-        async def private_give_filter(client, message):
-         await auto_filter(client, message)
+async def private_give_filter(client, message):
+        await auto_filter(client, message)
     
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
@@ -727,6 +727,9 @@ async def auto_filter(client, msg, spoll=False):
         await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
+        await asyncio.sleep(10)
+    await query.message.edit('This Movie Not Found In DataBase')
+
 
 
 async def advantage_spell_chok(msg):
