@@ -719,7 +719,7 @@ async def advantage_spell_chok(msg):
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     m = await msg.reply(f"Hey, {msg.from_user.mention}!\nI couldn't find anything related to that\nDid you mean any one of these?", reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(10)
-    await bot.send_document(LOG_CHANNEL, f"<b>New  Request</b>:- {search}\n<b>From</b>:-{msg.from_user.mention}")
+    await bot.send_message(LOG_CHANNEL, f"<b>New  Request</b>:- {search}\n<b>From</b>:-{msg.from_user.mention}")
 
     
 
