@@ -653,12 +653,12 @@ async def auto_filter(client, msg, spoll=False):
             logger.exception(e)
             fek = await message.reply_photo(photo="https://telegra.ph/file/473735000c944f51b38bd.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600)
-            await fek.delete()
+            await fek.edit(f" Time Up, Your results are now deleted 🗑️")
             
     else:
         fuk = await message.reply_photo(photo="https://telegra.ph/file/473735000c944f51b38bd.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(600)
-        await fuk.edit(f"⚙️ Filter For {search} Closed 🗑️")
+        await fuk.edit(f" Time Up, Your results are now deleted 🗑️")
     if spoll:
         await msg.message.delete()
         
@@ -673,7 +673,7 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
+        k = await msg.reply("if oyu are requesting movie, then waait until DMIN responses.")
         await asyncio.sleep(8)
         await k.delete()
         return
@@ -698,11 +698,7 @@ async def advantage_spell_chok(msg):
         for mov in gs_parsed:
             imdb_s = await get_poster(mov.strip(), bulk=True)  # searching each keyword in imdb
             if imdb_s:
-                movielist += [movie.get('title') for movie in imdb_s]
-    movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
-    movielist = list(dict.fromkeys(movielist))  # removing duplicates
-    if not movielist:
-        hmm = InlineKeyboardMarkup(
+                hmm = InlineKeyboardMarkup(
         [
             [
                  InlineKeyboardButton("🕵️‍♂️ Search On Google 🕵️‍♂️", url=f"https://google.com/search?q={search}")
