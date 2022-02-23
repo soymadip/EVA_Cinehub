@@ -706,7 +706,7 @@ async def advantage_spell_chok(msg):
         ]
     )
         k = await msg.reply(f"𝐏𝐥𝐞𝐚𝐬𝐞 𝐰𝐫𝐭𝐢𝐭𝐞 𝐭𝐡𝐞  𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.\n<b>𝐂𝐥𝐢𝐜𝐤 𝐛𝐞𝐥𝐨𝐰 𝐛𝐮𝐭𝐭𝐭𝐨𝐧</b>,𝐠𝐨 𝐭𝐨 𝐠𝐨𝐨𝐠𝐥𝐞 𝐚𝐧𝐝 𝐜𝐨𝐩𝐲-𝐩𝐚𝐬𝐭𝐞 𝐭𝐡𝐞 𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐢𝐧𝐠 𝐡𝐞𝐫𝐞 \n\n<b>𝐀𝐍𝐃 𝐢𝐠𝐧𝐨𝐫𝐞 𝐢𝐟 𝐛𝐨𝐭 𝐬𝐞𝐧𝐝 𝐚𝐧𝐲 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐚𝐟𝐭𝐞𝐫 𝐰𝐫𝐢𝐭𝐢𝐧𝐠 𝐜𝐨𝐫𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.</b>:", reply_markup=hmm)
-            await bot.send_document(LOG_CHANNEL, f"NEW REQUEST:-{search}.")
+            await bot.send_message(LOG_CHANNEL, f"NEW REQUEST:-{search}.")
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
