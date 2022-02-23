@@ -705,7 +705,7 @@ async def advantage_spell_chok(msg):
             ]
         ]
     )
-        k = await msg.reply(f"please checck the spelling.\n click below buttton, go to google and copy-paste the correct spelliing here\n\n<b>AND Wait until admin responses to you.</b>:", reply_markup=hmm)
+        k = await msg.reply(f"Please wrtite the  correct spelling.\n<b>Click below buttton</b> ,go to google and copy-paste the correct spelliing here\n\n<b>AND ignore the  one after writting correct spelling.</b>:", reply_markup=hmm)
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
