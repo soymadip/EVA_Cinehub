@@ -630,7 +630,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-         cap = f"\n<b>📽️ Requested Movie</b> : {search}\n👤<b>ℝ𝕖𝕢𝕦𝕤𝕥𝕖𝕕 𝕓𝕪</b>:- {message.from_user.mention}\n\n☢️<b> THIS MESSAGE WILL BE DELETED AFTER 4 MINUTES  ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
+         cap = f"\n<b>📽️ ℝ𝕖𝕢𝕦𝕖𝕤𝕥𝕖𝕕 𝕄𝕠𝕧𝕚𝕖</b> : {search}\n👤<b>ℝ𝕖𝕢𝕦𝕤𝕥𝕖𝕕 𝕓𝕪</b> : {message.from_user.mention}\n\n⚙️<b>𝗧𝗵𝗶𝘀 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝘄𝗶𝗹𝗹 𝗯𝗲 𝗱𝗲𝗹𝗲𝘁𝗲𝗱 𝗮𝗳𝘁𝗲𝗿 𝟰 𝗺𝗶𝗻𝘂𝘁𝗲𝘀.</b>"
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
@@ -679,14 +679,14 @@ async def advantage_spell_chok(msg):
         '', i, flags=re.IGNORECASE) for i in gs]
     if not gs_parsed:
         reg = re.compile(r"watch(\s[a-zA-Z0-9_\s\-\(\)]*)*\|.*",
-                         re.IGNORECASE)  # match something like Watch Niram | Amazon Prime
+                         re.IGNORECASE)  
         for mv in g_s:
             match = reg.match(mv)
             if match:
                 gs_parsed.append(match.group(1))
     user = msg.from_user.id if msg.from_user else 0
     movielist = []
-    gs_parsed = list(dict.fromkeys(gs_parsed))  # removing duplicates https://stackoverflow.com/a/7961425
+    gs_parsed = list(dict.fromkeys(gs_parsed)) 
     if len(gs_parsed) > 3:
         gs_parsed = gs_parsed[:3]
     if gs_parsed:
@@ -700,7 +700,7 @@ async def advantage_spell_chok(msg):
             ]
         ]
     )
-        k = await msg.reply(f"𝐏𝐥𝐞𝐚𝐬𝐞 𝐰𝐫𝐭𝐢𝐭𝐞 𝐭𝐡𝐞  𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.\nG𝐨 𝐭𝐨 𝐠𝐨𝐨𝐠𝐥𝐞 𝐚𝐧𝐝 𝐜𝐨𝐩𝐲-𝐩𝐚𝐬𝐭𝐞 𝐭𝐡𝐞 𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐢𝐧𝐠 𝐡𝐞𝐫𝐞 \n\n<b>𝐀𝐍𝐃 𝐢𝐠𝐧𝐨𝐫𝐞 𝐢𝐟 𝐛𝐨𝐭 𝐬𝐞𝐧𝐝 𝐚𝐧𝐲 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐚𝐟𝐭𝐞𝐫 𝐰𝐫𝐢𝐭𝐢𝐧𝐠 𝐜𝐨𝐫𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.</b>", reply_markup=hmm)
+        k = await msg.reply(f"𝗪𝐫𝐭𝐢𝐭𝐞 𝐭𝐡𝐞  𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.\nG𝐨 𝐭𝐨 𝐠𝐨𝐨𝐠𝐥𝐞 𝐚𝐧𝐝 𝐜𝐨𝐩𝐲-𝐩𝐚𝐬𝐭𝐞 𝐭𝐡𝐞 𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐢𝐧𝐠 𝐡𝐞𝐫𝐞 \n\n<b>𝐀𝐍𝐃 𝐢𝐠𝐧𝐨𝐫𝐞 𝐢𝐟 𝐛𝐨𝐭 𝐬𝐞𝐧𝐝 𝐚𝐧𝐲 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐚𝐟𝐭𝐞𝐫 𝐰𝐫𝐢𝐭𝐢𝐧𝐠 𝐜𝐨𝐫𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.</b>", reply_markup=hmm)
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
