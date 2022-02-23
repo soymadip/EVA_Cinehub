@@ -116,11 +116,6 @@ async def next_page(bot, query):
     await query.answer()
 
 
-@Client.on_message(filters.private & filters.text & filters.incoming)
-async def private_give_filter(client, message):
-        await auto_filter(client, message)
-
-
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
@@ -635,25 +630,25 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-         cap = f"\n🔰ℝ𝔼𝕊𝕌𝕃𝕋 𝕆𝔽: 「{search}」\n🔰ℝ𝕖𝕢𝕦𝕤𝕥𝕖𝕕 𝕓𝕪:- 「{message.from_user.mention}」\n\n☢️<b> USE BUTTONS BETWEEN 7AM to 11PM  ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
+         cap = f"\n<b>📽️ Requested Movie</b> : {search}\n👤<b>ℝ𝕖𝕢𝕦𝕤𝕥𝕖𝕕 𝕓𝕪</b>:- {message.from_user.mention}\n\n☢️<b> THIS MESSAGE WILL BE DELETED AFTER 4 MINUTES  ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
+            await asyncio.sleep(240)
             await hehe.delete()
             await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
+            await asyncio.sleep(240)
             await hmm.delete()
             await message.delete()
         except Exception as e:
             logger.exception(e)
             fek = await message.reply_photo(photo="https://telegra.ph/file/473735000c944f51b38bd.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
-            await fek.edit(f" Time Up, Your results are now deleted 🗑️")
+            await asyncio.sleep(240)
+            await fek.edit(f"\nTime Up, Your results are now deleted 🗑️")
             
     else:
         fuk = await message.reply_photo(photo="https://telegra.ph/file/473735000c944f51b38bd.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
@@ -705,7 +700,7 @@ async def advantage_spell_chok(msg):
             ]
         ]
     )
-        k = await msg.reply(f"𝐏𝐥𝐞𝐚𝐬𝐞 𝐰𝐫𝐭𝐢𝐭𝐞 𝐭𝐡𝐞  𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.\n<b>𝐂𝐥𝐢𝐜𝐤 𝐛𝐞𝐥𝐨𝐰 𝐛𝐮𝐭𝐭𝐭𝐨𝐧</b>,𝐠𝐨 𝐭𝐨 𝐠𝐨𝐨𝐠𝐥𝐞 𝐚𝐧𝐝 𝐜𝐨𝐩𝐲-𝐩𝐚𝐬𝐭𝐞 𝐭𝐡𝐞 𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐢𝐧𝐠 𝐡𝐞𝐫𝐞 \n\n<b>𝐀𝐍𝐃 𝐢𝐠𝐧𝐨𝐫𝐞 𝐢𝐟 𝐛𝐨𝐭 𝐬𝐞𝐧𝐝 𝐚𝐧𝐲 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐚𝐟𝐭𝐞𝐫 𝐰𝐫𝐢𝐭𝐢𝐧𝐠 𝐜𝐨𝐫𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.</b>:", reply_markup=hmm)
+        k = await msg.reply(f"𝐏𝐥𝐞𝐚𝐬𝐞 𝐰𝐫𝐭𝐢𝐭𝐞 𝐭𝐡𝐞  𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.\nG𝐨 𝐭𝐨 𝐠𝐨𝐨𝐠𝐥𝐞 𝐚𝐧𝐝 𝐜𝐨𝐩𝐲-𝐩𝐚𝐬𝐭𝐞 𝐭𝐡𝐞 𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐢𝐧𝐠 𝐡𝐞𝐫𝐞 \n\n<b>𝐀𝐍𝐃 𝐢𝐠𝐧𝐨𝐫𝐞 𝐢𝐟 𝐛𝐨𝐭 𝐬𝐞𝐧𝐝 𝐚𝐧𝐲 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐚𝐟𝐭𝐞𝐫 𝐰𝐫𝐢𝐭𝐢𝐧𝐠 𝐜𝐨𝐫𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.</b>", reply_markup=hmm)
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
