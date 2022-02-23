@@ -673,7 +673,7 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("if oyu are requesting movie, then waait until DMIN responses.")
+        k = await msg.reply("if oyu are requesting movie, then waait until ADMIN responses.")
         await asyncio.sleep(8)
         await k.delete()
         return
@@ -705,9 +705,7 @@ async def advantage_spell_chok(msg):
             ]
         ]
     )
-        k = await msg.reply(f"Hey, {msg.from_user.mention}!.. Your word <b>{search}</b> is No Movie/Series Related to the Given Word Was Found 🥺\n\n<s>Please Go to Google and Confirm the Correct Spelling 🥺🙏</s>", reply_markup=hmm)
-        await asyncio.sleep(60)
-        await k.delete()
+        k = await msg.reply(f"please checck the spelling.\n click below buttton, go to google and copy-paste the correct spelliing here\n\n<b>AND Wait until admin responses to you.</b>:", reply_markup=hmm)
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
