@@ -416,14 +416,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('➕𝔸𝕕𝕕 𝕄𝕖 𝕋𝕠 𝕐𝕠𝕦𝕣 ℂ𝕙𝕒𝕥➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕ 𝔸𝕕𝕕 𝕄𝕖 𝕋𝕠 𝕐𝕠𝕦𝕣 ℂ𝕙𝕒𝕥 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('✗ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ✗', url=f'https://t.me/cinemaforyou07')],
+            InlineKeyboardButton(' 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ', url=f'https://t.me/cinemaforyou07')],
             [InlineKeyboardButton('𝕌𝕡𝕕𝕒𝕥𝕖 ℂ𝕙𝕒𝕟𝕟𝕖𝕝', url='https://t.me/CineHub02')
             ],
             [
             InlineKeyboardButton('𝔸𝕓𝕠𝕦𝕥', callback_data='about'),
-            InlineKeyboardButton('✗ 𝕊𝕠𝕦𝕣𝕔𝕖 ✗', callback_data='source')
+            InlineKeyboardButton(' 𝕊𝕠𝕦𝕣𝕔𝕖 ', callback_data='source')
             ] 
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -582,14 +582,14 @@ async def auto_filter(client, msg, spoll=False):
              InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="⭕️ 𝕁𝕠𝕚𝕟 𝕆𝕦𝕣 ℂ𝕙𝕒𝕟𝕟𝕖𝕝 ⭕️",url="https://t.me/cinemahub02")]
+            [InlineKeyboardButton(text="⭕️ 🇨 🇭 🇪 🇨 🇰  🇵 🇲 ⭕️",url="http://t.me/{temp.U_NAME}")]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="⭕️ 𝕁𝕠𝕚𝕟 𝕆𝕦𝕣 ℂ𝕙𝕒𝕟𝕟𝕖𝕝 ⭕️",url="https://t.me/cinemahub02")]
+            [InlineKeyboardButton(text="⭕️ 🇨 🇭 🇪 🇨 🇰  🇵 🇲 ⭕️",url="http://t.me/{temp.U_NAME}")]
         )
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None

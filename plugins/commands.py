@@ -39,14 +39,14 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('➕𝔸𝕕𝕕 𝕄𝕖 𝕋𝕠 𝕐𝕠𝕦𝕣 ℂ𝕙𝕒𝕥➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕ 𝔸𝕕𝕕 𝕄𝕖 𝕋𝕠 𝕐𝕠𝕦𝕣 ℂ𝕙𝕒𝕥 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('✗ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ✗', url=f'https://t.me/cinemaforyou07')],
+            InlineKeyboardButton(' 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ', url=f'https://t.me/cinemaforyou07')],
             [InlineKeyboardButton('𝕌𝕡𝕕𝕒𝕥𝕖 ℂ𝕙𝕒𝕟𝕟𝕖𝕝', url='https://t.me/CineHub02')
             ],
             [
             InlineKeyboardButton('𝔸𝕓𝕠𝕦𝕥', callback_data='about'),
-            InlineKeyboardButton('✗ 𝕊𝕠𝕦𝕣𝕔𝕖 ✗', callback_data='source')
+            InlineKeyboardButton(' 𝕊𝕠𝕦𝕣𝕔𝕖 ', callback_data='source')
             ] 
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -312,8 +312,6 @@ async def delete(bot, message):
         if result.deleted_count:
             await msg.edit('File is successfully deleted from database')
         else:
-            # files indexed before https://github.com/EvamariaTG/EvaMaria/commit/f3d2a1bcb155faf44178e5d7a685a1b533e714bf#diff-86b613edf1748372103e94cacff3b578b36b698ef9c16817bb98fe9ef22fb669R39 
-            # have original file name.
             result = await Media.collection.delete_many({
                 'file_name': media.file_name,
                 'file_size': media.file_size,
@@ -396,7 +394,7 @@ async def settings(client, message):
         buttons = [
             [
                 InlineKeyboardButton(
-                    'Filter Button',
+                    'Button',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
@@ -426,7 +424,7 @@ async def settings(client, message):
             ],
             [
                 InlineKeyboardButton(
-                    'IMDB',
+                    'IMDB Result',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
@@ -459,7 +457,7 @@ async def settings(client, message):
         reply_markup = InlineKeyboardMarkup(buttons)
 
         await message.reply_text(
-            text=f"<b>Change Your Settings for {title} As Your Wish ⚙</b>",
+            text=f"<b>⚙ Settings for {title}</b>",
             reply_markup=reply_markup,
             disable_web_page_preview=True,
             parse_mode="html",
