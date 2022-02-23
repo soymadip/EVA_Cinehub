@@ -55,7 +55,6 @@ MELCOW_NEW_TEXT = environ.get("MELCOW_NEW_TEXT", "Don't forget to suscribe chann
 PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 CHANNEL = environ.get('CUSTOM_FOOTER')
-BOT_LINK = environ.get("BOT_LINK", "https://t.me/CinemaHub_Manager01bot")
 
 
 LOG_STR = "Current Cusomized Configurations are:-\n"
