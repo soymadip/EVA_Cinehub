@@ -135,8 +135,8 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit(f'⚠️ {query.from_user.first_name} wait unttil admin responses to you⚠️')
-            await asyncio.sleep(10)
+            k = await query.message.edit(f'⚠️ I think it is not uploaded yet.  Wait unttil admin responses to you⚠️')
+            await asyncio.sleep(10000)
             await k.edit(f'⚠️ I think it is not uploaded yet.  Wait unttil admin responses to you⚠️')
 
 
@@ -959,7 +959,7 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply("wait until admin responses")
-        await asyncio.sleep(30)
+        await asyncio.sleep(3000)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -995,8 +995,8 @@ async def advantage_spell_chok(msg):
             ]
         ]
     )
-        k = await msg.reply(f"If you're requesting movie, Wait.🥺\n\n<b>🙏Else ignore this message</b>") #I_have_disabled_google_module.
-        await asyncio.sleep(4)
+        k = await msg.reply(f"<b>🙏Else ignore this message IF NOT requesting.</b>") #I_have_disabled_google_module.
+        await asyncio.sleep(2)
         await k.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
@@ -1007,9 +1007,9 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    m = await msg.reply(f"i think you wrote wrong spelling\n\n<b>Did you mean any one of these</b>👇?", reply_markup=InlineKeyboardMarkup(btn))
+    m = await msg.reply(f"i think you wrote wrong spelling\n\n<b>Did you mean any of these</b>👇?", reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(20)
-    await m.edit(f"🤷🏼")
+    await m.edit(f"Wait until andin responses.")
 
 
 async def manual_filters(client, message, text=False):
