@@ -135,9 +135,9 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit(f'⚠️ I think it is not uploaded yet.  Wait unttil admin responses to you⚠️')
+            k = await query.message.edit(f'⚠️ I think it is not uploaded yet.  Wait unttil admin responses to you')
             await asyncio.sleep(10000)
-            await k.edit(f'⚠️ I think it is not uploaded yet.  Wait unttil admin responses to you⚠️')
+            await k.edit(f'⚠️ I think it is not uploaded yet.  Wait unttil admin responses to you')
 
 
 @Client.on_callback_query()
@@ -1009,7 +1009,7 @@ async def advantage_spell_chok(msg):
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     m = await msg.reply(f"i think you wrote wrong spelling\n\n<b>Did you mean any of these</b>👇?", reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(20)
-    await m.edit(f"Wait until andin responses.")
+    await m.edit(f"🚨 Wait until admin responses.")
 
 
 async def manual_filters(client, message, text=False):
