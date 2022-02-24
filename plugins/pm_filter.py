@@ -985,7 +985,7 @@ async def advantage_spell_chok(msg):
         ]
     )
         k = await msg.reply(f"Hey, {msg.from_user.mention}!.. Your word <b>{search}</b> is No Movie/Series Related to the Given Word Was Found 🥺\n\n<s>Please Go to Google and Confirm the Correct Spelling 🥺🙏</s>", reply_markup=hmm)
-        await asyncio.sleep(60)
+        await asyncio.sleep(6000000)
         await k.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
@@ -997,7 +997,7 @@ async def advantage_spell_chok(msg):
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     m = await msg.reply(f"Hey, {msg.from_user.mention}!\nI couldn't find anything related to that\nDid you mean any one of these?", reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(20)
+    await asyncio.sleep(2000000)
     await m.delete()
 
 
