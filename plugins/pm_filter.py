@@ -1,81 +1,161 @@
-import asyncio import re import ast
+import asyncio
+import re
+import ast
 
-from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty from Script import script import pyrogram from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active,
-make_inactive from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB,
-SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery from pyrogram.handlers import CallbackQueryHandler from pyrogram import Client, filters from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings from database.users_chats_db import db from database.ia_filterdb import Media, get_file_details, get_search_results from database.filters_mdb import ( del_all, find_filter, get_filters, ) import logging
+from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
+from script import Script
+import pyrogram
+from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
+    make_inactive
+from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.handlers import CallbackQueryHandler
+from pyrogram import Client, filters
+from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
+from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
+from database.users_chats_db import db
+from database.ia_filterdb import Media, get_file_details, get_search_results
+from database.filters_mdb import (
+    del_all,
+    find_filter,
+    get_filters,
+)
+import logging
 
-logger = logging.getLogger( name ) logger.setLevel(logging.ERROR)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
+
+BUTTONS = {}
+SPELL_CHECK = {}
 
 
-files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
-try:
-    n_offset = int(n_offset)
-except:
-    n_offset = 0
+@Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
+async def give_filter(client, message):
+    k = await manual_filters(client, message)
+    if k == False:
+        await auto_filter(client, message)
 
-if not files:
-    return
-settings = await get_settings(query.message.chat.id)
-if settings['button']:
-    btn = [
-        [
-            InlineKeyboardButton(
-                text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
-            ),
+
+@Client.on_callback_query(filters.regex(r"^next"))
+async def next_page(bot, query):
+    ident, req, key, offset = query.data.split("_")
+    if int(req) not in [query.from_user.id, 0]:
+        return await query.answer(f"⚠️ Hey, {query.from_user.first_name}! Search Your Own File, Don't Click Others Results 😬", show_alert=True)
+    try:
+        offset = int(offset)
+    except:
+        offset = 0
+    search = BUTTONS.get(key)
+    if not search:
+        await query.answer(f"⚠️ Hey, {query.from_user.first_name}! You are using one of my old messages, send the request again ⚠️", show_alert=True)
+        return
+
+    files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
+    try:
+        n_offset = int(n_offset)
+    except:
+        n_offset = 0
+
+    if not files:
+        return
+    settings = await get_settings(query.message.chat.id)
+    if settings['button']:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                ),
+            ]
+            for file in files
         ]
-        for file in files
-    ]
-else:
-    btn = [
-        [
-            InlineKeyboardButton(
-                text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
-            ),
-            InlineKeyboardButton(
-                text=f"{get_size(file.file_size)}",
-                callback_data=f'files_#{file.file_id}',
-            ),
+    else:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                ),
+                InlineKeyboardButton(
+                    text=f"{get_size(file.file_size)}",
+                    callback_data=f'files_#{file.file_id}',
+                ),
+            ]
+            for file in files
         ]
-        for file in files
-    ]
 
-if 0 < offset <= 10:
-    off_set = 0
-elif offset == 0:
-    off_set = None
-else:
-    off_set = offset - 10
-if n_offset == 0:
-    btn.append(
-        [InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
-         InlineKeyboardButton(f" Pages {round(int(offset) / 10) + 1} / {round(total / 10)}",
-                              callback_data="pages")]
-    )
-elif off_set is None:
-    btn.append(
-        [InlineKeyboardButton(f" {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
-         InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
-else:
-    btn.append(
-        [
-            InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
-            InlineKeyboardButton(f" {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
-            InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
-        ],
-    )
-try:
-    await query.edit_message_reply_markup(
-        reply_markup=InlineKeyboardMarkup(btn)
-    )
-except MessageNotModified:
-    pass
-await query.answer()
+    if 0 < offset <= 10:
+        off_set = 0
+    elif offset == 0:
+        off_set = None
+    else:
+        off_set = offset - 10
+    if n_offset == 0:
+        btn.append(
+            [InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
+             InlineKeyboardButton(f"📃 Pages {round(int(offset) / 10) + 1} / {round(total / 10)}",
+                                  callback_data="pages")]
+        )
+    elif off_set is None:
+        btn.append(
+            [InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
+             InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
+    else:
+        btn.append(
+            [
+                InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
+                InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
+            ],
+        )
+    try:
+        await query.edit_message_reply_markup(
+            reply_markup=InlineKeyboardMarkup(btn)
+        )
+    except MessageNotModified:
+        pass
+    await query.answer()
 
 
+@Client.on_message(filters.private & filters.text & filters.incoming)
+async def private_give_filter(client, message):
+        await auto_filter(client, message)
 
-Client.on_callback_query(filters.regex(r"^spolling")) async def advantage_spoll_choker(bot, query): , user, movie = query.data.split('#') if int(user) != 0 and query.from_user.id != int(user): return await query.answer(f"⚠️ Hey, {query.from_user.first_name}! Search Your Own File, Don't Click Others Results ", show_alert=True) if movie_ == "close_spellcheck": return await query.message.delete() movies = SPELL_CHECK.get(query.message.reply_to_message.message_id) if not movies: return await query.answer(f"⚠️ Hey, {query.from_user.first_name}! You are clicking on an old button which is expired ⚠️", show_alert=True) movie = movies[(int(movie_))] await query.answer('.....') k = await manual_filters(bot, query.message, text=movie) if k == False: files, offset, total_results = await get_search_results(movie, offset=0, filter=True) if files: k = (movie, files, offset, total_results) await auto_filter(bot, query, k) else: k = await query.message.edit(f'⚠️ wait ⚠️') await asyncio.sleep(30) await k.delete()
 
-Client.on_callback_query() async def cb_handler(client: Client, query: CallbackQuery): if query.data == "close_data": await query.message.delete() try: await query.message.reply_to_message.delete() except: pass elif query.data == "delallconfirm": userid = query.from_user.id chat_type = query.message.chat.type
+@Client.on_callback_query(filters.regex(r"^spolling"))
+async def advantage_spoll_choker(bot, query):
+    _, user, movie_ = query.data.split('#')
+    if int(user) != 0 and query.from_user.id != int(user):
+        return await query.answer(f"⚠️ Hey, {query.from_user.first_name}! Search Your Own File, Don't Click Others Results 😬", show_alert=True)
+    if movie_  == "close_spellcheck":
+        return await query.message.delete()
+    movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
+    if not movies:
+        return await query.answer(f"⚠️ Hey, {query.from_user.first_name}! You are clicking on an old button which is expired ⚠️", show_alert=True)
+    movie = movies[(int(movie_))]
+    await query.answer('Checking for Movie in database...')
+    k = await manual_filters(bot, query.message, text=movie)
+    if k == False:
+        files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
+        if files:
+            k = (movie, files, offset, total_results)
+            await auto_filter(bot, query, k)
+        else:
+            k = await query.message.edit(f'⚠️ Hey, {query.from_user.first_name}! This Movie Not Found In My DataBase ⚠️')
+            await asyncio.sleep(10)
+            await k.delete()
+
+
+@Client.on_callback_query()
+async def cb_handler(client: Client, query: CallbackQuery):
+    if query.data == "close_data":
+        await query.message.delete()
+        try:
+            await query.message.reply_to_message.delete()
+        except:
+            pass
+    elif query.data == "delallconfirm":
+        userid = query.from_user.id
+        chat_type = query.message.chat.type
 
     if chat_type == "private":
         grpid = await active_connection(str(userid))
