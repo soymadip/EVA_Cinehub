@@ -724,13 +724,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-    elif query.data == "commands":
+    elif query.data == "sharetext":
         buttons = [[
-            InlineKeyboardButton('« Back', callback_data='start')
+            InlineKeyboardButton('« Back', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.COMMANDS_TXT,
+            text=script.SHARE_TXT,
             disable_web_page_preview=True,
             reply_markup=reply_markup,
             parse_mode='html'
