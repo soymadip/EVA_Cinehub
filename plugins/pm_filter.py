@@ -996,7 +996,7 @@ async def advantage_spell_chok(msg):
         ]
     )
         k = await msg.reply(f"<b>.</b>") #I_have_disabled_google_module.
-        await asyncio.sleep(2)
+        await asyncio.sleep(1)
         await k.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
