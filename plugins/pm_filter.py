@@ -995,7 +995,7 @@ async def advantage_spell_chok(msg):
             ]
         ]
     )
-        k = await msg.reply(f"<b>🙏Else ignore this message IF NOT requesting.</b>") #I_have_disabled_google_module.
+        k = await msg.reply(f"<b>.</b>") #I_have_disabled_google_module.
         await asyncio.sleep(2)
         await k.delete()
         return
