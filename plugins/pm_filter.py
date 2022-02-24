@@ -434,7 +434,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-        await query.answer('Piracy Is Crime')
+        await query.answer('HOME')
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('admin', callback_data='admin'),
@@ -1007,8 +1007,8 @@ async def advantage_spell_chok(msg):
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     m = await msg.reply(f"Hey, {msg.from_user.mention}!\nI couldn't find anything related to that\nDid you mean any one of these?", reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(20)
-    await m.delete()
+    await asyncio.sleep(30)
+    await m.edit(f"write️ correct spelling\n <b>If you have written then wait until admin responses</b>")
 
 
 async def manual_filters(client, message, text=False):
