@@ -47,7 +47,7 @@ async def start(client, message):
         [
         InlineKeyboardButton('𝔸𝕓𝕠𝕦𝕥', callback_data='about'),
         InlineKeyboardButton('𝕊𝕠𝕦𝕣𝕔𝕖', callback_data='source')
-        ],[InlineKeyboardButton('ℹ️ ℂ𝕠𝕞𝕞𝕒𝕟𝕕𝕤 ℹ️', callback_data='source')] 
+        ],[InlineKeyboardButton('ℹ️ ℂ𝕠𝕞𝕞𝕒𝕟𝕕𝕤 ℹ️', url='https://telegra.ph/All-Commands-For-Eva-Cinehub-02-24')] 
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
