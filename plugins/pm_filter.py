@@ -6,11 +6,6 @@ SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE from pyrogram.types import Inlin
 
 logger = logging.getLogger( name ) logger.setLevel(logging.ERROR)
 
-BUTTONS = {} SPELL_CHECK = {}
-
-Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming) async def give_filter(client, message): k = await manual_filters(client, message) if k == False: await auto_filter(client, message)
-
-Client.on_callback_query(filters.regex(r"^next")) async def next_page(bot, query): ident, req, key, offset = query.data.split("_") if int(req) not in [query.from_user.id, 0]: return await query.answer(f"⚠️ Hey, {query.from_user.first_name}! Search Your Own File, Don't Click Others Results ", show_alert=True) try: offset = int(offset) except: offset = 0 search = BUTTONS.get(key) if not search: await query.answer(f"⚠️ Hey, {query.from_user.first_name}! You are using one of my old messages, send the request again ⚠️", show_alert=True) return
 
 files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
 try:
