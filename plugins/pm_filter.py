@@ -137,7 +137,8 @@ async def advantage_spoll_choker(bot, query):
         else:
             k = await query.message.edit(f'⚠️ {query.from_user.first_name} wait unttil admin responses to you⚠️')
             await asyncio.sleep(10)
-            await k.edit(f'⚠️ {query.from_user.first_name} wait unttil admin responses to you⚠️')
+            await k.edit(f'⚠️ I think it's not uploaded yet.
+            wait unttil admin responses to you⚠️')
 
 
 @Client.on_callback_query()
@@ -987,7 +988,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        if 2 < len(message.text) < 10:
+        if 2 < len(gs_parsed) < 10:
             hmm = InlineKeyboardMarkup(
         [
             [
