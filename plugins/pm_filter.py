@@ -407,7 +407,7 @@ elif query.data.startswith("checksub"):
     if f_caption is None:
         f_caption = f"{title}"
     buttons = [
-               [InlineKeyboardButton('⚡️ ℂ  ⚡️', url=f'https://t.me/cinemaforyou07')]
+               [InlineKeyboardButton('⚡️ 𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖 ⚡️', url=f'https://t.me/cinemaforyou07')]
               ]
     await query.answer()
     await client.send_cached_media(
@@ -421,14 +421,14 @@ elif query.data == "pages":
     await query.answer()
 elif query.data == "start":
     buttons = [[
-        InlineKeyboardButton('➕     ℂ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+        InlineKeyboardButton('➕ 𝔸𝕕𝕕 𝕄𝕖 𝕋𝕠 𝕐𝕠𝕦𝕣 ℂ𝕙𝕒𝕥 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ],[
-        InlineKeyboardButton('  ℂ ', url=f'https://t.me/cinemaforyou07')],
-        [InlineKeyboardButton(' ℂ', url='https://t.me/CineHub02')
+        InlineKeyboardButton('  𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ', url=f'https://t.me/cinemaforyou07')],
+        [InlineKeyboardButton('𝕌𝕡𝕕𝕒𝕥𝕖 ℂ𝕙𝕒𝕟𝕟𝕖𝕝', url='https://t.me/CineHub02')
         ],
         [
-        InlineKeyboardButton('', callback_data='about'),
-        InlineKeyboardButton('  ', callback_data='source')
+        InlineKeyboardButton('𝔸𝕓𝕠𝕦𝕥', callback_data='about'),
+        InlineKeyboardButton('𝕊𝕠𝕦𝕣𝕔𝕖', callback_data='source')
         ] 
         ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -533,7 +533,51 @@ await query.answer('Piracy Is Crime')
 
 
 
-async def auto_filter(client, msg, spoll=False): if not spoll: message = msg settings = await get_settings(message.chat.id) if message.text.startswith("/"): return # ignore commands if re.findall("((^/|^,|^!|^.|^[\U0001F600-\U000E007F]).*)", message.text): return if 1 < len(message.text) < 100: search = message.text files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True) if not files: if settings["spell_check"]: return await advantage_spell_chok(msg) else: return else: return else: settings = await get_settings(msg.message.chat.id) message = msg.message.reply_to_message # msg will be callback query search, files, offset, total_results = spoll pre = 'filep' if settings['file_secure'] else 'file' if settings["button"]: btn = [ [ InlineKeyboardButton( text=f"{file.file_name}", callback_data=f'{pre}#{file.file_id}' ), ] for file in files ] else: btn = [ [ InlineKeyboardButton( text=f"{file.file_name}", callback_data=f'{pre}#{file.file_id}', ), InlineKeyboardButton( text=f"{get_size(file.file_size)}", callback_data=f'{pre}_#{file.file_id}', ), ] for file in files ]
+async def auto_filter(client, msg, spoll=False):
+    if not spoll:
+        message = msg
+        settings = await get_settings(message.chat.id)
+        if message.text.startswith("/"): return  # ignore commands
+        if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
+            return
+        if 2 < len(message.text) < 100:
+            search = message.text
+            files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
+            if not files:
+                if settings["spell_check"]:
+                    return await advantage_spell_chok(msg)
+                else:
+                    return
+        else:
+            return
+    else:
+        settings = await get_settings(msg.message.chat.id)
+        message = msg.message.reply_to_message  # msg will be callback query
+        search, files, offset, total_results = spoll
+    pre = 'filep' if settings['file_secure'] else 'file'
+    if settings["button"]:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                ),
+            ]
+            for file in files
+        ]
+    else:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"{file.file_name}",
+                    callback_data=f'{pre}#{file.file_id}',
+                ),
+                InlineKeyboardButton(
+                    text=f"{get_size(file.file_size)}",
+                    callback_data=f'{pre}_#{file.file_id}',
+                ),
+            ]
+            for file in files
+        ]
 
 if offset != "":
     key = f"{message.chat.id}-{message.message_id}"
@@ -589,7 +633,7 @@ if imdb:
         **locals()
     )
 else:
-     cap = f"\n<b>️ℝ </b> : {search}\n<b>ℝ </b> : {message.from_user.mention}\n\n⚙️<b>       .</b>"
+     cap = f"\n<b>️📽️ℝ𝕖𝕢𝕦𝕖𝕤𝕥𝕖𝕕 𝕄𝕠𝕧𝕚𝕖 </b> : {search}\n<b>👤ℝ𝕖𝕢𝕦𝕖𝕤𝕥𝕖𝕕 𝕓𝕪 </b> : {message.from_user.mention}\n\n⚙️<b>𝗧𝗵𝗶𝘀 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝘄𝗶𝗹𝗹 𝗯𝗲 𝗱𝗲𝗹𝗲𝘁𝗲𝗱 𝗮𝗳𝘁𝗲𝗿 𝟰 𝗺𝗶𝗻𝘂𝘁𝗲𝘀.</b>"
 if imdb and imdb.get('poster'):
     try:
         hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
