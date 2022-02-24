@@ -64,7 +64,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -136,8 +136,8 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit(f'⚠️ {query.from_user.first_name} wait unttil admin responses to you⚠️')
-            await asyncio.sleep(10000000)
-            await k.delete()
+            await asyncio.sleep(10)
+            await k.edit(f'⚠️ {query.from_user.first_name} wait unttil admin responses to you⚠️')
 
 
 @Client.on_callback_query()
@@ -994,7 +994,7 @@ async def advantage_spell_chok(msg):
             ]
         ]
     )
-        k = await msg.reply(f"Hey, {msg.from_user.mention}!.. Your word <b>{search}</b> is No Movie/Series Related to the Given Word Was Found 🥺\n\n<s>Please Go to Google and Confirm the Correct Spelling 🥺🙏</s>", reply_markup=hmm)
+        k = await msg.reply(f"If you're requesting movie, Wait.🥺\n\n<b>🙏Else ignore this message</b>") #I_have_disabled_google_module.
         await asyncio.sleep(20)
         await k.delete()
         return
@@ -1006,9 +1006,9 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    m = await msg.reply(f"Hey, {msg.from_user.mention}!\nI couldn't find anything related to that\nDid you mean any one of these?", reply_markup=InlineKeyboardMarkup(btn))
+    m = await msg.reply(f"Hey, {msg.from_user.mention}!\nI couldn't find anything related to that\nDid you mean any one of these👇?", reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(30)
-    await m.edit(f"write️ correct spelling\n <b>If you have written then wait until admin responses</b>")
+    await m.edit(f"💩")
 
 
 async def manual_filters(client, message, text=False):
