@@ -486,7 +486,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "source":
         buttons = [[
-            InlineKeyboardButton('« Back', callback_data='about')
+            InlineKeyboardButton('« Back', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -724,13 +724,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-    elif query.data == "sharetext":
+    elif query.data == "commands":
         buttons = [[
-            InlineKeyboardButton('« Back', callback_data='help')
+            InlineKeyboardButton('« Back', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.SHARE_TXT,
+            text=script.COMMANDS_TXT,
             disable_web_page_preview=True,
             reply_markup=reply_markup,
             parse_mode='html'
@@ -958,8 +958,8 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(8)
+        k = await msg.reply("wait until admin responses")
+        await asyncio.sleep(30)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
