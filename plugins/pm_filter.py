@@ -987,7 +987,8 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        hmm = InlineKeyboardMarkup(
+        if 2 < len(message.text) < 10:
+            hmm = InlineKeyboardMarkup(
         [
             [
                  InlineKeyboardButton("🕵️‍♂️ Search On Google 🕵️‍♂️", url=f"https://google.com/search?q={search}")
@@ -995,7 +996,7 @@ async def advantage_spell_chok(msg):
         ]
     )
         k = await msg.reply(f"If you're requesting movie, Wait.🥺\n\n<b>🙏Else ignore this message</b>") #I_have_disabled_google_module.
-        await asyncio.sleep(20)
+        await asyncio.sleep(4)
         await k.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
@@ -1006,9 +1007,9 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    m = await msg.reply(f"Hey, {msg.from_user.mention}!\nI couldn't find anything related to that\nDid you mean any one of these👇?", reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(30)
-    await m.edit(f"💩")
+    m = await msg.reply(f"I think you have written wrong spelling\n\n<b>Need any one of these</b>👇?", reply_markup=InlineKeyboardMarkup(btn))
+    await asyncio.sleep(20)
+    await m.delete
 
 
 async def manual_filters(client, message, text=False):
