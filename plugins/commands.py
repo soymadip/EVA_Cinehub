@@ -50,13 +50,6 @@ async def start(client, message):
         ],[InlineKeyboardButton('ℹ️ ℂ𝕠𝕞𝕞𝕒𝕟𝕕𝕤 ℹ️', callback_data='commands')] 
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
-            disable_web_page_preview=True,
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
-        reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
