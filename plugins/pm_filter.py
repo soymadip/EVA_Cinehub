@@ -471,16 +471,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('status', callback_data='stats'),
-            InlineKeyboardButton('source', callback_data='source')
-            ],[
-            InlineKeyboardButton('search movie', switch_inline_query_current_chat='')
-            ],[
-            InlineKeyboardButton('help & commands', callback_data='help')
-            ],[
-            InlineKeyboardButton('« Back', callback_data='start'),
-            InlineKeyboardButton('Close ✗', callback_data='close_data')
-        ]]
+        InlineKeyboardButton('✗ Updates ✗', url='https://t.me/cinemahub02'),
+        InlineKeyboardButton('✗ Source ✗', callback_data='source')
+    ], [
+        InlineKeyboardButton('✗ Back ✗', callback_data='start'),
+        InlineKeyboardButton('✗ Close ✗', callback_data='close_data')
+    ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.B_NAME),
@@ -786,7 +782,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if settings is not None:
             buttons = [
                 [
-                    InlineKeyboardButton('Filter Button',
+                    InlineKeyboardButton('Button',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}'),
                     InlineKeyboardButton('Single' if settings["button"] else 'Double',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}')
@@ -821,7 +817,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer('Piracy Is Crime')
+    await query.answer('Done')
 
 
 async def auto_filter(client, msg, spoll=False):
@@ -878,21 +874,11 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results) / 10)}", callback_data="pages"),
              InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
         )
-        btn.insert(0,
-            [InlineKeyboardButton(text="⭕️ Join Our Channel ⭕️",url="https://t.me/+q9NMdy0rY10zZWZl")]
-        )
-    else:
-        btn.append(
-            [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
-        )
-        btn.insert(0,
-            [InlineKeyboardButton(text="⭕️ Join Our Channel ⭕️",url="https://t.me/+q9NMdy0rY10zZWZl")]
-        )
-    reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
-    imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
-    TEMPLATE = settings['template']
-    if imdb:
-        cap = TEMPLATE.format(
+reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
+imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
+TEMPLATE = settings['template']
+if imdb:
+    cap = TEMPLATE.format(        
             query=search,
             title=imdb['title'],
             votes=imdb['votes'],
@@ -924,7 +910,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>🎬 Title:</b> {search}\n</b>\n<b><a href='https://t.me/+q9NMdy0rY10zZWZl'>© IMDb (Series & Movies) Studio</a></b>\n\n<b>✍️ Note:</b> <s>This message will be Auto-deleted after 10 minutes to avoid copyright issues.</s>"
+        cap = f"\n<b>️📽️ℝ𝕖𝕢𝕦𝕖𝕤𝕥𝕖𝕕 𝕄𝕠𝕧𝕚𝕖 </b> : {search}\n<b>👤ℝ𝕖𝕢𝕦𝕖𝕤𝕥𝕖𝕕 𝕓𝕪 </b> : {message.from_user.mention}\n\n⚙️<s>𝗧𝗵𝗶𝘀 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝘄𝗶𝗹𝗹 𝗯𝗲 𝗱𝗲𝗹𝗲𝘁𝗲𝗱 𝗮𝗳𝘁𝗲𝗿 𝟰 𝗺𝗶𝗻𝘂𝘁𝗲𝘀.</s>"
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
@@ -935,20 +921,17 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
-            await hmm.delete()
-            await message.delete()
+            await asyncio.sleep(240)
+            await hmm.edit(f"\n𝗧𝗶𝗺𝗲 𝗨𝗽\n⚙️ Result For **{search}**  Closed 🗑️")
         except Exception as e:
             logger.exception(e)
-            fek = await message.reply_photo(photo="https://telegra.ph/file/82b5bbbab6d5e5593b6b2.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
-            await fek.delete()
-            await msg.delete()
+            fek = await message.reply_photo(photo="https://telegra.ph/file/473735000c944f51b38bd.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(240)
+            await fek.edit(f"\n𝗧𝗶𝗺𝗲 𝗨𝗽\n⚙️ Result For **{search}**  Closed 🗑️")
     else:
-        fuk = await message.reply_photo(photo="https://telegra.ph/file/8b42f6caf6ef5fd76766f.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(600)
-        await fuk.delete()
-        await msg.delete()
+        fuk = await message.reply_photo(photo="https://telegra.ph/file/473735000c944f51b38bd.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(240)
+        await fuk.edit(f"\n𝗧𝗶𝗺𝗲 𝗨𝗽\n⚙️ Result For **{search}**  Closed 🗑️")
     if spoll:
         await msg.message.delete()
 
@@ -963,9 +946,7 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(8)
-        await k.delete()
+        k = await msg.reply("wait until admin responses to you")
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
@@ -1000,8 +981,6 @@ async def advantage_spell_chok(msg):
         ]
     )
         k = await msg.reply(f"Hey, {msg.from_user.mention}!.. Your word <b>{search}</b> is No Movie/Series Related to the Given Word Was Found 🥺\n\n<s>Please Go to Google and Confirm the Correct Spelling 🥺🙏</s>", reply_markup=hmm)
-        await asyncio.sleep(60)
-        await k.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
@@ -1012,7 +991,7 @@ async def advantage_spell_chok(msg):
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     m = await msg.reply(f"Hey, {msg.from_user.mention}!\nI couldn't find anything related to that\nDid you mean any one of these?", reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(20)
+    await asyncio.sleep(200)
     await m.delete()
 
 
