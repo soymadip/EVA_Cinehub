@@ -137,7 +137,7 @@ async def advantage_spoll_choker(bot, query):
         else:
             k = await query.message.edit(f'🧑🏽‍💻 Maybe it is not uploaded. Wait until admin responses.')
             await asyncio.sleep(10)
-            await k.edit(f'⚠️')
+            await k.edit(f'🧑🏽‍💻 Maybe it is not uploaded. Wait until admin responses.')
 
 
 @Client.on_callback_query()
