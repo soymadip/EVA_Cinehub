@@ -135,7 +135,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit(f'⚠️ I think it is not uploaded yet.  Wait unttil admin responses to you')
+            k = await query.message.edit(f'A')
             await asyncio.sleep(10)
             await k.edit(f'⚠️')
 
@@ -957,7 +957,7 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
+        k = await msg.reply("B")
         await asyncio.sleep(8)
         await k.delete()
         return
@@ -986,7 +986,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("I couldn't find anything related to that. Check your spelling")
+        k = await msg.reply("C")
         await asyncio.sleep(10)
         await k.delete()
         return
