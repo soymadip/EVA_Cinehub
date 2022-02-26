@@ -136,8 +136,8 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit(f'⚠️ I think it is not uploaded yet.  Wait unttil admin responses to you')
-            await asyncio.sleep(10000)
-            await k.edit(f'⚠️ I think it is not uploaded yet.  Wait unttil admin responses to you')
+            await asyncio.sleep(10)
+            await k.edit(f'⚠️')
 
 
 @Client.on_callback_query()
