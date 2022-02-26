@@ -355,7 +355,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{files.file_name}"
         buttons = [
             [
-            InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemaforyou07')]
+            InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemahub02')]
             ]
             
         try:
@@ -403,7 +403,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         buttons = [
-            [InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemaforyou07')]
+            [InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemahub02')]
             ]
         await query.answer()
         await client.send_cached_media(
@@ -419,7 +419,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
         InlineKeyboardButton('➕ 𝔸𝕕𝕕 𝕄𝕖 𝕋𝕠 𝕐𝕠𝕦𝕣 ℂ𝕙𝕒𝕥 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ],[
-        InlineKeyboardButton('  𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ', url=f'https://t.me/cinemaforyou07')],
+        InlineKeyboardButton('  𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ', url=f'https://t.me/cinemahub02')],
         [InlineKeyboardButton('𝕌𝕡𝕕𝕒𝕥𝕖 ℂ𝕙𝕒𝕟𝕟𝕖𝕝', url='https://t.me/CineHub02')
         ],
         [
@@ -986,8 +986,8 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("C")   #if not found at IMDB
-        await asyncio.sleep(10)
+        k = await msg.reply(".")   #if not found at IMDB
+        await asyncio.sleep(1)
         await k.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
