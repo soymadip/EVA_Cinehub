@@ -135,9 +135,9 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until @admin uploads.')
+            k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
             await asyncio.sleep(10)
-            await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until @admin uploads')
+            await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads')
 
 
 @Client.on_callback_query()
@@ -998,8 +998,9 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    m = await msg.reply(f"I couldn't find your movie.\n\n<b>Did you want any of this</b>👇", reply_markup=InlineKeyboardMarkup(btn))
-
+    m = await msg.reply(f"I couldn't find your movie.😑\n\n<b>Did you want any of this</b>👇", reply_markup=InlineKeyboardMarkup(btn))
+    await asyncio.sleep(30)
+    await m.edit(f'Wait until admin responses')
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
