@@ -135,11 +135,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-<<<<<<< Updated upstream
             k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin responses.')
-=======
-            k = await query.message.edit(f'A') #IF NOT AT MY DATA
->>>>>>> Stashed changes
             await asyncio.sleep(10)
             await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin responses.')
 
@@ -1002,13 +998,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-<<<<<<< Updated upstream
     m = await msg.reply(f"I couldn't find your movie.\n Did you want any of this👇", reply_markup=InlineKeyboardMarkup(btn))
-=======
-    m = await msg.reply(f"D", reply_markup=InlineKeyboardMarkup(btn))    #if movie found at IMDB
-    await asyncio.sleep(10)
-    await m.delete()
->>>>>>> Stashed changes
 
 
 async def manual_filters(client, message, text=False):
