@@ -135,7 +135,11 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
+<<<<<<< Updated upstream
             k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin responses.')
+=======
+            k = await query.message.edit(f'A') #IF NOT AT MY DATA
+>>>>>>> Stashed changes
             await asyncio.sleep(10)
             await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin responses.')
 
@@ -957,7 +961,7 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("B")
+        k = await msg.reply("B") #IF not found movie.
         await asyncio.sleep(8)
         await k.delete()
         return
@@ -986,7 +990,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("C")
+        k = await msg.reply("C")   #if not found at IMDB
         await asyncio.sleep(10)
         await k.delete()
         return
@@ -998,7 +1002,13 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
+<<<<<<< Updated upstream
     m = await msg.reply(f"I couldn't find your movie.\n Did you want any of this👇", reply_markup=InlineKeyboardMarkup(btn))
+=======
+    m = await msg.reply(f"D", reply_markup=InlineKeyboardMarkup(btn))    #if movie found at IMDB
+    await asyncio.sleep(10)
+    await m.delete()
+>>>>>>> Stashed changes
 
 
 async def manual_filters(client, message, text=False):
