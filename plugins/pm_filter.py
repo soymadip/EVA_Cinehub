@@ -135,9 +135,9 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin responses.')
+            k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
             await asyncio.sleep(10)
-            await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin responses.')
+            await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads')
 
 
 @Client.on_callback_query()
@@ -957,8 +957,8 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("B") #IF not found movie.
-        await asyncio.sleep(8)
+        k = await msg.reply("🤖Checking.....") #IF not found movie.
+        await asyncio.sleep(1)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
