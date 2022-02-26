@@ -943,7 +943,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         fuk = await message.reply_photo(photo="https://telegra.ph/file/473735000c944f51b38bd.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(240)
-        await fuk.edit(f"\n \n⚙️ Result For **{search}**  Closed ️")
+        await fuk.edit(f"\n \n{message.from_user.mention}'s⚙️ Result For **{search}**  Closed ️")
     if spoll:
         await msg.message.delete()
 
