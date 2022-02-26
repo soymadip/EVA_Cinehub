@@ -1,5 +1,5 @@
 class script(object):
-    START_TXT = """ℍ𝔼𝕃𝕃𝕆 {}\n\n 𝕀 𝔸𝕄 <a href=https://t.me/{}>{}</a>\n 𝕀 𝔻𝔼𝕃𝕀𝕍𝕀𝔼ℝ ℝ𝔼ℚ𝕌𝔼𝕊𝕋𝔼𝔻 𝕄𝔼𝔻𝕀𝔸 𝕋𝕆 ℙ𝔼𝕆ℙ𝕃𝔼.\n𝔻𝕆ℕ𝕋 𝔽𝕆ℝ𝔾𝔼𝕋 𝕋𝕆 𝔽𝕆𝕃𝕃𝕆𝕎 𝕄𝕐 𝕌𝕆𝔻𝔸𝕋𝔼𝕊 ℂℍ𝔸ℕℕ𝔼𝕃 𝔹𝔼𝔽𝕆ℝ𝔼 𝕌𝕊𝕀ℕ𝔾 𝕄𝔼."""
+    START_TXT = """ℍ𝔼𝕃𝕃𝕆 {}\n\n 𝕀 𝔸𝕄 <a href=https://t.me/{}>{}</a>\n 𝕀 𝔻𝔼𝕃𝕀𝕍𝕀𝔼ℝ ℝ𝔼ℚ𝕌𝔼𝕊𝕋𝔼𝔻 𝕄𝔼𝔻𝕀𝔸 𝕋𝕆 ℙ𝔼𝕆ℙ𝕃𝔼.\n𝕀𝕗 𝕪𝕠𝕦 𝕨𝕒𝕟𝕥 𝕒 𝕞𝕠𝕧𝕚𝕖 𝕡𝕣𝕠𝕧𝕚𝕕𝕚𝕟𝕘 𝕘𝕣𝕠𝕦𝕡, 𝕥𝕙𝕖𝕟 𝕛𝕦𝕤𝕥 𝕒𝕕𝕕 𝕞𝕖 𝕥𝕙𝕖𝕣𝕖 𝕒𝕤 𝕒𝕕𝕞𝕚𝕟."""
     HELP_TXT = """𝙷𝙴𝚈 {}
 ℍ𝔼ℝ𝔼 𝕀𝕊 𝕄𝕐 ℂ𝕆𝕄𝕄𝔸ℕ𝔻𝕊."""
     ABOUT_TXT = """
@@ -10,8 +10,8 @@ class script(object):
 > 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
 > 𝙱𝚄𝙸𝙻𝙳: v1.0.1 [ ℂ𝕀ℕ𝔼ℍ𝕌𝔹 𝕍𝔼ℝ𝕊𝕀𝕆ℕ ]"""
     SOURCE_TXT = """<b>SOURCE:--</b> 
->𝕄𝕐 𝕊𝕆𝕌ℝℂ𝔼:- <a href= https://github.com/soymadip/EVA_Cinehub.git>𝗘𝘃𝗮_𝗖𝗶𝗻𝗲𝗵𝘂𝗯</a>.\n
->𝔻𝔼𝕍:- <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>"""
+• 𝕄𝕐 𝕊𝕆𝕌ℝℂ𝔼:- <a href= https://github.com/soymadip/EVA_Cinehub.git>𝗘𝘃𝗮𝗖𝗶𝗻𝗲𝗵𝘂𝗯</a>.\n
+• 𝔻𝔼𝕍:- <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 - 𝔽𝕚𝕝𝕥𝕖𝕣 𝕚𝕤 𝕥𝕙𝕖 𝕗𝕖𝕒𝕥𝕦𝕣𝕖 𝕨𝕖𝕣𝕖 𝕦𝕤𝕖𝕣𝕤 𝕔𝕒𝕟 𝕤𝕖𝕥 𝕒𝕦𝕥𝕠𝕞𝕒𝕥𝕖𝕕 𝕣𝕖𝕡𝕝𝕚𝕖𝕤 𝕗𝕠𝕣 𝕒 𝕡𝕒𝕣𝕥𝕚𝕔𝕦𝕝𝕒𝕣 𝕜𝕖𝕪𝕨𝕠𝕣𝕕 𝕒𝕟𝕕 𝔼𝕧𝕒𝕄𝕒𝕣𝕚𝕒 𝕨𝕚𝕝𝕝 𝕣𝕖𝕤𝕡𝕠𝕟𝕕 𝕨𝕙𝕖𝕟𝕖𝕧𝕖𝕣 𝕒 𝕜𝕖𝕪𝕨𝕠𝕣𝕕 𝕚𝕤 𝕗𝕠𝕦𝕟𝕕 𝕥𝕙𝕖 𝕞𝕖𝕤𝕤𝕒𝕘𝕖.
 <b>NOTE:</b>
@@ -59,10 +59,10 @@ these are the extra features of ME
 <b>NOTE:</b>
 𝑇ℎ𝑖𝑠 𝑚𝑜𝑑𝑢𝑙𝑒 𝑜𝑛𝑙𝑦 𝑤𝑜𝑟𝑘𝑠 𝑓𝑜𝑟 𝑚𝑦 𝑎𝑑�"""
     STATUS_TXT = """✗ 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
-✗ 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
-✗ 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
-✗ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>
-✗ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>"""
+• 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
+• 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
+• 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>
+• 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>"""
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
