@@ -38,7 +38,7 @@ async def give_filter(client, message):
 
 
 
-@Client.on_message(filters.text & filters.private & filters.incoming) 
+@Client.on_message(filters.text & filters.private & filters.incoming) #PM guide module
 async def filter(client, message):
     if message.text.startswith("/"):
         return 
@@ -48,7 +48,7 @@ async def filter(client, message):
             InlineKeyboardButton('⚡️ ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ⚡️', url=f'https://t.me/cinemaforyou07')
         ]
         ]
-        await client.send_message(chat_id=message.from_user.id, text='Do not request here😡,\n\n<b>Request in group.</b>', reply_markup=InlineKeyboardMarkup(btn))
+        await client.send_message(chat_id=message.from_user.id, text='Do not request here😡\n\n<b>Request in Chatbox group.</b>', reply_markup=InlineKeyboardMarkup(btn))
 
 
 
