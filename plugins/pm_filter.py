@@ -115,45 +115,12 @@ async def next_page(bot, query):
         pass
     await query.answer()
 
-
- @Client.on_message(filters.text & filters.private & filters.incoming)
- async def filter(client, message):
-
-     if message.text.startswith("/"): 
-
-         return 
-     
-     if AUTH_USERS:
-
-         return
-
-     else: 
-         await client.send_message( 
-
-                 chat_id=message.from_user.id, 
-
-                 text="**Please request at my group**", 
-
-                 reply_markup=InlineKeyboardMarkup( 
-
-                     [ 
-
-                         [ 
-
-                             InlineKeyboardButton("🤖 Cinehub Chatbox", url=f'https://t.me/cinemaforyou07') 
-
-                         ] 
-
-                     ] 
-
-                 ), 
-
-                 parse_mode="markdown" 
-
-             )
-
-
 #trying to auto private-guide
+@Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
+async def filter(client, message):
+    if AUTH_USERS:
+        return
+    await client.send_message(chat_id=message.from_user.id, f'Request in group')
 
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
