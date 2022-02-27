@@ -414,6 +414,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(buttons),
             protect_content=True if ident == 'checksubp' else False
         )
+        await bot.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
