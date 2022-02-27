@@ -136,7 +136,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
-            await bot.send_message(LOG_CHANNEL,f'Request pending of {query.from_user.first_name}', disable_notification=True)
+            await bot.send_message(LOG_CHANNEL,f'Request pending of {query.from_user.first_name}')
             await asyncio.sleep(2)
             await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads')
 
@@ -366,7 +366,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
+                await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} took file: <b>{files.file_name}]</b>')
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
