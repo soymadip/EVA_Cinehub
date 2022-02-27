@@ -116,6 +116,11 @@ async def next_page(bot, query):
     await query.answer()
 
 
+@Client.on_message(filters.private & filters.text & filters.incoming)
+await asyncio.sleep(2)
+await msg.reply(f"I couldn't find your movie.😑\n\n<b>Did you want any of these</b>👇")
+
+
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
@@ -137,8 +142,6 @@ async def advantage_spoll_choker(bot, query):
         else:
             k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
             await bot.send_message(LOG_CHANNEL,f'Request pending of {query.from_user.first_name}')
-            await asyncio.sleep(2)
-            await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads')
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
