@@ -364,7 +364,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} took file: <b>{files.file_name}]</b>')
+                await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} took file: \n<b>{files.file_name}</b>')
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
@@ -405,7 +405,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemaforyou07')]
             ]
         await query.answer()
-        await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
+        await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} took file :\n<b>{files.file_name}</b>')
         await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
