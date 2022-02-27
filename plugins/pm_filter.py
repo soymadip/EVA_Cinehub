@@ -136,9 +136,9 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
-            await asyncio.sleep(10)
+            await asyncio.sleep(5)
             await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads')
-            await bot.send_message(LOG_CHANNEL,f'#NewRequest:-', Disable_notification=True)
+            await bot.send_message(LOG_CHANNEL,f'#NewRequest:- {search} [https://t.me/{chat_name}/{message_id}]', Disable_notification=True)
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -875,14 +875,14 @@ async def auto_filter(client, msg, spoll=False):
              InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="⭕️ Check PM ⭕️",url="https://t.me/{temp.U_NAME}")]
+            [InlineKeyboardButton(text="⭕️ Check PM ⭕️",url="https://t.me/CinemaHub_Manager01bot")]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="⭕️ Check PM ⭕️",url="https://t.me/{temp.U_NAME}")]
+            [InlineKeyboardButton(text="⭕️ Check PM ⭕️",url="https://t.me/CinemaHub_Manager01bot")]
         )
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
