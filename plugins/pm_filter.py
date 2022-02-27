@@ -116,10 +116,9 @@ async def next_page(bot, query):
     await query.answer()
 
 
- @Client.on_message(filters.text & filters.private & filters.incoming ) 
-
- async def filter(client, message): 
-
+ @Client.on_message(filters.text & filters.private & filters.incoming )
+ async def filter(client, message):
+     
      if message.text.startswith("/"): 
 
          return 
