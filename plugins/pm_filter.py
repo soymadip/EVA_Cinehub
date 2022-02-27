@@ -120,7 +120,8 @@ async def next_page(bot, query):
 async def filter(client, message):
     if AUTH_USERS:
         return
-    await client.send_message(chat_id=message.from_user.id, f'Request in group')
+    else:
+        await msg.reply(f"I couldn't find your movie.😑\n\n<b>Request in group.</b>👇")
 
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
