@@ -136,9 +136,9 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
-            await asyncio.sleep(5)
+            await asyncio.sleep(2)
             await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads')
-            await bot.send_message(LOG_CHANNEL,f'#NewRequest:-{query}[https://t.me/{message_id}]', Disable_notification=True)
+            await bot.send_message(LOG_CHANNEL,f'Request pending of {query.from_user.first_name}', Disable_notification=True)
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -374,6 +374,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True if ident == "filep" else False,
                 )
                 await query.answer(f'Hey {query.from_user.first_name} Check PM, I have sent files in pm',show_alert = True)
+                await bot.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
         except UserIsBlocked:
             await query.answer(f'Hey {query.from_user.first_name} Unblock the bot mahn !',show_alert = True)
         except PeerIdInvalid:
