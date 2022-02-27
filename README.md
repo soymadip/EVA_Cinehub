@@ -33,7 +33,7 @@
 - [x] Url Shortner
 - [x] Mdisk converter (under development)
 - [x] Log of files taken by users.
-- [x] Improved spellCheck A.I
+- [x] Improved spellCheck A.I, Now it's more practical.
 - [x] IN PROGRESS:- **surprise**
 - [x] Many others developing.....
 
