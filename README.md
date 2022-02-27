@@ -33,8 +33,9 @@
 - [x] Url Shortner
 - [x] Mdisk converter (under development)
 - [x] Log of files taken by users.
+- [x] logs of pending requests 
 - [x] Improved spellCheck A.I, Now it's more practical.
-- [x] IN PROGRESS:- **surprise**
+- [ ] IN PROGRESS:- **surprise**
 - [x] Many others developing.....
 
 ## Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
