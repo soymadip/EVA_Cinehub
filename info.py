@@ -30,6 +30,7 @@ auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
+BOT_USERNAME = environ.get('BOT_USERNAME', 'CinemaHub_Manager01bot')
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "")
@@ -57,10 +58,6 @@ PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 CHANNEL = environ.get('CUSTOM_FOOTER')
 
 
-class bot_info(object):
-    BOT_NAME = None
-    BOT_USERNAME = None
-    BOT_ID = None
 
 LOG_STR = "Current Cusomized Configurations are:-\n"
 LOG_STR += ("IMDB Results are enabled, Bot will be showing imdb details for you queries.\n" if IMDB else "IMBD Results are disabled.\n")
