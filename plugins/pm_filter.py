@@ -45,10 +45,10 @@ async def filter(client, message):
     if 2 < len(message.text) < 15:
         btn = [
         [
-            InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemaforyou07')
+            InlineKeyboardButton('⚡️ ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ⚡️', url=f'https://t.me/cinemaforyou07')
         ]
         ]
-        await client.send_message(chat_id=message.from_user.id, text='Do not request here,  <b>Request in group.</b>', reply_markup=InlineKeyboardMarkup(btn))
+        await client.send_message(chat_id=message.from_user.id, text='Do not request here😡,\n\n<b>Request in group.</b>', reply_markup=InlineKeyboardMarkup(btn))
 
 
 
