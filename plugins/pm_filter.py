@@ -605,14 +605,14 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results) / 10)}", callback_data="pages"),
              InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
         )
-        buttons.append(
+        btn.append(
                 [InlineKeyboardButton(text="🤖 CHECK MY PM 🤖", url=f"https://telegram.dog/{info.BOT_USERNAME}")]
             )
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
-        buttons.append(
+        btn.append(
                 [InlineKeyboardButton(text="🤖 CHECK MY PM 🤖", url=f"https://telegram.dog/{info.BOT_USERNAME}")]
             )
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
