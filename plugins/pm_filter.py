@@ -366,6 +366,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
+                await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
@@ -374,7 +375,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True if ident == "filep" else False,
                 )
                 await query.answer(f'Hey {query.from_user.first_name} Check PM, I have sent files in pm',show_alert = True)
-                await bot.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
         except UserIsBlocked:
             await query.answer(f'Hey {query.from_user.first_name} Unblock the bot mahn !',show_alert = True)
         except PeerIdInvalid:
@@ -407,6 +407,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemahub02')]
             ]
         await query.answer()
+        await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
         await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
@@ -414,7 +415,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(buttons),
             protect_content=True if ident == 'checksubp' else False
         )
-        await bot.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
