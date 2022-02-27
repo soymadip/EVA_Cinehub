@@ -48,7 +48,8 @@ async def filter(client, message):
             InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemaforyou07')
         ]
         ]
-        await client.send_message(chat_id=message.from_user.id, text='     🔰<b>𝗡𝗢𝗧𝗜𝗖𝗘</b>🔰\n\n\nDo not request here😡\n\n<b>Request in CINEMA HUB group.</b>', reply_markup=InlineKeyboardMarkup(btn))
+        await client.send_message(chat_id=message.from_user.id, text='This chat is only for movie delevery.')
+        await client.send_message(chat_id=message.from_user.id, text='.    🔰<b>𝗡𝗢𝗧𝗜𝗖𝗘</b>🔰\n\n\nDo not request here😡\n\n<b>Request in CINEMA HUB group.</b>', reply_markup=InlineKeyboardMarkup(btn))
 
 
 
