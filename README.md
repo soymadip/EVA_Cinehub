@@ -33,8 +33,9 @@
 - [x] Url Shortner
 - [x] Mdisk converter (under development)
 - [x] Log of files taken by users.
-- [x] Improved spellCheck A.I
-- [x] IN PROGRESS:- **surprise**
+- [x] logs of pending requests 
+- [x] Improved spellCheck A.I, Now it's more practical.
+- [ ] IN PROGRESS:- **surprise**
 - [x] Many others developing.....
 
 ## Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
@@ -99,7 +100,7 @@ python3 bot.py
 • /leave  - to leave from a chat.
 • /disable  -  do disable a chat.
 * /enable - re-enable chat.
-• /ban  - to ban a user.
+• /ban_user  - to ban a user.
 • /unban  - to unban a user.
 • /channel - to get list of total connected channels
 • /broadcast - to broadcast a message to all users.
