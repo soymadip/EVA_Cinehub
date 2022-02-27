@@ -138,7 +138,8 @@ async def advantage_spoll_choker(bot, query):
             k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
             await asyncio.sleep(10)
             await k.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads')
-
+            await bot.send_message(LOG_CHANNEL,
+                           f'#IndexRequest')
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
