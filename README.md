@@ -100,7 +100,7 @@ python3 bot.py
 • /leave  - to leave from a chat.
 • /disable  -  do disable a chat.
 * /enable - re-enable chat.
-• /ban  - to ban a user.
+• /ban_user  - to ban a user.
 • /unban  - to unban a user.
 • /channel - to get list of total connected channels
 • /broadcast - to broadcast a message to all users.
