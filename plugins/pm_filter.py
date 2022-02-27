@@ -606,14 +606,14 @@ async def auto_filter(client, msg, spoll=False):
              InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="⭕️ CHECK PM ⭕️",url="https://telegram.dog/{BOT_USERNAME}")]
+            [InlineKeyboardButton(text="⭕️ CHECK PM ⭕️",url='https://telegram.dog/{BOT_USERNAME}')]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="⭕️ CHECK PM ⭕️",url="https://telegram.dog/{BOT_USERNAME}")]
+            [InlineKeyboardButton(text="⭕️ CHECK PM ⭕️",url='https://telegram.dog/{BOT_USERNAME}')]
         )
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
