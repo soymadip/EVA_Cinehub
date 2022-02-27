@@ -39,18 +39,15 @@ async def give_filter(client, message):
 
 
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming) 
-
- async def filter(client, message): 
-
-     if message.text.startswith("/"):
-         return 
-
-     if 2 < len(message.text) < 100:
+async def filter(client, message):
+    if message.text.startswith("/"):
+        return 
+    if 2 < len(message.text) < 100:
          await client.send_message(chat_id=message.from_user.id, text='CAADBQADIgMAAlrH6FWxbCzurm_WsAI')
 
 
 
-         
+
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
