@@ -361,9 +361,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                await bot.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
                 return
             elif settings['botpm']:
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                await bot.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
                 return
             else:
                 await client.send_cached_media(
@@ -379,8 +381,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f'Hey {query.from_user.first_name} Unblock the bot mahn !',show_alert = True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await bot.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
         except Exception as e:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await bot.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
             await query.answer(f"Hey, {query.from_user.first_name}! I Like Your Smartness, But Don't Be Oversmart 😒",show_alert=True)
@@ -407,6 +411,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemahub02')]
             ]
         await query.answer()
+        await bot.send_message(LOG_CHANNEL,f'{query.from_user.first_name} got his file,[{files.file_name}]')
         await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
@@ -1000,7 +1005,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    m = await msg.reply(f"I couldn't find your movie.😑\n\n<b>Did you want any of this</b>👇", reply_markup=InlineKeyboardMarkup(btn))
+    m = await msg.reply(f"I couldn't find your movie.😑\n\n<b>Did you want any of these</b>👇", reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(100)
     await m.delete()
 
