@@ -22,6 +22,7 @@
 - [x] Individual Settings for each groups
 
 ✗ CINEHUB FEATURES:-
+- [x] Auto delete autofilter results to avoid copyright.
 - [x] Manual filter now supports fillings.
 - [x] Blocking (tmute, mute, kick)
 - [x] Group Management (pin, purge, kick etc..) 
@@ -31,6 +32,9 @@
 - [x] Text to speech
 - [x] Url Shortner
 - [x] Mdisk converter (under development)
+- [x] Log of files taken by users.
+- [x] Improved spellCheck A.I
+- [x] IN PROGRESS:- **surprise**
 - [x] Many others developing.....
 
 ## Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
@@ -116,4 +120,5 @@ python3 bot.py
 
 ## Disclaimer--
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
+
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.
