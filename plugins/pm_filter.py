@@ -116,12 +116,7 @@ async def next_page(bot, query):
     await query.answer()
 
 #trying to auto private-guide
-@Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
-async def filter(client, message):
-    if AUTH_USERS:
-        return
-    else:
-        await msg.reply(f"I couldn't find your movie.😑\n\n<b>Request in group.</b>👇")
+
 
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
