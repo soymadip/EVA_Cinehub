@@ -136,7 +136,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
-            await bot.send_message(LOG_CHANNEL,f'pending Request of {query.from_user.first_name}\n\nLink: https://t.me/cinemaforyou07/{query.message.reply_to_message.message_id}')
+            await bot.send_message(LOG_CHANNEL,f'pending Request of {query.from_user.first_name}\n\n<b>Link</b>: https://t.me/cinemaforyou07/{query.message.reply_to_message.message_id}', disable_web_page_preview= True)
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
