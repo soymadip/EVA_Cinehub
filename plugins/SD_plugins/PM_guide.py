@@ -7,6 +7,10 @@ from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.handlers import CallbackQueryHandler
+from pyrogram import Client, filters
+from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results
 
