@@ -42,13 +42,13 @@ async def give_filter(client, message):
 async def filter(client, message):
     if message.text.startswith("/"):
         return 
-    if 2 < len(message.text) < 15:
+    if 2 < len(message.text) < 10:
         btn = [
         [
-            InlineKeyboardButton('⚡️ ℂ𝕚𝕟𝕖𝕙𝕦𝕓 ⚡️', url=f'https://t.me/cinemaforyou07')
+            InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemaforyou07')
         ]
         ]
-        await client.send_message(chat_id=message.from_user.id, text='Do not request here😡\n\n<b>Request in Chatbox group.</b>', reply_markup=InlineKeyboardMarkup(btn))
+        await client.send_message(chat_id=message.from_user.id, text='     🔰<b>𝗡𝗢𝗧𝗜𝗖𝗘</b>🔰\n\n\nDo not request here😡\n\n<b>Request in CINEMA HUB group.</b>', reply_markup=InlineKeyboardMarkup(btn))
 
 
 
