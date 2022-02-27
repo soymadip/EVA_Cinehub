@@ -43,7 +43,7 @@ async def filter(client, message):
     if message.text.startswith("/"):
         return 
     if 2 < len(message.text) < 15:
-        buttons = [
+        btn = [
         [
             InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemaforyou07')
         ]
