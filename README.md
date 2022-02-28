@@ -35,8 +35,9 @@
 - [x] Log of files taken by users.
 - [x] logs of pending requests 
 - [x] Improved spellCheck A.I, Now it's more practical.
-- [ ] IN PROGRESS:- **surprise**
-- [x] Many others developing.....
+- [x] PM guide.
+- [ ] FUTURE PLAN : Improve PM guide to enable or disable PM result.
+- [ ] Many others developing.....
 
 ## Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
 
