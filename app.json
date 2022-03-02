@@ -62,7 +62,7 @@
             "required": false
         },
         "SUPPORT_CHAT": {
-            "description": "Name of the group where it will work.",
+            "description": "Link of the group where it will work.",
             "required": true
         },
         "COLLECTION_NAME": {
