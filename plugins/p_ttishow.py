@@ -259,7 +259,7 @@ async def list_chats(bot, message):
 async def filter(client, message):
     if message.text.startswith("/"):
         return 
-    if 2 < len(message.text) < 10:
+    if 2 < len(message.text) < 20:
         btn = [
         [
             InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemaforyou07')
