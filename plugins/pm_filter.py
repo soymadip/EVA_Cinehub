@@ -135,9 +135,9 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            await bot.send_message(LOG_CHANNEL,f'Pending Request of {query.from_user.first_name}\n{query.message}\n\n<b>Link</b> : {SUPPORT_CHAT}/{query.message.reply_to_message.message_id}', disable_web_page_preview= True)
             await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
-            
+            await bot.send_message(LOG_CHANNEL,f'Pending Request of {query.from_user.first_name}\n{query.message}\n\n<b>Link</b> : {SUPPORT_CHAT}/{query.message.reply_to_message.message_id}', disable_web_page_preview= True)
+             
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -732,8 +732,6 @@ async def advantage_spell_chok(msg):
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     m = await msg.reply(f"I think wrong spelling😑.\n\n<b>Did you want any of these</b>👇", reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(12)
-    await m.edit(f'⛑Data closed⛑')
-    await asyncio.sleep(100)
     await m.delete()
 
 
