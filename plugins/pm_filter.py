@@ -136,8 +136,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
-            await bot.send_message(LOG_CHANNEL,f'Pending Request of {query.from_user.first_name}\n{query.message}\n\n<b>Link</b> : {SUPPORT_CHAT}/{query.message.reply_to_message.message_id}', disable_web_page_preview= True)
-             
+            await bot.send_message(LOG_CHANNEL,f'Pending Request of {query.from_user.first_name}\n\n<b>Link</b> : {SUPPORT_CHAT}/{query.message.reply_to_message.message_id}', disable_web_page_preview= True)
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -578,7 +577,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -656,25 +655,25 @@ async def auto_filter(client, msg, spoll=False):
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(60)
+            await asyncio.sleep(600)
             await hehe.delete()
-            await hehe.edit(f"\n \n⚙️ {message.from_user.mention}'s Result For **{search}**  Closed ️")
+            await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(60)
+            await asyncio.sleep(200)
             await hmm.delete()
-            await hmm.edit(f"\n \n⚙️ {message.from_user.mention}'s Result For **{search}**  Closed ️")
+            await message.delete()
         except Exception as e:
             logger.exception(e)
             fek = await message.reply_photo(photo="https://t.me/sdsdsd070/2", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(60)
+            await asyncio.sleep(200)
             await fek.delete()
-            await fek.edit(f"\n \n⚙️ {message.from_user.mention}'s Result For **{search}**  Closed ️")
+            await msg.delete()
     else:
         fuk = await message.reply_photo(photo="https://t.me/sdsdsd070/2", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(60)
+        await asyncio.sleep(120)
         await fuk.edit(f"\n \n⚙️ {message.from_user.mention}'s Result For **{search}**  Closed ️")
     if spoll:
         await msg.message.delete()
@@ -730,8 +729,8 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    m = await msg.reply(f"I think wrong spelling😑.\n\n<b>Did you want any of these</b>👇", reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(15)
+    m = await msg.reply(f"I couldn't find your movie.😑\n\n<b>Did you want any of these</b>👇", reply_markup=InlineKeyboardMarkup(btn))
+    await asyncio.sleep(100)
     await m.delete()
 
 
