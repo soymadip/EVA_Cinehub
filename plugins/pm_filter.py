@@ -577,7 +577,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"{file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -730,7 +730,7 @@ async def advantage_spell_chok(msg):
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     m = await msg.reply(f"I couldn't find your movie.😑\n\n<b>Did you want any of these</b>👇", reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(100)
+    await asyncio.sleep(15)
     await m.delete()
 
 
