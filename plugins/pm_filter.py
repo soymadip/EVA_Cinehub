@@ -731,7 +731,9 @@ async def advantage_spell_chok(msg):
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     m = await msg.reply(f"I think wrong spelling😑.\n\n<b>Did you want any of these</b>👇", reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(20)
-    await m.edit(f'..')
+    await m.edit(f'Data closed')
+    await asyncio.sleep(100)
+    await m.delete()
 
 
 
