@@ -7,7 +7,7 @@ from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, MAINCHANNEL_ID, P_TTI_SHOW_OFF, IMDB, \
+from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, LOG_CHANNEL, SUPPORT_CHAT
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.handlers import CallbackQueryHandler
@@ -34,8 +34,6 @@ SPELL_CHECK = {}
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
-        m = await text_filter(client, message)
-    if m == False:   
         await auto_filter(client, message)
 
 
@@ -736,59 +734,6 @@ async def advantage_spell_chok(msg):
     await m.delete()
 
 
-
-async def text_filter(client, msg, spoll=False):
-    if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
-        return
-
-    if len(message.text) > 2:
-        message = msg    
-        btn = []
-        async for msg in client.USER.search_messages(MAINCHANNEL_ID,query=message.text,filter='url'):
-            file_name = msg.text
-            msg_id = msg.message_id                     
-            link = msg.link
-            btn.append(
-                [InlineKeyboardButton(text=f"{file_name}",url=f"{link}")]
-            )
-
-        if not btn:
-            return
-
-        if len(btn) > 10: 
-            btns = list(split_list(btn, 10)) 
-            keyword = f"{message.chat.id}-{message.message_id}"
-            BUTTONS[keyword] = {
-                "total" : len(btns),
-                "buttons" : btns
-            }
-        else:
-            buttons = btn
-            buttons.append(
-                [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
-            )
-            kek = await message.reply_text(
-                f"<b>️📽️ℝ𝕖𝕢𝕦𝕖𝕤𝕥𝕖𝕕 </b>: {message.text}\n\n⚙️<b>𝗧𝗵𝗶𝘀 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝘄𝗶𝗹𝗹 𝗯𝗲 𝗱𝗲𝗹𝗲𝘁𝗲𝗱 𝗮𝗳𝘁𝗲𝗿 1 𝗺𝗶𝗻𝘂𝘁𝗲.</b>",
-                reply_markup=InlineKeyboardMarkup(buttons)
-            )
-            await asyncio.sleep(60)
-            await kek.edit(f'⚙️Result Closed')
-            return
-
-        data = BUTTONS[keyword]
-        buttons = data['buttons'][0].copy()
-
-        buttons.append(
-            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}")]
-        )    
-        buttons.append(
-            [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
-        )
-
-        await message.reply_text(
-                f"<b>️📽️ℝ𝕖𝕢𝕦𝕖𝕤𝕥𝕖𝕕 </b> : {message.text}\n\n⚙️<b>𝗧𝗵𝗶𝘀 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝘄𝗶𝗹𝗹 𝗯𝗲 𝗱𝗲𝗹𝗲𝘁𝗲𝗱 𝗮𝗳𝘁𝗲𝗿 1 𝗺𝗶𝗻𝘂𝘁𝗲.</b>",
-                reply_markup=InlineKeyboardMarkup(buttons)
-            )
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
