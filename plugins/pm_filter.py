@@ -741,7 +741,8 @@ async def text_filter(client, msg, spoll=False):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
 
-    if len(message.text) > 2:    
+    if len(message.text) > 2:
+        message = msg    
         btn = []
         async for msg in client.USER.search_messages(MAINCHANNEL_ID,query=message.text,filter='url'):
             file_name = msg.text
