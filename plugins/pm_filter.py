@@ -146,7 +146,8 @@ async def advantage_spoll_choker(bot, query):
         else:
             await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
             await bot.send_message(LOG_CHANNEL,f'New Request of {query.from_user.first_name}\n\n<b>✘Link</b> : {SUPPORT_CHAT}/{query.message.reply_to_message.message_id}', disable_web_page_preview= True)
-            await bot.send_message(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
+            await asyncio.sleep(15)
+            await bot.send_message(chat_id=message.from_user.id, text='🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
