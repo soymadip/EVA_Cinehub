@@ -96,25 +96,25 @@ async def next_page(bot, query):
                                   callback_data="pages")]
         )
         btn.append(
-                [InlineKeyboardButton(text="⭕️ CHECK PM ⭕️", url=f"https://telegram.dog/{temp.U_NAME}")]
+                [InlineKeyboardButton(text="⭕️ ℂℍ𝔼ℂ𝕂 ℙ𝕄 ⭕️", url=f"https://telegram.dog/{temp.U_NAME}")]
             )
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
-             InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
+             InlineKeyboardButton("𝗡𝗘𝗫𝗧 ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
         btn.append(
-                [InlineKeyboardButton(text="⭕️ CHECK PM ⭕️", url=f"https://telegram.dog/{temp.U_NAME}")]
+                [InlineKeyboardButton(text="⭕️ ℂℍ𝔼ℂ𝕂 ℙ𝕄 ⭕️", url=f"https://telegram.dog/{temp.U_NAME}")]
             )
     else:
         btn.append(
             [
                 InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
-                InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("𝗡𝗘𝗫𝗧 ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
         btn.append(
-                [InlineKeyboardButton(text="⭕️ CHECK PM ⭕️", url=f"https://telegram.dog/{temp.U_NAME}")]
+                [InlineKeyboardButton(text="⭕️ ℂℍ𝔼ℂ𝕂 ℙ𝕄 ⭕️", url=f"https://telegram.dog/{temp.U_NAME}")]
             )
     try:
         await query.edit_message_reply_markup(
@@ -381,7 +381,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(buttons),
                     protect_content=True if ident == "filep" else False,
                 )
-                await query.answer(f'Hey {query.from_user.first_name} CHECK PM, I have sent files in pm',show_alert = True)
+                await query.answer(f'Hey {query.from_user.first_name} ℂℍ𝔼ℂ𝕂 ℙ𝕄, I have sent files in pm',show_alert = True)
         except UserIsBlocked:
             await query.answer(f'Hey {query.from_user.first_name} Unblock the bot mahn !',show_alert = True)
         except PeerIdInvalid:
