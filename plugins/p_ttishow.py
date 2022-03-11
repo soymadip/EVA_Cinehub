@@ -257,9 +257,8 @@ async def list_chats(bot, message):
 
 @Client.on_message(filters.text & filters.private & filters.incoming) #PM guide module
 async def filter(client, message):
-    st = await client.get_chat_member(userid)
-    if (st.status == "creator") or (str(userid) in ADMINS):
-        return
+    if AUTH_USERS and query.from_user and query.from_user.id in AUTH_USERS:
+        return True
     if message.text.startswith("/"):
         return 
     if 2 < len(message.text) < 30:
