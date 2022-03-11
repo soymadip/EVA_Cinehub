@@ -40,11 +40,11 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-            InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help")
+            InlineKeyboardButton('ℹ️ PM', url=f"https://t.me/anonymous7205")
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️</b>",
+            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\nplease give me invite link of this chat at PM.</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
@@ -75,7 +75,7 @@ async def leave_a_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b>',
+            text='<b>Hello admin, \nI am leaving.</b>',
             reply_markup=reply_markup,
         )
 
@@ -261,10 +261,10 @@ async def filter(client, message):
         return True
     if message.text.startswith("/"):
         return 
-    if 2 < len(message.text) < 30:
+    if 2 < len(message.text) < 50:
         btn = [
         [
             InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemaforyou07')
         ]
         ]
-        await client.send_message(chat_id=message.from_user.id, text='🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nDo not request here😡\nThis chat is only for <u>movie delevery</u>.\n\n<b>Tell in CINEMA HUB group👇🏻</b>', reply_markup=InlineKeyboardMarkup(btn))
+        await client.send_message(chat_id=message.from_user.id, text='🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nDo not request here😡\nThis chat is only for <u>movie delevery</u>.\n\n<b>Tell your query in CINEMA HUB group👇🏻</b>', reply_markup=InlineKeyboardMarkup(btn))

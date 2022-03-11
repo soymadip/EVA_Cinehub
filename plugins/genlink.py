@@ -29,7 +29,7 @@ async def gen_link_s(bot, message):
     if file_type not in ["video", 'audio', 'document', 'photo']:
         return await message.reply("Reply to a supported media")
     if message.has_protected_content and message.chat.id not in ADMINS:
-        return await message.reply("okDa")
+        return await message.reply("Lol")
     file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
     string += file_id
@@ -41,6 +41,8 @@ async def gen_link_s(bot, message):
 async def gen_link_batch(bot, message):
     if " " not in message.text:
         return await message.reply("Use correct format.\nExample <code>/batch https://t.me/Te https://t.me/T</code>.")
+    if message.chat.id not in ADMINS:
+        return await message.reply("Lol")
     links = message.text.strip().split(" ")
     if len(links) != 3:
         return await message.reply("Use correct format.\nExample <code>/batch https://t.me/T https://t.me/T</code>.")
