@@ -697,7 +697,6 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply("🤖Checking.....") #IF not found movie.
-        await asyncio.sleep(1)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -776,6 +775,7 @@ async def manual_filters(client, message, text=False):
                              disable_web_page_preview=True,
                              reply_to_message_id=reply_id
                             )
+                            await asyncio.sleep(15)
                             await dd.edit(f"\n \n⚙️ Result  Closed ️")
                         else:
                             button = eval(btn)
@@ -796,6 +796,7 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id = reply_id
                             )
+                            await asyncio.sleep(15)
                             await mm.edit(f"\n \n⚙️ Result  Closed ️")
                     elif btn == "[]":
                         await client.send_cached_media(
