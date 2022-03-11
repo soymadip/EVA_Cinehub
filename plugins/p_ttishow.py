@@ -257,7 +257,8 @@ async def list_chats(bot, message):
 
 @Client.on_message(filters.text & filters.private & filters.incoming) #PM guide module
 async def filter(client, message):
-    if (str(userid) in ADMINS):
+    st = await client.get_chat_member(userid)
+    if (st.status == "creator") or (str(userid) in ADMINS):
         return
     if message.text.startswith("/"):
         return 
