@@ -257,7 +257,7 @@ async def list_chats(bot, message):
 
 @Client.on_message(filters.text & filters.private & filters.incoming) #PM guide module
 async def filter(client, message):
-    if AUTH_USERS and query.from_user and query.from_user.id in AUTH_USERS:
+    if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
         return True
     if message.text.startswith("/"):
         return 
