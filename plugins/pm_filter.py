@@ -683,8 +683,6 @@ async def auto_filter(client, msg, spoll=False):
         fuk = await message.reply_photo(photo="https://telegra.ph/file/4e7e0a76a54d16ce2b80c.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(100)
         await fuk.edit(f"\n \n⚙️ {message.from_user.mention}'s Result For **{search}**  Closed ️")
-    if spoll:
-        await msg.message.delete()
 
 
 async def advantage_spell_chok(msg):
@@ -775,7 +773,7 @@ async def manual_filters(client, message, text=False):
                              disable_web_page_preview=True,
                              reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(15)
+                            await asyncio.sleep(7200)
                             await dd.edit(f"\n \n⚙️ Result  Closed ️")
                         else:
                             button = eval(btn)
@@ -796,7 +794,7 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id = reply_id
                             )
-                            await asyncio.sleep(15)
+                            await asyncio.sleep(7200)
                             await mm.edit(f"\n \n⚙️ Result  Closed ️")
                     elif btn == "[]":
                         await client.send_cached_media(
