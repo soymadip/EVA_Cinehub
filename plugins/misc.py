@@ -78,7 +78,7 @@ async def who_is(client, message):
     message_out_str += f"<b>✘Last Name:</b> {last_name}\n"
     message_out_str += f"<b>✘Telegram ID:</b> <code>{from_user.id}</code>\n"
     username = from_user.username or "<b>None</b>"
-    dc_id = from_user.dc_id or "[User Doesn't Have A Valid DP]"
+    dc_id = from_user.dc_id or "[Doesn't Have A Valid Dc]"
     message_out_str += f"<b>✘Data Centre:</b> <code>{dc_id}</code>\n"
     message_out_str += f"<b>✘User Name:</b> @{username}\n"
     message_out_str += f"<b>✘User 𝖫𝗂𝗇𝗄:</b> <a href='tg://user?id={from_user.id}'><b>Click Here</b></a>\n"
