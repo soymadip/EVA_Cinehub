@@ -37,7 +37,7 @@
 - [x] Improved spellCheck A.I, Now it's more practical.
 - [x] PM guide.
 - [ ] FUTURE PLAN : Improve PM guide to enable or disable PM result.
-- [ ] Many others developing.....
+- [ ] Many others coming.....
 
 ## Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
 
