@@ -5,7 +5,7 @@
 ## A fully functional Group Management Bot with Auto Filter and File store Feature.
 
   [![Size](https://img.shields.io/github/repo-size/soymadip/EVA_Cinehub?style=flat-square&color=green)](https://github.com/soymadip/EVA_Cinehub.git) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/soymadip/EVA_Cinehub.git)
-
+  [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter&count_bg=%23FF9008&title_bg=%23555555&icon=probot.svg&icon_color=%23E7E7E7&title=EVA&edge_flat=false)](https://hits.seeyoufarm.com)
 
 ## Features--
 
