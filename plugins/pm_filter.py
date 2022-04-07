@@ -381,6 +381,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True if ident == "filep" else False,
                 )
                 await query.answer(f'Hey {query.from_user.first_name} ℂℍ𝔼ℂ𝕂 ℙ𝕄, I have sent files',show_alert = True)
+                await asyncio.sleep(2)
+                await client.send_message({query.from_user.id},f'Please join my main channel and request there from future.\n Join via below button👇🏻',reply_markup=InlineKeyboardMarkup(buttons))
         except UserIsBlocked:
             await query.answer(f'Hey {query.from_user.first_name} Unblock the bot mahn !',show_alert = True)
         except PeerIdInvalid:
@@ -421,6 +423,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(buttons),
             protect_content=True if ident == 'checksubp' else False
         )
+        await asyncio.sleep(2)
+        await client.send_message({query.from_user.id},f'Please join my main channel and request there from future.\n Join via below button👇🏻',reply_markup=InlineKeyboardMarkup(buttons))
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
