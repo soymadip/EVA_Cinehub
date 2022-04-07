@@ -77,7 +77,7 @@ async def start(client, message):
             btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use me!\n Then return here and press 🔄 Try Again button below👇🏾.\n\n\n প্রথমে আমার Channel join করুন।\n\n তারপর 🔄 Try Again buttonটি টিপুন।\n আপনার ফাইল পেয়ে যাবেন তারপর।**",
+            text="**Please Join My Updates Channel to use me!\n Then return here and press 🔄 Try Again button below👇🏾.\n\n.....................\n\n প্রথমে আমার main chat join করুন।\n\n তারপর 🔄 Try Again buttonটি টিপুন।\n আপনার ফাইল পেয়ে যাবেন তারপর।**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode="markdown"
             )
