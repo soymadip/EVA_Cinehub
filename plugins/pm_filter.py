@@ -40,8 +40,13 @@ async def give_filter(client, message):
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
-    if int(req) not in [query.from_user.id, 0]:
-        return await query.answer(f"⚠️ Hey, {query.from_user.first_name}! Search Your Own File, Don't Click Others Results 😬", show_alert=True)
+    ad_user = query.from_user.id
+    if int(ad_user) in ADMINS:
+        pass
+    elif int(req) not in [query.from_user.id, 0]:
+        return await query.answer(
+            "All right, but this is not yours.;\nNice Try! But, This Was Not Your Request, Request Yourself;",
+            show_alert=True)
     try:
         offset = int(offset)
     except:
@@ -128,9 +133,12 @@ async def next_page(bot, query):
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
-    if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer(f"⚠️ Hey, {query.from_user.first_name}! Search Your Own File, Don't Click Others Results 😬", show_alert=True)
-    if movie_  == "close_spellcheck":
+    ad_user = query.from_user.id
+    if int(ad_user) in ADMINS:
+        pass
+    elif int(user) != 0 and query.from_user.id != int(user):
+        return await query.answer("okDa", show_alert=True)
+    if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
     if not movies:
@@ -342,6 +350,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
     if query.data.startswith("file"):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
+        user = query.message.reply_to_message.from_user.id
+        ad_user = query.from_user.id
+        if int(ad_user) in ADMINS:
+            pass
+        elif int(user) != 0 and query.from_user.id != int(user):
+            return await query.answer(
+                "All right, but this is not yours.;\nNice Try! But, This Was Not Your Request, Request Yourself;",
+                show_alert=True)
         if not files_:
             return await query.answer('No such file exist.')
         files = files_[0]
@@ -798,7 +814,6 @@ async def manual_filters(client, message, text=False):
                             await mm.edit(f"\n \n⚙️ Result  Closed ️")
                     elif btn == "[]":
                         await client.send_cached_media(
-                            group_id,
                             fileid,
                             caption=reply_text.format(
                                 first = message.from_user.first_name,
