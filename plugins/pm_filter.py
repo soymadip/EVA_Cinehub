@@ -814,6 +814,7 @@ async def manual_filters(client, message, text=False):
                             await mm.edit(f"\n \n⚙️ Result  Closed ️")
                     elif btn == "[]":
                         await client.send_cached_media(
+                            group_id,
                             fileid,
                             caption=reply_text.format(
                                 first = message.from_user.first_name,
