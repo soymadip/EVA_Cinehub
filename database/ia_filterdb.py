@@ -7,7 +7,7 @@ from pymongo.errors import DuplicateKeyError
 from umongo import Instance, Document, fields
 from motor.motor_asyncio import AsyncIOMotorClient
 from marshmallow.exceptions import ValidationError
-from info import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME, USE_CAPTION_FILTER
+from info import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME, USE_CAPTION_FILTER, LOG_CHANNEL
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -58,7 +58,7 @@ async def save_file(media):
             logger.warning(
                 f'{getattr(media, "file_name", "NO_FILE")} is already saved in database'
             )
-
+            await client.send_message(LOG_CHANNEL,{getattr(media, "file_name", "NO_FILE")} is already saved in database')
             return False, 0
         else:
             logger.info(f'{getattr(media, "file_name", "NO_FILE")} is saved to database')
