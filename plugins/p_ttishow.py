@@ -58,7 +58,7 @@ async def save_group(bot, message):
                         pass
                 temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}", parse_mode='html')   
 
-@Client.on_message(filters.new_chat_members & filters.channel)
+@Client.on_message(filters.new_chat_members & filters.group)
 async def count_user(bot, message):
     r_j_check = [u.id for u in message.new_chat_members]
     if u in message.new_chat_members:
