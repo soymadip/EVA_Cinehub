@@ -54,15 +54,15 @@ async def save_group(bot, message):
                     total=await bot.get_chat_members_count(message.chat.id)
                     try:
                         await (temp.MELCOW['welcome'])
+                        await bot.send_message(LOG_CHANNEL , f"{message.from_user.mention} joined {message.chat.title}\nNow suscribers")
                     except:
                         pass
                 temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}", parse_mode='html')   
 
-@Client.on_message(filters.new_chat_members & filters.group)
-async def count_user(bot, message):
-    r_j_check = [u.id for u in message.new_chat_members]
-    if u in message.new_chat_members:
-        await bot.send_message(LOG_CHANNEL , f"{message.from_user.mention} joined {message.chat.title}\nNow suscribers")
+#@Client.on_message(filters.new_chat_members & filters.group)
+#async def count_user(bot, message):
+ #   if u in message.new_chat_members:
+  #      await bot.send_message(LOG_CHANNEL , f"{message.from_user.mention} joined {message.chat.title}\nNow suscribers")
 
 
 
