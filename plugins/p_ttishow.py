@@ -51,8 +51,10 @@ async def save_group(bot, message):
         if settings["welcome"]:
             for u in message.new_chat_members:
                 if (temp.MELCOW).get('welcome') is not None:
+                    total=await bot.get_chat_members_count(message.chat.id)
                     try:
                         await (temp.MELCOW['welcome'])
+                        await bot.send_message(LOG_CHANNEL , f"{message.from_user.mention} joined {message.chat.title}\nNow suscribers : {total}")
                     except:
                         pass
                 temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}", parse_mode='html')
