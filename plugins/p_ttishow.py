@@ -56,8 +56,7 @@ async def save_group(bot, message):
                     except:
                         pass
                 temp.MELCOW['welcome'] = await message.reply(f"Hey {u.mention} {MELCOW_NEW_TEXT}", parse_mode='html')
-                        await bot.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, r_j))
-
+                        
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
