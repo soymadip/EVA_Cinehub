@@ -32,7 +32,7 @@ class Media(Document):
         collection_name = COLLECTION_NAME
 
 
-async def save_file(media):
+async def save_file(client, media):
     """Save file in database"""
 
     # TODO: Find better way to get same file_id for same media to avoid duplicates
