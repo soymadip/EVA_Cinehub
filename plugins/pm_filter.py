@@ -589,7 +589,7 @@ async def auto_filter(client, msg, spoll=False):
             [
             InlineKeyboardButton('⚡️Read request format⚡️', url=f'https://t.me/cinemaforyou07')]
             ]
-            await client.send_message(text=f"you didn't follow request format.\nRead request format and then request.", reply_markup=InlineKeyboardMarkup(buttons)) # ignore wrong formats
+            await client.send_message(chat_id=message.chat.id,f"You didn't follow request format\nRead request format and then request.", reply_markup=InlineKeyboardMarkup(buttons)) # ignore wrong formats
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
         if 1 < len(message.text) < 100:
