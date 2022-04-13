@@ -585,7 +585,7 @@ async def auto_filter(client, msg, spoll=False):
         settings = await get_settings(message.chat.id)
         if message.text.startswith("/"): return  # ignore commands
         if message.text.startswith("#"):
-            buttons = [
+        buttons = [
             [
             InlineKeyboardButton('⚡️Read request format⚡️', url=f'https://t.me/cinemaforyou07')]
             ]
