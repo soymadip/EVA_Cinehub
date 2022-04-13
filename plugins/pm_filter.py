@@ -585,7 +585,11 @@ async def auto_filter(client, msg, spoll=False):
         settings = await get_settings(message.chat.id)
         if message.text.startswith("/"): return  # ignore commands
         if message.text.startswith("#"):
-            await client.send_message(f"you didn't follow request format.\nRead request format and then request.") # ignore wrong formats
+            buttons = [
+            [
+            InlineKeyboardButton('⚡️Read request format⚡️', url=f'https://t.me/cinemaforyou07')]
+            ]
+            await client.send_message(text=f"you didn't follow request format.\nRead request format and then request.", reply_markup=InlineKeyboardMarkup(buttons)) # ignore wrong formats
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
         if 1 < len(message.text) < 100:
