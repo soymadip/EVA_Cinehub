@@ -152,8 +152,10 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            await query.message.edit(f'🧑🏽‍💻 I think it is not uploaded. Wait until admin uploads.')
+            await query.message.edit(f'🧑🏽‍💻 May be it is not uploaded. Wait until admin uploads.')
             await bot.send_message(LOG_CHANNEL,f'New Request of {query.from_user.first_name}\n\n<b>✘Link</b> :-\n{query.message.reply_to_message.link}', disable_web_page_preview= True)
+
+
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "close_data":
@@ -582,7 +584,8 @@ async def auto_filter(client, msg, spoll=False):
         message = msg
         settings = await get_settings(message.chat.id)
         if message.text.startswith("/"): return  # ignore commands
-        if message.text.startswith("#"): return  # ignore wrong formats
+        if message.text.startswith("#"):
+            await client.send_message(f"you didn't follow request format.\nRead request format and then request.") # ignore wrong formats
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
         if 1 < len(message.text) < 100:
