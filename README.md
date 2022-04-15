@@ -35,6 +35,7 @@
 - [x] logs of pending requests 
 - [x] Improved spellCheck A.I, Now it's more practical.
 - [x] PM guide.
+- [x] Users who banned bot, will be deleted automatically from db.
 - [ ] FUTURE PLAN : Improve PM guide to enable or disable PM result.
 - [ ] Many others coming.....
 
