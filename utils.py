@@ -145,6 +145,8 @@ async def broadcast_messages(user_id, message):
         return False, "Deleted"
     except UserIsBlocked:
         logging.info(f"{user_id} -Blocked the bot.")
+        await db.delete_user(int(user_id))
+        logging.info(f"{user_id}  deleted from db.")
         return False, "Blocked"
     except PeerIdInvalid:
         await db.delete_user(int(user_id))
