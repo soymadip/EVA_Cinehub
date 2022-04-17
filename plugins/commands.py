@@ -452,6 +452,11 @@ async def settings(client, message):
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
             ],
+            [
+                InlineKeyboardButton('Maintenanace', callback_data=f'setgs#maintenance#{settings["maintenance"]}#{grp_id}'),
+                 InlineKeyboardButton('✅ Yes' if settings["maintenance"] else '❌ No',
+                                         callback_data=f'setgs#maintenance#{settings["maintenance"]}#{grp_id}')
+            ],
         ]
 
         reply_markup = InlineKeyboardMarkup(buttons)
