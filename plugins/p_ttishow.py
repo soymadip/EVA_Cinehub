@@ -286,4 +286,4 @@ async def filter(client, message):
         ]
         ]
        # await client.send_message(chat_id=message.from_user.id, text='🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nDo not request here😡\nThis chat is only for <u>movie delevery</u>.\n\n<b>Tell your query in CINEMA HUB group👇🏻</b>', reply_markup=InlineKeyboardMarkup(btn))
-        await client.send_message(chat_id=message.from_user.id, text='🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nService is closed for 2 weeks.\nwill start again by <u>next month.</u>.\n\n<b>By this time,Make sure you have subscribed CINEMA HUB group👇🏻</b>', reply_markup=InlineKeyboardMarkup(btn))
+        await client.send_message(chat_id=message.from_user.id, text='🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nService is closed for 2 weeks.\nwill start again by <u>next month.</u>.\n\n<b>By this time, Make sure you have subscribed CINEMA HUB group👇🏻</b>', reply_markup=InlineKeyboardMarkup(btn))
