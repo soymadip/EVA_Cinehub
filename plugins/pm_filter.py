@@ -572,11 +572,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('Welcome', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
                     InlineKeyboardButton('✅ Yes' if settings["welcome"] else '❌ No',
                                          callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
-                ],
-                [
-                    InlineKeyboardButton('Maintenanace', callback_data=f'setgs#maintenance#{settings["maintenance"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["maintenance"] else '❌ No',
-                                         callback_data=f'setgs#maintenance#{settings["maintenance"]}#{str(grp_id)}')
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
@@ -608,13 +603,7 @@ async def auto_filter(client, msg, spoll=False):
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
     pre = 'filep' if settings['file_secure'] else 'file'
-    if settings["maintenance"]:
-        btn = [
-        [
-            InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemaforyou07')
-        ]
-        ]
-    elif settings["button"]:
+    if settings["button"]:
         btn = [
             [
                 InlineKeyboardButton(
@@ -716,8 +705,6 @@ async def auto_filter(client, msg, spoll=False):
         fuk = await message.reply_photo(photo="https://telegra.ph/file/4e7e0a76a54d16ce2b80c.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(150)
         await fuk.edit(f"\n \n⚙️ {message.from_user.mention}'s Result For **{search}**  Closed ️")
-    if settings["maintenance"]: 
-        await message.reply_photo(photo="https://telegra.ph/file/4e7e0a76a54d16ce2b80c.jpg", caption=f"🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nService is closed for 2 weeks.\nwill start again by <u>next month.</u>.\n\n<b>By this time, Make sure you have subscribed CINEMA HUB group👇🏻</b>", reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.edit(f"\n \n⚙️ Result  Closed ️")
 
