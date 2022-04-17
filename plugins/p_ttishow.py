@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_NEW_TEXT, AUTH_USERS, PM_GUIDE, MAINTENANCE_MODE
+from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_NEW_TEXT, AUTH_USERS, PM_FILTER, MAINTENANCE_MODE
 from database.users_chats_db import db
 from database.ia_filterdb import Media
 from utils import get_size, temp, get_settings
@@ -274,9 +274,9 @@ async def gen_invite(bot, message):
     await message.reply(f'Here is your Invite Link {link.invite_link}')
 
 
-@Client.on_message(filters.text & filters.private & filters.incoming) #PM guide module
+@Client.on_message(filters.text & filters.private & ~filters.edited & filters.incoming) #PM guide module
 async def filter(client, message):
-    if PM_GUIDE:
+    if PM_FILTER:
         if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
             return True
         if message.text.startswith("/"):
