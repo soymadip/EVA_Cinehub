@@ -22,6 +22,7 @@
 - [x] Individual Settings for each groups
 
 ✗ CINEHUB FEATURES:-
+- [x] MAINTENANCE MODE : When enabled, bot will tell everyone that maintenance is going on.
 - [x] Auto delete autofilter results to avoid copyright.
 - [x] Manual filter now supports fillings.
 - [x] Blocking (tmute, mute, kick)
