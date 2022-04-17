@@ -33,7 +33,7 @@ SPELL_CHECK = {}
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
         if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
-        return
+            return
     if message.text.startswith("/"):
         return 
     if 2 < len(message.text) < 50:
