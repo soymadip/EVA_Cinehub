@@ -274,7 +274,7 @@ async def gen_invite(bot, message):
     await message.reply(f'Here is your Invite Link {link.invite_link}')
 
 
-@Client.on_message(filters.text & filters.private & ~filters.edited & filters.incoming) #PM guide module
+@Client.on_message(filters.text & filters.private & ~filters.edited & filters.incoming) #PM filter module
 async def filter(client, message):
     if PM_FILTER:
         return

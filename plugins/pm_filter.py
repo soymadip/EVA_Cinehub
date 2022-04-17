@@ -50,6 +50,12 @@ async def give_filter(client, message):
             await auto_filter(client, message)
 
 
+@Client.on_message(filters.text & filters.private & ~filters.edited & filters.incoming) #PM Result
+async def filter(client, message):
+    if PM_FILTER:
+        await auto_filter(client, message)
+
+
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
