@@ -273,7 +273,7 @@ async def gen_invite(bot, message):
         return await message.reply(f'Error {e}')
     await message.reply(f'Here is your Invite Link {link.invite_link}')
 
-@Client.on_message(filters.text & filters.private & filters.group & filters.incoming) #PM guide module
+@Client.on_message(filters.text & filters.private & filters.incoming) #PM guide module
 async def filter(client, message):
     if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
         return True
