@@ -30,7 +30,7 @@ auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
-MAINTENANCE_MODE = environ.get('MAINTENANCE_MODE', 'False')
+MAINTENANCE_MODE = is_enabled((environ.get('MAINTENANCE_MODE', "False")), False)
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "")
