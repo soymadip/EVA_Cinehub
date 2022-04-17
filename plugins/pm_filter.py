@@ -43,7 +43,7 @@ async def give_filter(client, message):
             InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemaforyou07')
         ]
         ]
-        await client.send_message(chat_id=message.chat.id, text='🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nService is closed for 2 weeks.\nwill start again by <u>next month.</u>.\n\n<b>By this time, Make sure you have subscribed CINEMA HUB group👇🏻</b>', reply_markup=InlineKeyboardMarkup(btn))    
+        await message.reply_text(f"🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nService is closed for 2 weeks.\nwill start again by <u>next month.</u>.\n\nBy this time, Make sure <b>you have subscribed CINEMA HUB group👇🏻</b>", reply_markup=InlineKeyboardMarkup(btn))    
     else:
         k = await manual_filters(client, message)
         if k == False:
