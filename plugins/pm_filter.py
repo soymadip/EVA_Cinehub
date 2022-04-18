@@ -51,9 +51,9 @@ async def give_filter(client, message):
 
 
 
-@Client.on_message(filters.text & filters.private & filters.incoming)
-async def pm_filters(client, message):
-    await pm_autofilter(client, message)
+@Client.on_message(filters.private & filters.text & filters.incoming)
+async def private_give_filter(client, message):
+        await auto_filter(client, message)
 
 
 
