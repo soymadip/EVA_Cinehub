@@ -729,9 +729,8 @@ async def auto_filter(client, msg, spoll=False):
         await msg.message.edit(f"\n \n⚙️ Result  Closed ️")
 
 
-async def pm_autofilter(client, msg, spoll=False):
+async def pm_autofilter(client, message, spoll=False):
     if not spoll:
-        message = msg
         if message.text.startswith("/"): return  # ignore commands
         if message.text.startswith("#"): return  # ignore wrong formats
         if message.text.startswith("."): return # ignore userbot commands
@@ -742,13 +741,13 @@ async def pm_autofilter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                 if SPELL_CHECK_REPLY: 
-                    return await advantage_spell_chok(msg)
+                    return
                 else:
                     return
         else:
             return
     else:
-        message = msg.message.reply_to_message  # msg will be callback query
+        message = message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
     pre = 'filep' if PROTECT_CONTENT else 'file'
     if SINGLE_BUTTON:
