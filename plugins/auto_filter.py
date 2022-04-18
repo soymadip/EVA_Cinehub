@@ -175,6 +175,7 @@ async def advantage_spoll_choker(bot, query):
             await query.message.edit(f'🧑🏽‍💻 May be it is not uploaded. Wait until admin uploads.')
             #await bot.send_message(LOG_CHANNEL,f'New Request of {query.from_user.first_name}\n\n<b>✘Link</b> :-\n{query.message.reply_to_message.link}', disable_web_page_preview= True)
             await query.message.reply_to_message.delete()
+            await query.message.delete()
 
 
 @Client.on_callback_query()
