@@ -70,12 +70,12 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'{SUPPORT_CHAT}')
+            InlineKeyboardButton('DEV', url=f'https://t.me/anonymous7205')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello admin, \nI am leaving.</b>',
+            text='<b>Hello admin,I am leaving.\nReason :- <b>Maybe you did not make me admin</b> or due to overload.\ntalk to my Dev for further asistance. ',
             reply_markup=reply_markup,
         )
 
