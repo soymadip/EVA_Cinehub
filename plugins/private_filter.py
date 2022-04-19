@@ -113,7 +113,7 @@ async def next_page(bot, query):
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def private_give_filter(client, message):
-        await auto_filter(client, message)
+        await pm_filter(client, message)
 
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
@@ -429,7 +429,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
 
 
-async def auto_filter(client, msg, spoll=False):
+async def pm_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
         settings = await get_settings(message.chat.id)
