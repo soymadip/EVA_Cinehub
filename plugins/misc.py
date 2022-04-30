@@ -85,7 +85,7 @@ async def who_is(client, message):
         f"<b>᚛› 𝙸𝚂 𝙰𝙲𝙲𝙾𝚄𝙽𝚃 𝙳𝙴𝙻𝙴𝚃𝙴𝙳 :</b> True\n" if from_user.is_deleted else ""
         f"<b>᚛› 𝙸𝚂 𝚅𝙴𝚁𝙸𝙵𝙸𝙴𝙳 :</b> True" if from_user.is_verified else ""
         f"<b>᚛› 𝙸𝚂 𝚂𝙲𝙰𝙼 :</b> True" if from_user.is_scam else ""
-        # f"<b>Is Fake:</b> True" if from_user.is_fake else ""
+        f"<b>Is Fake:</b> True" if from_user.is_fake else ""
         f"<b>᚛› 𝙻𝙰𝚂𝚃 𝚂𝙴𝙴𝙽 :</b> <code>{last_online(from_user)}</code>\n\n"
     )
 
@@ -107,17 +107,29 @@ async def who_is(client, message):
         local_user_photo = await client.download_media(
             message=chat_photo.big_file_id
         )
+        buttons = [[
+            InlineKeyboardButton('✘ Close ✘', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=local_user_photo,
             quote=True,
+            parse_mode="html",
+            reply_markup=reply_markup,
             caption=message_out_str,
             disable_notification=True
         )
         os.remove(local_user_photo)
     else:
+        buttons = [[
+            InlineKeyboardButton('✘ Close ✘', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
             text=message_out_str,
             quote=True,
+            parse_mode="html",
+            reply_markup=reply_markup,
             disable_notification=True
         )
     await status_message.delete()
