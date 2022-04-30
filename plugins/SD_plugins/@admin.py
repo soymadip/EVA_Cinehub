@@ -1,9 +1,9 @@
 import pyrogram
 import asyncio
 import os
-from pyrogram import filters, Client as Sflix
+from pyrogram import filters, Client
 
-@Sflix.on_message((filters.command(["report"]) | filters.regex("@admins") | filters.regex("@admin")) & filters.group)
+@Client.on_message((filters.command(["report"]) | filters.regex("@admins") | filters.regex("@admin")) & filters.group)
 async def report_user(bot, message):
     if message.reply_to_message:
         chat_id = message.chat.id
