@@ -2,6 +2,7 @@ import pyrogram
 import asyncio
 import os
 from pyrogram import filters, Client
+from info import LOG_CHANNEL
 
 @Client.on_message((filters.command(["report"]) | filters.regex("@admins") | filters.regex("@admin")) & filters.group)
 async def report_user(bot, message):
@@ -27,3 +28,4 @@ async def report_user(bot, message):
                 pass
         if success:
             await message.reply_text("𝖱𝖾𝗉𝗈𝗋𝗍𝖾𝖽 𝗍𝗈 𝖠𝖽𝗆𝗂𝗇𝗌!")
+            await bot.send_message(LOG_CHANNEL,f'New Report by {message.from_user.mention}\n\n<b>✘Link</b> :-\n{message.reply_to_message.link}', disable_web_page_preview= True)
