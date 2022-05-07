@@ -1,5 +1,6 @@
 import logging
 import logging.config
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
