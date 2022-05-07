@@ -35,7 +35,7 @@ class Bot(Client):
         await Media.ensure_indexes()
         await self.send_message(
             chat_id=-1001308633613,
-            text="---------------------"
+            text="🧭🧭 GROUP CLOSED 🧭🧭\n✅Requests are allowed.\n\n🌄Good morning."
         )
         me = await self.get_me()
         temp.ME = me.id
