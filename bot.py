@@ -52,6 +52,10 @@ class Bot(Client):
         logging.info(LOG_STR)
 
     async def stop(self, *args):
+        await self.send_message(
+            chat_id=-1001308633613,
+            text="🧭🧭 <b>GROUP OPENED</b> 🧭🧭\n\n✅ Requests are allowed, Let's start.\n\n🌄 Good morning."
+        )
         await super().stop()
         logging.info("Bot stopped. Bye.")
 
