@@ -42,6 +42,10 @@ class Bot(Client):
         logging.info(LOG_STR)
 
     async def stop(self, *args):
+        await self.send_message(
+            chat_id=-1001308633613,
+            text="---------------------"
+        )
         await super().stop()
         logging.info("Bot stopped. Bye.")
 
