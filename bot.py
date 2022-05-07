@@ -33,9 +33,14 @@ class Bot(Client):
         temp.BANNED_CHATS = b_chats
         await super().start()
         await Media.ensure_indexes()
+        btn = [
+        [
+            InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemaforyou07')
+        ]
+        ]
         await self.send_message(
             chat_id=-1001308633613,
-            text="🧭🧭 <b>GROUP OPENED</b> 🧭🧭\n\n✅ Requests are allowed. Let's start today's works.\n\n🌄 Good morning."
+            text="🧭🧭 <b>GROUP OPENED</b> 🧭🧭\n\n✅ Requests are allowed. Let's start today's works.\n\n🌄 Good morning.", reply_markup=InlineKeyboardMarkup(btn)
         )
         me = await self.get_me()
         temp.ME = me.id
