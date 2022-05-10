@@ -378,7 +378,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 "All right, but this is not yours.;\nNice Try! But, This Was Not Your Request, Request Yourself;",
                 show_alert=True)
         if not files_:
-            return await query.answer('No such file exist.')
+            return await query.answer('No such file exists.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -407,7 +407,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} took file👇 \n\n<b>{files.file_name}</b>')
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
@@ -416,6 +415,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True if ident == "filep" else False,
                 )
                 await query.answer(f'Hey {query.from_user.first_name} ℂℍ𝔼ℂ𝕂 ℙ𝕄, I have sent files',show_alert = True)
+                await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} took file👇 \n\n<code>{files.file_name}</code>')
                # await client.send_message(chat_id=query.from_user.id,text='Please join my main group and request there from future.\n Join via below button👇🏻',reply_markup=InlineKeyboardMarkup(buttons))
         except UserIsBlocked:
             await query.answer(f'Hey {query.from_user.first_name} Unblock the bot mahn !',show_alert = True)
