@@ -167,10 +167,10 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            await query.message.edit(f'🧑🏽‍💻 May be it is not uploaded. Wait until admin uploads.')
-            #await bot.send_message(LOG_CHANNEL,f'New Request of {query.from_user.first_name}\n\n<b>✘Link</b> :-\n{query.message.reply_to_message.link}', disable_web_page_preview= True)
-            await query.message.reply_to_message.delete()
-            await query.message.delete()
+            await query.message.edit(f'🧑🏽‍💻 May be it is not uploaded. Wait until admin uploads.\n\n\n<b>If it is a series, then look if another gave it to you.</b>')
+            await bot.send_message(LOG_CHANNEL,f'New Request of {query.from_user.first_name}\n\n<b>✘Link</b> :-\n{query.message.reply_to_message.link}', disable_web_page_preview= True)
+            #await query.message.reply_to_message.delete()
+            #await query.message.delete()
 
 
 @Client.on_callback_query()
@@ -415,7 +415,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True if ident == "filep" else False,
                 )
                 await query.answer(f'Hey {query.from_user.first_name} ℂℍ𝔼ℂ𝕂 ℙ𝕄, I have sent files',show_alert = True)
-                await client.send_message(LOG_CHANNEL,f'╭───#Got_file──〄\n│\n├• <b>{query.from_user.first_name}</b>\n│\n├•<b>File name:</b> <code>{files.file_name}</code>\n.')
+                await client.send_message(LOG_CHANNEL,f'╭───#Got_file──〄\n│\n├• <b>{query.from_user.first_name}</b>\n│\n├•<a href= http://www.example.com/>File name:</a> <code>{files.file_name}</code>\n.')
                # await client.send_message(chat_id=query.from_user.id,text='Please join my main group and request there from future.\n Join via below button👇🏻',reply_markup=InlineKeyboardMarkup(buttons))
         except UserIsBlocked:
             await query.answer(f'Hey {query.from_user.first_name} Unblock the bot mahn !',show_alert = True)
