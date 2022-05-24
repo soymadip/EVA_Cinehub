@@ -168,7 +168,9 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             await query.message.edit(f'🧑🏽‍💻 May be it is not uploaded. Wait until admin uploads.\n\n\n<b>If it is a series, then look if another gave it to you.</b>')
-            await bot.send_message(LOG_CHANNEL,f'New Request of {query.from_user.first_name}\n\n<b>✘Link</b> :-\n{query.message.reply_to_message.link}', disable_web_page_preview= True)
+            jj = await bot.send_message(LOG_CHANNEL,f'New Request of {query.from_user.first_name}\n\n<b>✘Link</b> :-\n{query.message.reply_to_message.link}', disable_web_page_preview= True)
+            await asyncio.sleep(1800)
+            await jj.delete()
             #await query.message.reply_to_message.delete()
             #await query.message.delete()
 
@@ -449,7 +451,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemaforyou07')]
             ]
         await query.answer()
-        await client.send_message(LOG_CHANNEL,f'{query.from_user.first_name} took file👇\n\n<b>{files.file_name}</b>')
+        await client.send_message(LOG_CHANNEL,f'╭───#Got_file──〄\n│\n├• <b>{query.from_user.first_name}</b>\n│\n├•<a href= http://www.example.com/>File name:</a> <code>{files.file_name}</code>\n.')
         await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
