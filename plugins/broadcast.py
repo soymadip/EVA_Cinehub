@@ -9,7 +9,7 @@ import asyncio
         
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
 async def speaker(bot, message):
-    buttons = [
+    btn = [
         [
             InlineKeyboardButton('⚡️ Without Quote ⚡️', callback_data="wqbroadcast")
         ],
@@ -17,7 +17,7 @@ async def speaker(bot, message):
             InlineKeyboardButton('⚡️ With Quote ⚡️', callback_data="qbroadcast")
         ]
         ]
-    await message.reply_text(text='which mode do you preffer?\nFor refferance go to <a href= http://www.github.com/soymadip/Eva_Cinehub>File name:</a>', )
+    await message.reply_text(f"which mode do you preffer?\nFor refferance go to <a href= http://www.github.com/soymadip/Eva_Cinehub>File name:</a>", reply_markup=InlineKeyboardMarkup(btn))
 
 
 @Client.on_callback_query(filters.regex(r'^wqbroadcast'))
