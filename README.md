@@ -37,6 +37,7 @@
 - [x] Improved spellCheck A.I, Now it's more practical.
 - [x] PM guide.
 - [x] Users who banned bot, will be deleted automatically from db.
+- [x] Added forward with quote support. use /qbroadcast to.....
 - [ ] FUTURE PLAN : Improve PM guide to enable or disable PM result.
 - [ ] Many others coming.....
 
@@ -104,8 +105,9 @@ python3 bot.py
 * /enable - re-enable chat.
 • /ban_user  - to ban a user.
 • /unban  - to unban a user.
-• /channel - to get list of total connected channels
-• /broadcast - to broadcast a message to all users.
+• /channels - to get list of total connected channels
+• /broadcast - to broadcast a message to all users (without quote).
+• /qbroadcast - to broadcast a message to all users (with quote).
 • /batch - to create link for multiple posts.
 • /links - to create link for one post.
 • /telegraph - upload media less than 5 MB to telegraph.
