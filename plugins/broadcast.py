@@ -7,7 +7,7 @@ from info import ADMINS
 from utils import qbroadcast_messages, wqbroadcast_messages
 import asyncio
         
-@Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
+@Client.on_message(filters.command("broadcasts") & filters.user(ADMINS) & filters.reply)
 async def speaker(bot, message):
     btn = [
         [
@@ -17,7 +17,7 @@ async def speaker(bot, message):
             InlineKeyboardButton('⚡️ With Quote ⚡️', callback_data="qbroadcast")
         ]
         ]
-    await bot.send_message(f"which mode do you preffer?\nFor refferance go to <a href= http://www.github.com/soymadip/Eva_Cinehub>File name:</a>", reply_markup=InlineKeyboardMarkup(btn))
+    await messagemsg.reply(f"which mode do you preffer?\nFor refferance go to <a href= http://www.github.com/soymadip/Eva_Cinehub>File name:</a>", reply_markup=InlineKeyboardMarkup(btn))
 
 
 @Client.on_callback_query(filters.regex(r'^wqbroadcast'))
