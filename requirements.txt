@@ -20,4 +20,3 @@ youtube-dl
 youtube_search
 ytthumb
 tglogging
-PyPDF2
