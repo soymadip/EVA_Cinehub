@@ -7,7 +7,7 @@ from Script import script
 import pyrogram
 from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, PM_FILTER, AUTH_GROUPS, P_TTI_SHOW_OFF, PROTECT_CONTENT, IMDB, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, MAINTENANCE_MODE, IMDB_TEMPLATE, LOG_CHANNEL, SUPPORT_CHAT
-from plugins.pm_filter.py import advantage_spell_chok
+from plugins.pm_filter import advantage_spell_chok
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.handlers import CallbackQueryHandler
 from pyrogram import Client, filters
