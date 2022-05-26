@@ -28,18 +28,18 @@ from database.filters_mdb import (
 
 
 
-@Client.on_message(filters.text & filters.private & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
+@Client.on_message(filters.private & filters.text & ~filters.edited & filters.incoming)
 async def pm_autofilter(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
     if 1 < len(message.text) < 50:    
         btn = []
         search = message.text
-        files = await get_filter_results(query=search)
+        files = await get_search_results(query=search)
         if files:
             for file in files:
                 file_id = file.file_id
-                filename = f"{get_size(file.file_size)} {file.file_name}"
+                filename = f"{file.file_name}"
                 btn.append(
                     [InlineKeyboardButton(text=f"{filename}", callback_data=f"pmfile#{file_id}")]
                 )
