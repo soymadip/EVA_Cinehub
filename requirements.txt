@@ -1,4 +1,4 @@
-git+https://github.com/soymadip/Pyrogram@master-zip
+git+https://github.com/soymadip/Pyrogram@main
 tgcrypto
 pymongo[srv]==3.12.3
 motor==2.5.1
