@@ -42,7 +42,7 @@ class Bot(Client):
             InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemahub02')
         ]
         ]
-        await self.USER.send_message(
+        await self.send_message(
             chat_id=-1001308633613,
             text="---------------------"
         )
