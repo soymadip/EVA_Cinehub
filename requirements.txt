@@ -20,3 +20,5 @@ youtube-dl
 youtube_search
 ytthumb
 tglogging
+python-decouple
+telethon
