@@ -44,7 +44,7 @@ class Bot(Client):
         ]
         await self.USER.send_message(
             chat_id=-1001308633613,
-            text="🧭🧭 <b>GROUP OPENED</b> 🧭🧭\n\n✅ Requests are allowed, Let's start.\n\n🌄 Good morning.", reply_markup=InlineKeyboardMarkup(btn)
+            text="---------------------"
         )
         me = await self.get_me()
         temp.ME = me.id
