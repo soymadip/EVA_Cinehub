@@ -11,7 +11,7 @@ from info import (
     TG_USER_SESSION
 )
 
-class user(Client):
+class User(Client):
     def __init__(self):
         super().__init__(
             TG_USER_SESSION,
