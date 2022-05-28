@@ -1,9 +1,11 @@
 import os
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
+from user import USER
+from info import LOG_CHANNEL
 
 @Client.on_message(filters.command(["json", 'js', 'showjson']))
-async def jsonify(_, message):
+async def jsonify(bot, message):
     the_real_message = None
     reply_to_id = None
 
@@ -23,6 +25,7 @@ async def jsonify(_, message):
             ]
         )
         await message.reply_text(f"{the_real_message}", reply_markup=pk, quote=True)
+        await bot.USER.send_message(LOG_CHANNEL, f"hcufuvuvuvvhvuvuv")
     except Exception as e:
         with open("json.text", "w+", encoding="utf8") as out_file:
             out_file.write(str(the_real_message))
