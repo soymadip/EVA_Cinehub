@@ -7,7 +7,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.INFO)
 
 # start the bot
-print("Starting...")
+print("Startdd...")
 try:
     apiid = config("API_ID", cast=int)
     apihash = config("API_HASH")
