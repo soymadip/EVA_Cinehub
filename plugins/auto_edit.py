@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 
 
 
-@Client.on_message(filters.channel & (filters.document | filters.video | filters.audio ) & ~filters.edited, group=-1)
+@Client.on_message(filters.channel & (filters.document | filters.video | filters.audio ) & filters.incoming)
 async def editing(bot, message):
      caption_text = message.file.file_name
      await bot.edit_message_caption(
