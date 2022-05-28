@@ -1,5 +1,3 @@
-
-
 from pyrogram import (
     Client,
     __version__
@@ -11,6 +9,7 @@ from info import (
     TG_USER_SESSION
 )
 
+
 class User(Client):
     def __init__(self):
         super().__init__(
@@ -19,8 +18,7 @@ class User(Client):
             api_id=API_ID,
             workers=4
         )
- 
- 
+
     async def start(self):
         await super().start()
         usr_bot_me = await self.get_me()
@@ -29,3 +27,4 @@ class User(Client):
 
     async def stop(self, *args):
         await super().stop()
+ 
