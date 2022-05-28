@@ -22,7 +22,7 @@ from database.filters_mdb import (
     get_filters,
 )
 import logging
-from user import USER
+from bot import Bot
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
