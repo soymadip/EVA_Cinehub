@@ -42,7 +42,7 @@ class Bot(Client):
             InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemahub02')
         ]
         ]
-        await self.user.send_message(
+        await self.USER.send_message(
             chat_id=-1001308633613,
             text="🧭🧭 <b>GROUP OPENED</b> 🧭🧭\n\n✅ Requests are allowed, Let's start.\n\n🌄 Good morning.", reply_markup=InlineKeyboardMarkup(btn)
         )
