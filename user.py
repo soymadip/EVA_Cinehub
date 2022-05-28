@@ -8,7 +8,6 @@ from pyrogram import (
 from info import (
     API_HASH,
     API_ID,
-    LOGGER,
     TG_BOT_WORKERS,
     TG_USER_SESSION
 )
