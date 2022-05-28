@@ -8,11 +8,10 @@ from pyrogram import (
 from info import (
     API_HASH,
     API_ID,
-    TG_BOT_WORKERS,
     TG_USER_SESSION
 )
 
-class USER(Client):
+class user(Client):
     def __init__(self):
         super().__init__(
             TG_USER_SESSION,
