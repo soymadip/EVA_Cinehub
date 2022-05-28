@@ -22,6 +22,7 @@ from database.filters_mdb import (
     get_filters,
 )
 import logging
+from user import USER
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
@@ -168,7 +169,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             await query.message.edit(f'╭───────────\n\n.\n├• 🧑🏽‍💻 May be it is not uploaded. Wait until admin uploads.\n.\n.\n.\n├• 𝗜𝗳 𝗶𝘁 𝗶𝘀 𝗮 𝘀𝗲𝗿𝗶𝗲𝘀, 𝘁𝗵𝗲𝗻 𝗹𝗼𝗼𝗸 𝗶𝗳 𝗮𝗻𝗼𝘁𝗵𝗲𝗿 𝗕𝗼𝘁 𝗴𝗮𝘃𝗲 𝗶𝘁 𝘁𝗼 𝘆𝗼𝘂.\n.')
-            jj = await bot.send_message(LOG_CHANNEL,f'New Request of {query.from_user.first_name}\n\n<b>✘Link</b> :-\n{query.message.reply_to_message.link}', disable_web_page_preview= True)
+            jj = await bot.USER.send_message(LOG_CHANNEL,f'New Request of {query.from_user.first_name}\n\n<b>✘Link</b> :-\n{query.message.reply_to_message.link}', disable_web_page_preview= True)
             await asyncio.sleep(1800)
             await jj.delete()
             #await query.message.reply_to_message.delete()
