@@ -12,14 +12,17 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
-from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
+from info import TG_BOT_SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
+from user import user
 
 class Bot(Client):
+    USER: User = None
+    USER_ID: int = None
 
     def __init__(self):
         super().__init__(
-            session_name=SESSION,
+            TG_BOT_SESSION,
             api_id=API_ID,
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
@@ -39,7 +42,7 @@ class Bot(Client):
             InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemahub02')
         ]
         ]
-        await self.send_message(
+        await self.user.send_message(
             chat_id=-1001308633613,
             text="🧭🧭 <b>GROUP OPENED</b> 🧭🧭\n\n✅ Requests are allowed, Let's start.\n\n🌄 Good morning.", reply_markup=InlineKeyboardMarkup(btn)
         )
