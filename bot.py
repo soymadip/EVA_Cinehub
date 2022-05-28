@@ -17,7 +17,7 @@ from utils import temp
 from user import user
 
 class Bot(Client):
-    USER: user = None
+    USER: User = None
     USER_ID: int = None
 
     def __init__(self):
