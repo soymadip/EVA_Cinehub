@@ -13,7 +13,7 @@ from info import (
     TG_USER_SESSION
 )
 
-class User(Client):
+class USER(Client):
     def __init__(self):
         super().__init__(
             TG_USER_SESSION,
