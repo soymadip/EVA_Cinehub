@@ -61,6 +61,7 @@ MAINCHANNEL_ID = environ.get("MAINCHANNEL_ID", "-1001510870866")
 CHANNEL = environ.get('CUSTOM_FOOTER')
 PM_FILTER = is_enabled((environ.get('PM_FILTER', "False")), False)
 DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
+TG_USER_SESSION = environ.get('TG_USER_SESSION')
 
 
 
