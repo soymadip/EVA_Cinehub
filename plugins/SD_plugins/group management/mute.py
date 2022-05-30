@@ -17,7 +17,7 @@ async def mute_user(_, message):
         return
 
     user_id, user_first_name = extract_user(message)
-    reason = message.text.split()[1]
+    reason = message.text.split('/mute')[1]
     try:
         await message.chat.restrict_member(
             user_id=user_id,
