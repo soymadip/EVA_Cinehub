@@ -37,7 +37,7 @@ async def mute_user(_, message):
             )
         else:
             await message.reply_text( 
-                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted."
+                f"<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted."
                 f"\n\n<b>Reason:</b> {reason}"
             )
 
@@ -80,11 +80,11 @@ async def temp_mute_user(_, message):
     else:
         if str(user_id).lower().startswith("@"):
             await message.reply_text( 
-                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted."
+                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted for {message.command[1]}."
                 f"\n\n<b>Reason:</b> {reason}"
             )
         else:
             await message.reply_text( 
-                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted."
+                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted for {message.command[1]}."
                 f"\n\n<b>Reason:</b> {reason}"
             )
