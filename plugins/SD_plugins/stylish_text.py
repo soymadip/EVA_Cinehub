@@ -56,7 +56,7 @@ async def style_buttons(c, m, cb=False):
     if not cb:
         await m.reply_text(mm, reply_markup=InlineKeyboardMarkup(buttons), quote=True)
     else:
-        await m.answer()
+        await mm.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
 
 
@@ -88,7 +88,7 @@ async def nxt(c, m):
             InlineKeyboardButton('S̶t̶r̶i̶k̶e̶', callback_data='style+strike'),
             InlineKeyboardButton('F༙r༙o༙z༙e༙n༙', callback_data='style+frozen')
             ]]
-        await m.answer()
+        await mm.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
     else:
         await style_buttons(c, m, cb=True)
@@ -96,9 +96,8 @@ async def nxt(c, m):
 
 @Client.on_callback_query(filters.regex('^style'))
 async def style(c, m):
-    mm = m.text.split('/font')[1]
-    await mm.answer()
-    cmd, style = mm.data.split('+')
+    await m.answer()
+    cmd, style = m.data.split('+')
 
     if style == 'typewriter':
         cls = Fonts.typewriter
