@@ -78,13 +78,14 @@ async def temp_mute_user(_, message):
             str(error)
         )
     else:
+        buttons = [[InlineKeyboardButton('🍷 Request to Unmute', url='https://t.me/anonymous7205')]]
         if str(user_id).lower().startswith("@"):
             await message.reply_text( 
-                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted for {message.command[1]}."
-                f"\n\n<b>Reason:</b> {reason}"
+                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted for <b>{message.command[1]}</b>."
+                f"\n\n<b>Reason:</b> {reason}",reply_markup=InlineKeyboardMarkup(buttons)
             )
         else:
             await message.reply_text( 
-                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted for {message.command[1]}."
-                f"\n\n<b>Reason:</b> {reason}"
+                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted for <b>{message.command[1]}</b>."
+                f"\n\n<b>Reason:</b> {reason}",reply_markup=InlineKeyboardMarkup(buttons)
             )
