@@ -275,7 +275,7 @@ async def gen_invite(bot, message):
 
 
 @Client.on_message(filters.text & filters.private & ~filters.edited & filters.incoming) #PM filter module
-async def filter(client: Bot, message):
+async def filter(client, message):
     if PM_FILTER:
         return
     else:
