@@ -11,6 +11,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram.handlers import CallbackQueryHandler
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
+from bot import Bot
 
 
 @Client.on_message(filters.new_chat_members & filters.group & filters.channel)
@@ -275,7 +276,7 @@ async def gen_invite(bot, message):
 
 
 @Client.on_message(filters.text & filters.private & ~filters.edited & filters.incoming) #PM filter module
-async def filter(client, message):
+async def filter(client = Bot, message):
     if PM_FILTER:
         return
     else:
@@ -292,6 +293,6 @@ async def filter(client, message):
             if MAINTENANCE_MODE:
                 await message.reply_text(f"🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nService is 𝕔𝕝𝕠𝕤𝕖𝕕 for 𝟮 𝘄𝗲𝗲𝗸𝘀.\nwill start again by <u>next month.</u>.\n\n𝖡𝗒 𝗍𝗁𝗂𝗌 𝗍𝗂𝗆𝖾, 𝖬𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 <b>you have 𝗌𝗎𝖻𝗌𝖼𝗋𝗂𝖻𝖾𝖽 CINEMA HUB group👇🏻</b>", reply_markup=InlineKeyboardMarkup(btn))
             else:
-                await client.send_message(chat_id=message.from_user.id, text='🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nDo not request here😡\nThis chat is only for <u>movie delevery</u>.\n\n<b>Tell your query in CINEMA HUB group👇🏻</b>', reply_markup=InlineKeyboardMarkup(btn))
+                await client.USER.send_message(chat_id=message.from_user.id, text='🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nDo not request here😡\nThis chat is only for <u>movie delevery</u>.\n\n<b>Tell your query in CINEMA HUB group👇🏻</b>', reply_markup=InlineKeyboardMarkup(btn))
            
 
