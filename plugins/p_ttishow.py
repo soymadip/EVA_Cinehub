@@ -279,8 +279,8 @@ async def filter(client, message):
     if PM_FILTER:
         return
     else:
-        if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
-            return True
+        #if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
+            #return True
         if message.text.startswith("/"):
             return 
         if 2 < len(message.text) < 50:
