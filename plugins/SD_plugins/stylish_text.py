@@ -56,7 +56,7 @@ async def style_buttons(c, m, cb=False):
     if not cb:
         await m.reply_text(mm, reply_markup=InlineKeyboardMarkup(buttons), quote=True)
     else:
-        await mm.answer()
+        await m.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
 
 
@@ -88,7 +88,7 @@ async def nxt(c, m):
             InlineKeyboardButton('S̶t̶r̶i̶k̶e̶', callback_data='style+strike'),
             InlineKeyboardButton('F༙r༙o༙z༙e༙n༙', callback_data='style+frozen')
             ]]
-        await mm.answer()
+        await m.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
     else:
         await style_buttons(c, m, cb=True)
