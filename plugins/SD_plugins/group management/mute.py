@@ -17,7 +17,7 @@ async def mute_user(_, message):
         return
 
     user_id, user_first_name = extract_user(message)
-    reason = message.text.split('.')[1]
+    reason = message.text.split()[1]
     try:
         await message.chat.restrict_member(
             user_id=user_id,
@@ -34,15 +34,15 @@ async def mute_user(_, message):
                 "👍🏻 "
                 f"{user_first_name}"
                 "NOW TAKE YOUR PUNISHMENT"
+                f"\n<b>Reason: {reason} </b>"
             )
         else:
             await message.reply_text(
-                f"<a href='tg://user?id={user_id}'>"
-                f"Of {user_first_name}"
+                "#muted"
+                f"\nUser: <a href='tg://user?id={user_id}'>"
+                f"{user_first_name}"
                 "</a>"
-                " muted 🤐"
-                "."
-                f"<b>Reason: {reason} "
+                f"\n\n<b>Reason: {reason} </b>"
             )
 
 
