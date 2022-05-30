@@ -20,9 +20,3 @@ youtube-dl
 youtube_search
 ytthumb
 tglogging
-
-
-
-
-
-        InlineKeyboardButton('U͟n͟d͟e͟r͟l͟i͟n͟e͟', callback_data='style+underline')
