@@ -25,7 +25,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
-
+from user import USER 
 BUTTONS = {}
 SPELL_CHECK = {}
 
