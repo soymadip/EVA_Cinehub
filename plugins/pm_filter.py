@@ -25,7 +25,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
-from user import USER 
 BUTTONS = {}
 SPELL_CHECK = {}
 
@@ -803,7 +802,7 @@ async def manual_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            dd = await message.USER.reply_text(
+                            dd = await message.reply_text(
                              reply_text.format(
                                  first = message.from_user.first_name,
                                  username = None if not message.from_user.username else '@' + message.from_user.username,
