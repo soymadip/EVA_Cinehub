@@ -88,12 +88,68 @@ async def nxt(c, m):
             InlineKeyboardButton('S̶t̶r̶i̶k̶e̶', callback_data='style+strike'),
             InlineKeyboardButton('F༙r༙o༙z༙e༙n༙', callback_data='style+frozen')
             ],[
-            InlineKeyboardButton('⬅️ Back', callback_data='nxt+0')
+            InlineKeyboardButton('⬅️ Back', callback_data='prev')
         ]]
         await m.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
     else:
         await style_buttons(c, m, cb=True)
+
+
+@Client.on_callback_query(filters.regex('^prev'))
+async def prev(c, m):
+    if m.data == "prev":
+        buttons = [[
+        InlineKeyboardButton('𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛', callback_data='style+typewriter'),
+        InlineKeyboardButton('𝕆𝕦𝕥𝕝𝕚𝕟𝕖', callback_data='style+outline'),
+        InlineKeyboardButton('𝐒𝐞𝐫𝐢𝐟', callback_data='style+serif'),
+
+        ],[
+
+        InlineKeyboardButton('𝑺𝒆𝒓𝒊𝒇', callback_data='style+bold_cool'),
+        InlineKeyboardButton('𝑆𝑒𝑟𝑖𝑓', callback_data='style+cool'),
+        InlineKeyboardButton('Sᴍᴀʟʟ Cᴀᴘs', callback_data='style+small_cap'),
+
+        ],[
+
+        InlineKeyboardButton('𝓈𝒸𝓇𝒾𝓅𝓉', callback_data='style+script'),
+        InlineKeyboardButton('𝓼𝓬𝓻𝓲𝓹𝓽', callback_data='style+script_bolt'),
+        InlineKeyboardButton('ᵗⁱⁿʸ', callback_data='style+tiny'),
+
+        ],[
+
+        InlineKeyboardButton('U͟n͟d͟e͟r͟l͟i͟n͟e͟', callback_data='style+underline'),
+        InlineKeyboardButton('𝗦𝗮𝗻𝘀', callback_data='style+sans'),
+        InlineKeyboardButton('𝙎𝙖𝙣𝙨', callback_data='style+slant_sans'),
+
+        ],[
+
+        InlineKeyboardButton('𝘚𝘢𝘯𝘴', callback_data='style+slant'),
+        InlineKeyboardButton('𝖲𝖺𝗇𝗌', callback_data='style+sim'),
+        InlineKeyboardButton('Ⓒ︎Ⓘ︎Ⓡ︎Ⓒ︎Ⓛ︎Ⓔ︎Ⓢ︎', callback_data='style+circles'),
+
+        ],[
+
+        InlineKeyboardButton('🅒︎🅘︎🅡︎🅒︎🅛︎🅔︎🅢︎', callback_data='style+circle_dark'),
+        InlineKeyboardButton('𝔊𝔬𝔱𝔥𝔦𝔠', callback_data='style+gothic'),
+        InlineKeyboardButton('𝕲𝖔𝖙𝖍𝖎𝖈', callback_data='style+gothic_bolt'),
+
+        ],[
+
+        InlineKeyboardButton('🅂🅀🅄🄰🅁🄴🅂', callback_data='style+squares'),
+        InlineKeyboardButton('🆂︎🆀︎🆄︎🅰︎🆁︎🅴︎🆂︎', callback_data='style+squares_bold'),
+        InlineKeyboardButton('S̑̈ȃ̈d̑̈', callback_data='style+sad'),
+
+        ],[
+
+        InlineKeyboardButton('Next ➡️', callback_data="nxt")
+    ]]
+        await m.answer()
+        await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
+    else:
+        await style_buttons(c, m, cb=True)
+
+
 
 
 @Client.on_callback_query(filters.regex('^style'))

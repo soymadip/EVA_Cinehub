@@ -32,17 +32,13 @@ async def mute_user(_, message):
         if str(user_id).lower().startswith("@"):
             await message.reply_text(
                 "👍🏻 "
-                f"{user_first_name}"
-                "NOW TAKE YOUR PUNISHMENT"
-                f"\n<b>Reason: {reason} </b>"
+                f"{user_first_name} has been 🔇 muted."
+                f"\n<b>Reason:</b> {reason} "
             )
         else:
-            await message.reply_text(
-                "#muted"
-                f"\nUser: <a href='tg://user?id={user_id}'>"
-                f"{user_first_name}"
-                "</a>"
-                f"\n\n<b>Reason: {reason} </b>"
+            await message.reply_text( 
+                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted."
+                f"\n\n<b>Reason:</b> {reason}"
             )
 
 
@@ -56,6 +52,7 @@ async def temp_mute_user(_, message):
         return
 
     user_id, user_first_name = extract_user(message)
+    reason = message.text.split('/tmute')[1]
 
     until_date_val = extract_time(message.command[1])
     if until_date_val is None:
@@ -82,17 +79,12 @@ async def temp_mute_user(_, message):
         )
     else:
         if str(user_id).lower().startswith("@"):
-            await message.reply_text(
-                "Be quiet for a while! 😠"
-                f"{user_first_name}"
-                f" muted for {message.command[1]}!"
+            await message.reply_text( 
+                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted."
+                f"\n\n<b>Reason:</b> {reason}"
             )
         else:
-            await message.reply_text(
-                "Be quiet for a while! 😠"
-                f"<a href='tg://user?id={user_id}'>"
-                "Of lavender"
-                "</a>"
-                " Mouth "
-                f" muted for {message.command[1]}!"
+            await message.reply_text( 
+                f"\<a href='tg://user?id={user_id}'>{user_first_name}</a> has been 🔇 muted."
+                f"\n\n<b>Reason:</b> {reason}"
             )
