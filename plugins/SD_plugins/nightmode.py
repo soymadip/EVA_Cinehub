@@ -10,29 +10,29 @@ NM_START = NM_TIME.split('-')[0]
 NM_END = NM_TIME.split('-')[1]
 
 
-async def group_close(bot):
+async def group_close():
     try:
-        await bot.send_message(
+        await Bot.send_message(
                 NM_CHAT,
                 "Group is Closing!"
                 )
-        await bot.set_chat_permissions(
+        await Bot.set_chat_permissions(
                 NM_CHAT,
                 ChatPermissions()
                 )
     except BaseException as e:
-        await bot.send_message(
+        await Bot.send_message(
                 NM_CHAT,
                 f"**Error while closing group:**"
                 )
 
-async def group_open(bot):
+async def group_open():
     try:
-        await bot.send_message(
+        await bBt.send_message(
                 NM_CHAT,
                 "Opened group"
                 )
-        await bot.set_chat_permissions(
+        await Bot.set_chat_permissions(
                 NM_CHAT,
                 ChatPermissions(
                     can_send_messages=True
@@ -46,6 +46,6 @@ async def group_open(bot):
 
 
 scheduler = AsyncIOScheduler(timezone=TIMEZONE)
-scheduler.add_job(group_close, trigger="cron", hour=21, minute=53)
+scheduler.add_job(group_close, trigger="cron", hour=23, minute=7)
 scheduler.add_job(group_open, trigger="cron", hour=8, minute=1)
 scheduler.start()
