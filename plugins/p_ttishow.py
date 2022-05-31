@@ -56,13 +56,16 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
+                MELCOW_TEXT_RAW = MELCOW_NEW_TEXT.split('button:')[0]
+                #BUTTON_FORMAT = MELCOW_NEW_TEXT.split('button:')[1]
+                
                 btns = [
                  [InlineKeyboardButton('⚡️ 𝐔𝐏𝐃𝐀𝐓𝐄 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ⚡️', url=f"https://t.me/cinemahub02/9")],
                  [InlineKeyboardButton('📁 𝐾𝑁𝑂𝑊 𝐴𝐵𝑂𝑈𝑇 𝐹𝐼𝐿𝐸 𝑇𝑌𝑃𝐸𝑆 📁', url='https://t.me/cinemahub02/14')
                 ]]
                 reply_markup=InlineKeyboardMarkup(btns)
-                MELCOW_TEXT1 = MELCOW_NEW_TEXT.split('button:')[0]
-                MELOW_TEXT = MELCOW_TEXT1.format(
+
+                MELOW_TEXT = MELCOW_TEXT_RAW.format(
                                     mention = u.mention,
                                     first = u.first_name,
                                     username = None if not u.username else '@' + u.username,
