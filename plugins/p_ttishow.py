@@ -13,7 +13,7 @@ from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 
 
-@Client.on_message(filters.new_chat_members & filters.group & filters.channel)
+@Client.on_message(filters.new_chat_members & filters.group)
 async def save_group(bot, message):
     r_j_check = [u.id for u in message.new_chat_members]
     if temp.ME in r_j_check:
@@ -63,7 +63,7 @@ async def save_group(bot, message):
                                     dcid = message.from_user.dc_id,
                                     chatname = message.chat.title
                                 )
-                temp.MELCOW['welcome'] = await message.reply(f"{wel_text}", parse_mode='html')
+                temp.MELCOW['welcome'] = await bot.send_message(message.chat.id,f"{wel_text}", parse_mode='html')
                         
 
 
