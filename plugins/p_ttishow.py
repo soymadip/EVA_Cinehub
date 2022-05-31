@@ -65,7 +65,7 @@ async def save_group(bot, message):
                                     mention = u.mention,
                                     chat = u.chat.title
                                 )
-                temp.MELCOW['welcome'] = await message.reply(f"{MELOW_TEXT}", reply_markup=reply_markup)
+                temp.MELCOW['welcome'] = await message.reply(f"{MELOW_TEXT}")
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
