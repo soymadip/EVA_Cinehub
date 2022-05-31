@@ -54,7 +54,6 @@ class Bot(Client):
         logging.info(LOG_STR)
 
     async def stop(self, *args):
-        await self.set_chat_permissions(-1001308633613, ChatPermissions())
         await super().stop()
         logging.info("Bot stopped. Bye.")
 
