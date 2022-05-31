@@ -14,15 +14,12 @@ from database.ia_filterdb import Media
 from database.users_chats_db import db
 from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
-from user import User
 
 class Bot(Client):
-    USER: User = None
-    USER_ID: int = None
 
     def __init__(self):
         super().__init__(
-            SESSION,
+            session_name=SESSION,
             api_id=API_ID,
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
@@ -44,22 +41,23 @@ class Bot(Client):
         ]
         await self.send_message(
             chat_id=-1001308633613,
-            text="---------------------"
+            text="🧭🧭 GROUP OPENED 🧭🧭\n\n🤖 Bot started.\n🪶 Group unlocked.\n✅ Requests are allowed, Let's start.", 
+            reply_markup=InlineKeyboardMarkup(btn)
         )
         me = await self.get_me()
         temp.ME = me.id
         temp.U_NAME = me.username
         temp.B_NAME = me.first_name
         self.username = '@' + me.username
-        logging.info(f"{me.first_name} with Pyrogram v{__version__} (Layer {layer}) started.")
+        logging.info(f"{me.username} with Pyrogram v{__version__} (Layer {layer}) started by {me.first_name}.")
         logging.info(LOG_STR)
 
     async def stop(self, *args):
-        await super().stop()
         await self.send_message(
             chat_id=-1001308633613,
             text="🧭🧭 <b>GROUP CLOSED</b> 🧭🧭\n\n✅ Requests are allowed, Let's start.\n\n🌄 Good morning."
         )
+        await super().stop()
         logging.info("Bot stopped. Bye.")
 
 
