@@ -1,10 +1,9 @@
 import logging
-from info import NM_CHAT, NM_TIME
+from info import NM_CHAT, NM_TIME, TIMEZONE
 from pyrogram import Client, filters
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ChatPermissions
 
-TIMEZONE = Asia/Kolkata # you can change it.
 
 NM_START = NM_TIME.split('-')[0]
 
