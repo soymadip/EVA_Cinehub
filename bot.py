@@ -10,6 +10,7 @@ logging.getLogger("imdbpy").setLevel(logging.ERROR)
 
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
+from pyrogram.types import ChatPermissions
 from database.ia_filterdb import Media
 from database.users_chats_db import db
 from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
@@ -53,10 +54,7 @@ class Bot(Client):
         logging.info(LOG_STR)
 
     async def stop(self, *args):
-        await self.send_message(
-            chat_id=-1001308633613,
-            text="🧭🧭 <b>GROUP CLOSED</b> 🧭🧭\n\n✅ Requests are allowed, Let's start.\n\n🌄 Good morning."
-        )
+        await self.set_chat_permissions(-1001308633613, ChatPermissions())
         await super().stop()
         logging.info("Bot stopped. Bye.")
 
