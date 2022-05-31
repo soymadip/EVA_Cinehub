@@ -62,6 +62,8 @@ CHANNEL = environ.get('CUSTOM_FOOTER')
 PM_FILTER = is_enabled((environ.get('PM_FILTER', "False")), False)
 DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
 TG_USER_SESSION = environ.get('TG_USER_SESSION')
+NM_CHAT = int(environ.get('NM_CHAT'))
+NM_TIME = environ.get('NM_TIME')
 
 
 
