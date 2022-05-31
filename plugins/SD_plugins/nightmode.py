@@ -10,7 +10,7 @@ NM_START = NM_TIME.split('-')[0]
 NM_END = NM_TIME.split('-')[1]
 
 
-async def group_close(client, message):
+async def group_close():
     try:
         await client.send_message(
                 NM_CHAT,
@@ -26,7 +26,7 @@ async def group_close(client, message):
                 f"**Error while closing group:**"
                 )
 
-async def group_open(client, message):
+async def group_open():
     try:
         await client.send_message(
                 NM_CHAT,
