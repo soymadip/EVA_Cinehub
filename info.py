@@ -64,6 +64,7 @@ DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
 TG_USER_SESSION = environ.get('TG_USER_SESSION')
 NM_CHAT = int(environ.get('NM_CHAT'))
 NM_TIME = environ.get('NM_TIME')
+TIMEZONE = environ.get("TIMEZONE", "Asia/Kolkata")
 
 
 
