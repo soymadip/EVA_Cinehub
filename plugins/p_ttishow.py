@@ -57,8 +57,8 @@ async def save_group(bot, message):
                     except:
                         pass
                 btns = [
-                 [InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help")],
-                 [InlineKeyboardButton('📢 Updates', url='https://t.me/Cinemaforyou07')
+                 [InlineKeyboardButton('⚡️ UPDATE CHANNEL ⚡️', url=f"https://t.me/cinemahub02/9")],
+                 [InlineKeyboardButton('🖊️ KNOW FILE TYPES 🖊️', url='https://t.me/cinemahub02/14')
                 ]]
                 reply_markup=InlineKeyboardMarkup(btns)
                 MELOW_TEXT = MELCOW_NEW_TEXT.format(
