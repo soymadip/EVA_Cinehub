@@ -63,7 +63,7 @@ async def save_group(bot, message):
                                     dcid = message.from_user.dc_id,
                                     chatname = message.chat.title
                                 )
-                temp.MELCOW['welcome'] = await bot.send_message(message.chat.id,{wel_text}, parse_mode='html')
+                temp.MELCOW['welcome'] = await reply_text(text=wel_text, parse_mode='html')
                         
 
 
