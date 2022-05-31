@@ -63,6 +63,8 @@ async def save_group(bot, message):
                 reply_markup=InlineKeyboardMarkup(btns)
                 MELOW_TEXT = MELCOW_NEW_TEXT.format(
                                     mention = u.mention,
+                                    first = u.first_name,
+                                    username = None if not u.username else '@' + u.username,
                                     chat = message.chat.title
                                 )
                 temp.MELCOW['welcome'] = await message.reply(f"{MELOW_TEXT}")
