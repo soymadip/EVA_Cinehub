@@ -56,11 +56,16 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
+                btns = [
+                 [InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help")],
+                 [InlineKeyboardButton('📢 Updates', url='https://t.me/Cinemaforyou07')
+                ]]
+                reply_markup=InlineKeyboardMarkup(btns)
                 MELOW_TEXT = MELCOW_NEW_TEXT.format(
                                     mention = u.mention
                                     chat = u..chat.title
                                 )
-                temp.MELCOW['welcome'] = await message.reply(f"{MELOW_TEXT}")
+                temp.MELCOW['welcome'] = await message.reply(f"{MELOW_TEXT}", reply_markup=reply_markup)
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
