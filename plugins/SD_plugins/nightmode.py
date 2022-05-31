@@ -10,7 +10,7 @@ NM_START = NM_TIME.split('-')[0]
 NM_END = NM_TIME.split('-')[1]
 
 
-async def group_close():
+async def group_close(bot):
     try:
         await bot.send_message(
                 NM_CHAT,
@@ -26,7 +26,7 @@ async def group_close():
                 f"**Error while closing group:**"
                 )
 
-async def group_open():
+async def group_open(bot):
     try:
         await bot.send_message(
                 NM_CHAT,
@@ -46,6 +46,6 @@ async def group_open():
 
 
 scheduler = AsyncIOScheduler(timezone=TIMEZONE)
-scheduler.add_job(group_close, trigger="cron", hour=21, minute=51)
+scheduler.add_job(group_close, trigger="cron", hour=21, minute=53)
 scheduler.add_job(group_open, trigger="cron", hour=8, minute=1)
 scheduler.start()
