@@ -1,6 +1,6 @@
 import logging
 from info import NM_CHAT, NM_TIME, TIMEZONE
-from pyrogram import Client, filters
+from pyrogram import filters , Client as Bot
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ChatPermissions
 
@@ -28,7 +28,7 @@ async def group_close():
 
 async def group_open():
     try:
-        await bBt.send_message(
+        await Bot.send_message(
                 NM_CHAT,
                 "Opened group"
                 )
@@ -39,7 +39,7 @@ async def group_open():
                     )
                 )
     except BaseException as e:
-        await bot.send_message(
+        await Bot.send_message(
                 NM_CHAT,
                 f"**Error while opening group:**"
                 )
