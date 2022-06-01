@@ -46,6 +46,6 @@ async def group_open():
 
 
 scheduler = AsyncIOScheduler(timezone=TIMEZONE)
-scheduler.add_job(group_close, trigger="cron", hour=23, minute=10)
+scheduler.add_job(group_close, trigger="cron", hour=6, minute=42)
 scheduler.add_job(group_open, trigger="cron", hour=8, minute=1)
 scheduler.start()
