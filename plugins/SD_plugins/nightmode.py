@@ -1,6 +1,6 @@
 import logging
 from info import NM_CHAT, NM_TIME, TIMEZONE
-from pyrogram import filters , Client as Bot
+from pyrogram import filters , Client as nmbot
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ChatPermissions
 
@@ -11,41 +11,28 @@ NM_END = NM_TIME.split('-')[1]
 
 
 async def group_close():
-    try:
-        #await Bot.send_message(
-      #          NM_CHAT,
-       #         "Group is Closing!"
-        #        )
-        await Bot.set_chat_permissions(
-                NM_CHAT,
+        await nmbot.set_chat_permissions(
+                CHAT_ID,
                 ChatPermissions()
                 )
-   # except BaseException as e:
-        #await Bot.send_message(
-        #        NM_CHAT,
-        #        f"**Error while closing group:**"
-        #        )
+
+
 
 async def group_open():
-    try:
-        #await Bot.send_message(
-          #      NM_CHAT,
-        #        "Opened group"
-        #        )
-        await Bot.set_chat_permissions(
-                NM_CHAT,
+        await nmbot.set_chat_permissions(
+                CHAT_ID,
                 ChatPermissions(
-                    can_send_messages=True
+                    can_send_messages=True,
+                    can_send_media_messages=True,
+                    can_send_stickers=True,
+                    can_send_animations=True
                     )
                 )
-   # except BaseException as e:
-      #  await Bot.send_message(
-          #      NM_CHAT,
-           #     f"**Error while opening group:**"
-           #     )
+
+
 
 
 scheduler = AsyncIOScheduler(timezone=TIMEZONE)
-scheduler.add_job(group_close, trigger="cron", hour=6, minute=52)
+scheduler.add_job(group_close, trigger="cron", hour=6, minute=59)
 scheduler.add_job(group_open, trigger="cron", hour=8, minute=1)
 scheduler.start()
