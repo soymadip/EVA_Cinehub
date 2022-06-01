@@ -20,7 +20,7 @@ async def group_close():
                 NM_CHAT,
                 ChatPermissions()
                 )
-    except BaseException as e:
+   # except BaseException as e:
         #await Bot.send_message(
         #        NM_CHAT,
         #        f"**Error while closing group:**"
@@ -38,7 +38,7 @@ async def group_open():
                     can_send_messages=True
                     )
                 )
-    except BaseException as e:
+   # except BaseException as e:
       #  await Bot.send_message(
           #      NM_CHAT,
            #     f"**Error while opening group:**"
@@ -46,6 +46,6 @@ async def group_open():
 
 
 scheduler = AsyncIOScheduler(timezone=TIMEZONE)
-scheduler.add_job(group_close, trigger="cron", hour=6, minute=47)
+scheduler.add_job(group_close, trigger="cron", hour=6, minute=52)
 scheduler.add_job(group_open, trigger="cron", hour=8, minute=1)
 scheduler.start()
