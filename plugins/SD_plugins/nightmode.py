@@ -12,7 +12,7 @@ NM_END = NM_TIME.split('-')[1]
 
 async def group_close():
         await nmbot.set_chat_permissions(
-                CHAT_ID,
+                NM_CHAT,
                 ChatPermissions()
                 )
 
@@ -20,7 +20,7 @@ async def group_close():
 
 async def group_open():
         await nmbot.set_chat_permissions(
-                CHAT_ID,
+                NM_CHAT,
                 ChatPermissions(
                     can_send_messages=True,
                     can_send_media_messages=True,
