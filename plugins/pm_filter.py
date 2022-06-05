@@ -604,9 +604,6 @@ async def auto_filter(client, msg, spoll=False):
         if message.text.startswith("/"): return  # ignore commands
         if message.text.startswith("#"): return  # ignore wrong formats
         if message.text.startswith("."): return # ignore userbot commands
-        ignore = IGNORE_WORDS
-        if message.text.startswith(IGNORE_WORDS): return # ignore .....
-
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
         if 1 < len(message.text) < 100:
