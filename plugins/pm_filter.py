@@ -7,7 +7,7 @@ from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, PM_FILTER, AUTH_GROUPS, IGNORE_WORDS, P_TTI_SHOW_OFF, PROTECT_CONTENT, IMDB, \
+from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, PM_FILTER, AUTH_GROUPS, IGNORE_WORDS, P_TTI_SHOW_OFF, PROTECT_CONTENT, IMDB, AUTO_DELETE_MESSAGE_TIME, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, MAINTENANCE_MODE, IMDB_TEMPLATE, LOG_CHANNEL, SUPPORT_CHAT
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.handlers import CallbackQueryHandler
@@ -703,25 +703,25 @@ async def auto_filter(client, msg, spoll=False):
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(150)
+            await asyncio.sleep(AUTO_DELETE_MESSAGE_TIME)
             await hehe.delete()
             await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(150)
+            await asyncio.sleep(AUTO_DELETE_MESSAGE_TIME)
             await hmm.delete()
             await message.delete()
         except Exception as e:
             logger.exception(e)
             fek = await message.reply_photo(photo="https://telegra.ph/file/4e7e0a76a54d16ce2b80c.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(150)
+            await asyncio.sleep(AUTO_DELETE_MESSAGE_TIME)
             await fek.delete()
             await msg.delete()
     else:
         fuk = await message.reply_photo(photo="https://telegra.ph/file/4e7e0a76a54d16ce2b80c.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(150)
+        await asyncio.sleep(AUTO_DELETE_MESSAGE_TIME)
         await fuk.edit(f"\n \n⚙️ {message.from_user.mention}'s Result For **{search}**  Closed ️")
     if spoll:
         await msg.message.edit(f"\n \n⚙️ Result  Closed ️")
