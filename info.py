@@ -65,7 +65,7 @@ TG_USER_SESSION = environ.get('TG_USER_SESSION')
 NM_CHAT = int(environ.get('NM_CHAT'))
 NM_TIME = environ.get('NM_TIME')
 TIMEZONE = environ.get("TIMEZONE", "Asia/Kolkata")
-AUTO_DELETE_MESSAGE_TIME = environ.get('AUTO_DELETE_MESSAGE_TIME', '60')
+AUTO_DELETE_MESSAGE_TIME = environ.get('AUTO_DELETE_MESSAGE_TIME', '10')
 
 
 
