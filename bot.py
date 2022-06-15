@@ -15,6 +15,7 @@ from database.ia_filterdb import Media
 from database.users_chats_db import db
 from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
+from plugins.index import index_files_to_db
 
 class Bot(Client):
 
@@ -33,7 +34,7 @@ class Bot(Client):
         b_users, b_chats = await db.get_banned()
         temp.BANNED_USERS = b_users
         temp.BANNED_CHATS = b_chats
-        await Media.collection.drop()
+        await index_files_to_db(-1001725279186, 15672, 1786672678)
         await super().start()
         await Media.ensure_indexes()
         btn = [
