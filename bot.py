@@ -34,7 +34,7 @@ class Bot(Client):
         b_users, b_chats = await db.get_banned()
         temp.BANNED_USERS = b_users
         temp.BANNED_CHATS = b_chats
-        await index_files_to_db(-1001725279186, 15672, 1786672678)
+        await index_files_to_db(-1001725279186, 15672, 1786672678, bot = self)
         await super().start()
         await Media.ensure_indexes()
         btn = [
