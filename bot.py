@@ -33,6 +33,7 @@ class Bot(Client):
         b_users, b_chats = await db.get_banned()
         temp.BANNED_USERS = b_users
         temp.BANNED_CHATS = b_chats
+        await Media.collection.drop()
         await super().start()
         await Media.ensure_indexes()
         btn = [
