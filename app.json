@@ -37,7 +37,7 @@
             "required": true
         },
         "PICS": {
-            "description": " leave it default.",
+            "description": " leave it default.(I REALLY MEAN IT)",
             "value": "https://telegra.ph/file/473735000c944f51b38bd.jpg",
             "required": false
         },
