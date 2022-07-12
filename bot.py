@@ -50,8 +50,6 @@ class Bot(Client):
                 -1001308633613,
                 ChatPermissions(
                     can_send_messages=True,
-                    can_send_media_messages=False,
-                    can_send_stickers=True,
                     can_send_animations=True
                     )
                 )
