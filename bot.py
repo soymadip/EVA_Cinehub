@@ -35,30 +35,18 @@ class Bot(Client):
         temp.BANNED_USERS = b_users
         temp.BANNED_CHATS = b_chats
         await super().start()
-        await Media.ensure_indexes()
-        await self.set_chat_permissions(
-                -1001308633613,
-                ChatPermissions(
-                    can_send_messages=False
-                    )
-                )
-
+        await Media.ensure_indexes() 
         btn = [
         [
             InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemahub02')
         ]
         ]
-        await self.send_message(
+        m = await self.send_message(
             chat_id=-1001308633613,
             text="🧭🧭 GROUP OPENED 🧭🧭\n\n🤖 Bot started.\n\n🪶 Group unlocked.\n\n✅ Requests are allowed, Let's start.", 
             reply_markup=InlineKeyboardMarkup(btn)
         )
-        await self.set_chat_permissions(
-                -1001308633613,
-                ChatPermissions(
-                    can_send_messages=True
-                    )
-                )
+        await m.pin()
         me = await self.get_me()
         temp.ME = me.id
         temp.U_NAME = me.username
