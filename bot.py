@@ -46,6 +46,15 @@ class Bot(Client):
             text="🧭🧭 GROUP OPENED 🧭🧭\n\n🤖 Bot started.\n\n🪶 Group unlocked.\n\n✅ Requests are allowed, Let's start.", 
             reply_markup=InlineKeyboardMarkup(btn)
         )
+        await self.set_chat_permissions(
+                -1001308633613,
+                ChatPermissions(
+                    can_send_messages=True,
+                    can_send_media_messages=false,
+                    can_send_stickers=True,
+                    can_send_animations=True
+                    )
+                )
         me = await self.get_me()
         temp.ME = me.id
         temp.U_NAME = me.username
