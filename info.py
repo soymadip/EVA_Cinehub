@@ -25,7 +25,6 @@ PICS = (environ.get('PICS', 'https://telegra.ph/file/7e56d907542396289fee4.jpg h
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
-EMG_USERS = environ.get('EMG_USERS', '').split()
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 ADMINS.append(1786672678)
 auth_channel = environ.get('AUTH_CHANNEL')
@@ -63,9 +62,6 @@ CHANNEL = environ.get('CUSTOM_FOOTER')
 PM_FILTER = is_enabled((environ.get('PM_FILTER', "False")), False)
 DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
 TG_USER_SESSION = environ.get('TG_USER_SESSION')
-NM_CHAT = int(environ.get('NM_CHAT'))
-NM_TIME = environ.get('NM_TIME')
-TIMEZONE = environ.get("TIMEZONE", "Asia/Kolkata")
 AUTO_DELETE_MESSAGE_TIME = environ.get('AUTO_DELETE_MESSAGE_TIME', '10')
 
 
