@@ -10,13 +10,13 @@ logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
 
 async def inline_users(query: InlineQuery):
-    if EMG_USERS and query.from_user and query.from_user.id in EMG_USERS:
+    if AUTH_USERS and query.from_user and query.from_user.id in AUTH_USERS:
         return True
     if query.from_user and query.from_user.id not in temp.BANNED_USERS:
         return True
     return False
 
-@Client.on_inline_query(filters.user(EMG_USERS) if EMG_USERS else None)
+@Client.on_inline_query(filters.user(AUTH_USERS) if AUTH_USERS else None)
 async def answer(bot, query):
     """Show search results for given inline query"""
     
