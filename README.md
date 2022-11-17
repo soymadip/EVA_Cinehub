@@ -9,6 +9,8 @@
 
 ## Features--
 
+<b>(development stopped for a period of time)</b>
+
 ✗ STOCK:-
 - [x] Filter (Manual & Auto)
 - [x] IMDB poster search
