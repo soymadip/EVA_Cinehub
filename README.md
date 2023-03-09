@@ -3,11 +3,6 @@
 </h1>
 
 
-<p align="center">
-
-  <img src="readme.gif" alt="Eva Maria Logo">
-
-</p>
 ## A fully functional Group Management Bot with Auto Filter and File store Feature.
 
   [![Size](https://img.shields.io/github/repo-size/soymadip/EVA_Cinehub?style=flat-square&color=green)](https://github.com/soymadip/EVA_Cinehub.git) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/soymadip/EVA_Cinehub.git)
