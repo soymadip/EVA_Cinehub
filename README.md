@@ -44,7 +44,7 @@
 - [ ] FUTURE PLAN : Improve PM guide to enable or disable PM result.
 - [ ] Many others coming.....
 
-## Read [this](https://telegra.ph/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
+## Read [this](https://graph.org/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
 
 ### Variables--
 * `BOT_TOKEN`: Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token.
