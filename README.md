@@ -10,7 +10,7 @@
 
 ## Features--
 
-<b>(development stopped for a period of time)</b>
+<b>(development stopped)</b>
 
 ✗ STOCK:-
 - [x] Filter (Manual & Auto)
