@@ -1,103 +1,115 @@
+import re
+from os import environ
+
+id_pattern = re.compile(r'^.\d+$')
+def is_enabled(value, default):
+    if value.lower() in ["true", "yes", "1", "enable", "y"]:
+        return True
+    elif value.lower() in ["false", "no", "0", "disable", "n"]:
+        return False
+    else:
+        return default
+
 class script(object):
-    START_TXT = """ℍ𝔼𝕃𝕃𝕆 {}\n\n 𝕀 𝔸𝕄 <a href=https://t.me/{}>{}</a>\n 𝕀 𝔻𝔼𝕃𝕀𝕍𝕀𝔼ℝ ℝ𝔼ℚ𝕌𝔼𝕊𝕋𝔼𝔻 𝕄𝔼𝔻𝕀𝔸 𝕋𝕆 ℙ𝔼𝕆ℙ𝕃𝔼.\n𝕀𝔽 𝕐𝕆𝕌 HAVE 𝕄𝕆𝕍I𝔼 ℙℝ𝕆𝕍𝕀𝔻𝕀ℕ𝔾 𝔾ℝ𝕆𝕌ℙ, 𝕋ℍ𝔼ℕ 𝕁𝕌𝕊𝕋 𝔸𝔻𝔻 𝕄𝔼 𝕋ℍ𝔼ℝ𝔼 𝔸𝕊 𝔸𝔻𝕄𝕀ℕ."""
+    START_TXT = environ.get("START_TXT", '''<b>Hello {} 👋🏻 I'm Management Bot I am here to manage your group.\nJust ask me sir.</b>
+
+<i>Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴛᴏ sᴇᴇ ᴛʜᴇ ᴍᴀɢɪᴄ ᴏʀ ʀᴇᴀᴅ ᴍᴏʀᴇ ғʀᴏᴍ ᴛʜᴇ ᴍᴇɴᴜ ʙᴇʟᴏᴡ</i>''')
     HELP_TXT = """𝙷𝙴𝚈 {}
-ℍ𝔼ℝ𝔼 𝕀𝕊 𝕄𝕐 ℂ𝕆𝕄𝕄𝔸ℕ𝔻𝕊."""
-    ABOUT_TXT = """
-> 𝙼𝚈 𝙲𝚁𝙴𝙰𝚃𝙾𝚁: <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>
-> 𝙻𝙸𝙱𝚁𝙰𝚁𝚈: 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
-> 𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴: 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
-> 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
-> 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
-> 𝙱𝚄𝙸𝙻𝙳: v1.0.1 [ ℂ𝕀ℕ𝔼ℍ𝕌𝔹 𝕍𝔼ℝ𝕊𝕀𝕆ℕ ]"""
-    SOURCE_TXT = """<b>SOURCE:--</b>
-     
-• 𝕄𝕐 𝕊𝕆𝕌ℝℂ𝔼:- <a href= https://t.me/anonymous7205>𝗘𝘃𝗮𝗖𝗶𝗻𝗲𝗵𝘂𝗯</a>.\n
-• 𝔻𝔼𝕍:- <a href= https://t.me/anonymous7205>🆂🅾️🆄🅼🅰️🅳🅸🅿️</a>"""
+𝙷𝙴𝚁𝙴 𝙸𝚂 𝙼𝚈 𝙷𝙴𝙻𝙿 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂."""
+    ABOUT_TXT = """<b><i>🤖 ᴍʏ ɴᴀᴍᴇ : <b>Management Bot</b>\n
+👨‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href=https://t.me/soymadip><b>Soumadip Das</b></a>\n
+📝 ʟᴀɴɢᴜᴀɢᴇ : ᴘʏʀᴏɢʀᴀᴍ\n
+📚 ꜰʀᴀᴍᴇᴡᴏʀᴋ : ᴘʏᴛʜᴏɴ 3\n
+📡 ʜᴏsᴛᴇᴅ ᴏɴ : local server\n
+🌟 ᴠᴇʀsɪᴏɴ : ᴠ 1.0\n</b></i>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
-- 𝔽𝕚𝕝𝕥𝕖𝕣 𝕚𝕤 𝕥𝕙𝕖 𝕗𝕖𝕒𝕥𝕦𝕣𝕖 𝕨𝕖𝕣𝕖 𝕦𝕤𝕖𝕣𝕤 𝕔𝕒𝕟 𝕤𝕖𝕥 𝕒𝕦𝕥𝕠𝕞𝕒𝕥𝕖𝕕 𝕣𝕖𝕡𝕝𝕚𝕖𝕤 𝕗𝕠𝕣 𝕒 𝕡𝕒𝕣𝕥𝕚𝕔𝕦𝕝𝕒𝕣 𝕜𝕖𝕪𝕨𝕠𝕣𝕕 𝕒𝕟𝕕 𝔼𝕧𝕒𝕄𝕒𝕣𝕚𝕒 𝕨𝕚𝕝𝕝 𝕣𝕖𝕤𝕡𝕠𝕟𝕕 𝕨𝕙𝕖𝕟𝕖𝕧𝕖𝕣 𝕒 𝕜𝕖𝕪𝕨𝕠𝕣𝕕 𝕚𝕤 𝕗𝕠𝕦𝕟𝕕 𝕥𝕙𝕖 𝕞𝕖𝕤𝕤𝕒𝕘𝕖.
+
+- Filter is the feature were users can set automated replies for a particular keyword and Search Bot will respond whenever a keyword is found the message
+
 <b>NOTE:</b>
-1. 𝕒𝕝𝕖𝕣𝕥 𝕓𝕦𝕥𝕥𝕠𝕟𝕤 𝕙𝕒𝕧𝕖 𝕒 𝕝𝕚𝕞𝕚𝕥 𝕠𝕗 𝟞𝟜 𝕔𝕙𝕒𝕣𝕒𝕔𝕥𝕖𝕣𝕤.
+1. Search Bot should have admin privillage.
+2. only admins can add filters in a chat.
+3. alert buttons have a limit of 64 characters.
+
 <b>Commands and Usage:</b>
 • /filter - <code>add a filter in chat</code>
 • /filters - <code>list all the filters of a chat</code>
 • /del - <code>delete a specific filter in chat</code>
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
     BUTTON_TXT = """Help: <b>Buttons</b>
-- I Support both url and alert inline buttons.
+
+- Search Bot Supports both url and alert inline buttons.
+
 <b>NOTE:</b>
-1. 𝑇𝑒𝑙𝑒𝑔𝑟𝑎𝑚 𝑤𝑖𝑙𝑙 𝑛𝑜𝑡 𝑎𝑙𝑙𝑜𝑤𝑠 𝑦𝑜𝑢 𝑡𝑜 𝑠𝑒𝑛𝑑 𝑏𝑢𝑡𝑡𝑜𝑛𝑠 𝑤𝑖𝑡ℎ𝑜𝑢𝑡 𝑎𝑛𝑦 𝑐𝑜𝑛𝑡𝑒𝑛𝑡, 𝑠𝑜 𝑐𝑜𝑛𝑡𝑒𝑛𝑡 𝑖𝑠 𝑚𝑎𝑛𝑑𝑎𝑡𝑜𝑟𝑦.
-2. 𝑀𝐸 𝑠𝑢𝑝𝑝𝑜𝑟𝑡𝑠 𝑏𝑢𝑡𝑡𝑜𝑛𝑠 𝑤𝑖𝑡ℎ 𝑎𝑛𝑦 𝑡𝑒𝑙𝑒𝑔𝑟𝑎𝑚 𝑚𝑒𝑑𝑖𝑎 𝑡𝑦𝑝𝑒.
-3. 𝐵𝑢𝑡𝑡𝑜𝑛𝑠 𝑠ℎ𝑜𝑢𝑙𝑑 𝑏𝑒 𝑝𝑟𝑜𝑝𝑒𝑟𝑙𝑦 𝑝𝑎𝑟𝑠𝑒𝑑 𝑎𝑠 𝑚𝑎𝑟𝑘𝑑𝑜𝑤𝑛 𝑓𝑜𝑟𝑚𝑎𝑡
+1. Telegram will not allows you to send buttons without any content, so content is mandatory.
+2. Search Bot supports buttons with any telegram media type.
+3. Buttons should be properly parsed as markdown format
+
 <b>URL buttons:</b>
-<code>[Button Text](buttonurl:https://t.me/Eva)</code>
+<code>[Button Text](buttonurl:https://t.me/soymadip)</code>
+
 <b>Alert buttons:</b>
 <code>[Button Text](buttonalert:This is an alert message)</code>"""
     AUTOFILTER_TXT = """Help: <b>Auto Filter</b>
+
 <b>NOTE:</b>
-1. 𝑀𝑎𝑘𝑒 𝑚𝑒 𝑡ℎ𝑒 𝑎𝑑𝑚𝑖𝑛 𝑜𝑓 𝑦𝑜𝑢𝑟 𝑐ℎ𝑎𝑛𝑛𝑒𝑙 𝑖𝑓 𝑖𝑡'𝑠 𝑝𝑟𝑖𝑣𝑎𝑡𝑒.
-2. 𝑚𝑎𝑘𝑒 𝑠𝑢𝑟𝑒 𝑡ℎ𝑎𝑡 𝑦𝑜𝑢𝑟 𝑐ℎ𝑎𝑛𝑛𝑒𝑙 𝑑𝑜𝑒𝑠 𝑛𝑜𝑡 𝑐𝑜𝑛𝑡𝑎𝑖𝑛𝑠 𝑐𝑎𝑚𝑟𝑖𝑝𝑠, 𝑝𝑜𝑟𝑛 𝑎𝑛𝑑 𝑓𝑎𝑘𝑒 𝑓𝑖𝑙𝑒𝑠.
-3. 𝐹𝑜𝑟𝑤𝑎𝑟𝑑 𝑡ℎ𝑒 𝑙𝑎𝑠𝑡 𝑚𝑒𝑠𝑠𝑎𝑔𝑒 𝑡𝑜 𝑚𝑒 𝑤𝑖𝑡ℎ 𝑞𝑢𝑜𝑡𝑒𝑠.
- 𝐼'𝑙𝑙 𝑎𝑑𝑑 𝑎𝑙𝑙 𝑡ℎ𝑒 𝑓𝑖𝑙𝑒𝑠 𝑖𝑛 𝑡ℎ𝑎𝑡 𝑐ℎ𝑎𝑛𝑛𝑒𝑙 𝑡𝑜 𝑚𝑦 𝑑𝑏."""
+1. Make me the admin of your channel if it's private.
+2. make sure that your channel does not contains camrips, porn and fake files.
+3. Forward the last message to me with quotes.
+ I'll add all the files in that channel to my db."""
     CONNECTION_TXT = """Help: <b>Connections</b>
-- �𝑠𝑒𝑑 𝑡𝑜 𝑐𝑜𝑛𝑛𝑒𝑐𝑡 𝑏𝑜𝑡 𝑡𝑜 𝑃𝑀 𝑓𝑜𝑟 𝑚𝑎𝑛𝑎𝑔𝑖𝑛𝑔 𝑓𝑖𝑙𝑡𝑒𝑟𝑠 
-- 𝑖𝑡 ℎ𝑒𝑙𝑝𝑠 𝑡𝑜 𝑎𝑣𝑜𝑖𝑑 𝑠𝑝𝑎𝑚𝑚𝑖𝑛𝑔 𝑖𝑛 𝑔𝑟𝑜𝑢𝑝𝑠.
+
+- Used to connect bot to PM for managing filters 
+- it helps to avoid spamming in groups.
+
 <b>NOTE:</b>
-1. 1. 𝓞𝓷𝓵𝔂 𝓪𝓭𝓶𝓲𝓷𝓼 𝓬𝓪𝓷 𝓪𝓭𝓭 𝓪 𝓬𝓸𝓷𝓷𝓮𝓬𝓽𝓲𝓸𝓷.
-2. 𝑆𝑒𝑛𝑑 <code>/connect</code> 𝑓𝑜𝑟 𝑐𝑜𝑛𝑛𝑒𝑐𝑡𝑖𝑛𝑔 𝑚𝑒 𝑡𝑜 𝑢𝑟 𝑃𝑀
+1. Only admins can add a connection.
+2. Send <code>/connect</code> for connecting me to ur PM
+
 <b>Commands and Usage:</b>
 • /connect  - <code>connect a particular chat to your PM</code>
 • /disconnect  - <code>disconnect from a chat</code>
 • /connections - <code>list all your connections</code>"""
     EXTRAMOD_TXT = """Help: <b>Extra Modules</b>
+
 <b>NOTE:</b>
-these are the extra features of ME
+these are the extra features of Search Bot
+
 <b>Commands and Usage:</b>
 • /id - <code>get id of a specified user.</code>
 • /info  - <code>get information about a user.</code>
 • /imdb  - <code>get the film information from IMDb source.</code>
 • /search  - <code>get the film information from various sources.</code>"""
     ADMIN_TXT = """Help: <b>Admin mods</b>
+
 <b>NOTE:</b>
-𝑇ℎ𝑖𝑠 𝑚𝑜𝑑𝑢𝑙𝑒 𝑜𝑛𝑙𝑦 𝑤𝑜𝑟𝑘𝑠 𝑓𝑜𝑟 𝑚𝑦 𝑎𝑑�"""
-    STATUS_TXT = """✗ 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
-• 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
-• 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
-• 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>
-• 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>"""
-    LOG_TEXT_G = """#NewGroup
-Group = {}(<code>{}</code>)
-Total Members = <code>{}</code>
-Added By - {}
+This module only works for my admins
+
+<b>Commands and Usage:</b>
+• /logs - <code>to get the rescent errors</code>
+• /stats - <code>to get status of files in db.</code>
+• /delete - <code>to delete a specific file from db.</code>
+• /users - <code>to get list of my users and ids.</code>
+• /chats - <code>to get list of the my chats and ids </code>
+• /leave  - <code>to leave from a chat.</code>
+• /disable  -  <code>do disable a chat.</code>
+• /ban  - <code>to ban a user.</code>
+• /unban  - <code>to unban a user.</code>
+• /channel - <code>to get list of total connected channels</code>
+• /broadcast - <code>to broadcast a message to all users</code>"""
+    STATUS_TXT = """★ 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
+★ 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
+★ 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
+★ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱
+★ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱"""
+    LOG_TEXT_G = """#𝐍𝐞𝐰𝐆𝐫𝐨𝐮𝐩
+    
+<b>᚛› 𝐆𝐫𝐨𝐮𝐩 ⪼ {}(<code>{}</code>)</b>
+<b>᚛› 𝐓𝐨𝐭𝐚𝐥 𝐌𝐞𝐦𝐛𝐞𝐫𝐬 ⪼ <code>{}</code></b>
+<b>᚛› 𝐀𝐝𝐝𝐞𝐝 𝐁𝐲 ⪼ {}</b>
 """
-    COMMANDS_TXT = """• /logs - to get the rescent errors
-• /stats - to get status of files in db.
-* /filter - add manual filters
-* /filters - view filters
-* /connect - connect to PM.
-* /disconnect - disconnect from PM
-* /del - delete a filter
-* /delall - delete all filters
-* /deleteall - delete all index(autofilter)
-* /delete - delete a specific file from index.
-* /info - get user info
-* /id - get tg ids.
-* /imdb - fetch info from imdb.
-• /users - to get list of my users and ids.
-• /chats - to get list of the my chats and ids 
-• /index  - to add files from a channel
-• /leave  - to leave from a chat.
-• /disable  -  do disable a chat.
-* /enable - re-enable chat.
-• /ban  - to ban a user.
-• /unban  - to unban a user.
-• /channel - to get list of total connected channels
-• /broadcast - to broadcast a message to all users.
-• /batch - to create link for multiple posts.
-• /links - to create link for one post.
-• /telegraph - upload media less than 5 MB to telegraph.
-• /share - get shareable link of any text or link.
-• /tmute <time> - temporarily mute user ."""
-    LOG_TEXT_P = """🅽🅴🆆 🆄🆂🅴🆁
-🅘🅓 - <code>{}</code>
-ⓃⒶⓂ️Ⓔ - {}
+    LOG_TEXT_P = """#𝐍𝐞𝐰𝐔𝐬𝐞𝐫  
+    
+<b>᚛› 𝐈𝐃 - <code>{}</code></b>
+<b>᚛› 𝐍𝐚𝐦𝐞 - {}</b>
 """

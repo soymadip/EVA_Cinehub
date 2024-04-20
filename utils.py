@@ -1,15 +1,15 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
 from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM
-from imdb import IMDb
+from imdb import Cinemagoer
 import asyncio
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardButton
+from pyrogram import enums
 from typing import Union
 import re
 import os
 from datetime import datetime
 from typing import List
-from pyrogram.types import InlineKeyboardButton
 from database.users_chats_db import db
 from bs4 import BeautifulSoup
 import requests
@@ -21,7 +21,7 @@ BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))"
 )
 
-imdb = IMDb() 
+imdb = Cinemagoer()
 
 BANNED = {}
 SMART_OPEN = '“'
@@ -76,7 +76,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
                 filtered = movieid
         else:
             filtered = movieid
-        movieid=list(filter(lambda k: k.get('kind') in ['movie'], filtered))
+        movieid=list(filter(lambda k: k.get('kind') in ['movie', 'tv series'], filtered))
         if not movieid:
             movieid = filtered
         if bulk:
@@ -132,31 +132,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
     }
 # https://github.com/odysseusmax/animated-lamp/blob/2ef4730eb2b5f0596ed6d03e7b05243d93e3415b/bot/utils/broadcast.py#L37
 
-async def qbroadcast_messages(user_id, message):
-    try:
-        await message.forward(chat_id=user_id)
-        return True, "Success"
-    except FloodWait as e:
-        await asyncio.sleep(e.x)
-        return await broadcast_messages(user_id, message)
-    except InputUserDeactivated:
-        await db.delete_user(int(user_id))
-        logging.info(f"{user_id}-Removed from Database, since deleted account.")
-        return False, "Deleted"
-    except UserIsBlocked:
-        logging.info(f"{user_id} -Blocked the bot.")
-        await db.delete_user(int(user_id))
-        logging.info(f"{user_id}  deleted from db.")
-        return False, "Blocked"
-    except PeerIdInvalid:
-        await db.delete_user(int(user_id))
-        logging.info(f"{user_id} - PeerIdInvalid")
-        return False, "Error"
-    except Exception as e:
-        return False, "Error"
-
-
-async def wqbroadcast_messages(user_id, message):
+async def broadcast_messages(user_id, message):
     try:
         await message.copy(chat_id=user_id)
         return True, "Success"
@@ -169,8 +145,6 @@ async def wqbroadcast_messages(user_id, message):
         return False, "Deleted"
     except UserIsBlocked:
         logging.info(f"{user_id} -Blocked the bot.")
-        await db.delete_user(int(user_id))
-        logging.info(f"{user_id}  deleted from db.")
         return False, "Blocked"
     except PeerIdInvalid:
         await db.delete_user(int(user_id))
@@ -178,7 +152,6 @@ async def wqbroadcast_messages(user_id, message):
         return False, "Error"
     except Exception as e:
         return False, "Error"
-
 
 async def search_gagala(text):
     usr_agent = {
@@ -251,7 +224,7 @@ def extract_user(message: Message) -> Union[int, str]:
     elif len(message.command) > 1:
         if (
             len(message.entities) > 1 and
-            message.entities[1].type == "text_mention"
+            message.entities[1].type == enums.MessageEntityType.TEXT_MENTION
         ):
            
             required_entity = message.entities[1]
@@ -285,18 +258,18 @@ def last_online(from_user):
     time = ""
     if from_user.is_bot:
         time += "🤖 Bot :("
-    elif from_user.status == 'recently':
+    elif from_user.status == enums.UserStatus.RECENTLY:
         time += "Recently"
-    elif from_user.status == 'within_week':
+    elif from_user.status == enums.UserStatus.LAST_WEEK:
         time += "Within the last week"
-    elif from_user.status == 'within_month':
+    elif from_user.status == enums.UserStatus.LAST_MONTH:
         time += "Within the last month"
-    elif from_user.status == 'long_time_ago':
+    elif from_user.status == enums.UserStatus.LONG_AGO:
         time += "A long time ago :("
-    elif from_user.status == 'online':
+    elif from_user.status == enums.UserStatus.ONLINE:
         time += "Currently Online"
-    elif from_user.status == 'offline':
-        time += datetime.fromtimestamp(from_user.last_online_date).strftime("%a, %d %b %Y, %H:%M:%S")
+    elif from_user.status == enums.UserStatus.OFFLINE:
+        time += from_user.last_online_date.strftime("%a, %d %b %Y, %H:%M:%S")
     return time
 
 

@@ -10,13 +10,16 @@ logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
 
 async def inline_users(query: InlineQuery):
-    if AUTH_USERS and query.from_user and query.from_user.id in AUTH_USERS:
-        return True
+    if AUTH_USERS:
+        if query.from_user and query.from_user.id in AUTH_USERS:
+            return True
+        else:
+            return False
     if query.from_user and query.from_user.id not in temp.BANNED_USERS:
         return True
     return False
 
-@Client.on_inline_query(filters.user(AUTH_USERS) if AUTH_USERS else None)
+@Client.on_inline_query()
 async def answer(bot, query):
     """Show search results for given inline query"""
     
@@ -65,13 +68,13 @@ async def answer(bot, query):
         results.append(
             InlineQueryResultCachedDocument(
                 title=file.file_name,
-                file_id=file.file_id,
+                document_file_id=file.file_id,
                 caption=f_caption,
                 description=f'Size: {get_size(file.file_size)}\nType: {file.file_type}',
                 reply_markup=reply_markup))
 
     if results:
-        switch_pm_text = f"{emoji.FILE_FOLDER} Results - {total}"
+        switch_pm_text = f"{emoji.FILE_FOLDER} Results "
         if string:
             switch_pm_text += f" for {string}"
         try:
@@ -100,10 +103,11 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('⚡️𝕁𝕠𝕚𝕟 ℂ𝕚𝕟𝕖𝕙𝕦𝕓 𝕗𝕠𝕣 𝕞𝕠𝕣𝕖⚡️', url=f'https://t.me/cinemaforyou07')
+            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
         ]
         ]
     return InlineKeyboardMarkup(buttons)
+
 
 
 

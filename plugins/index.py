@@ -1,6 +1,6 @@
 import logging
 import asyncio
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
 from info import ADMINS
@@ -23,7 +23,7 @@ async def index_files(bot, query):
     if raju == 'reject':
         await query.message.delete()
         await bot.send_message(int(from_user),
-                               f'Y͟o͟u͟r͟ S͟u͟b͟m͟i͟s͟s͟i͟o͟n͟ f͟o͟r͟ i͟n͟d͟e͟x͟i͟n͟g͟  {chat} h͟a͟s͟ b͟e͟e͟n͟ d͟e͟c͟l͟i͟e͟n͟e͟d͟ b͟y͟ o͟u͟r͟ m͟o͟d͟e͟r͟a͟t͟o͟r͟s͟.',
+                               f'Your Submission for indexing {chat} has been decliened by our moderators.',
                                reply_to_message_id=int(lst_msg_id))
         return
 
@@ -31,13 +31,13 @@ async def index_files(bot, query):
         return await query.answer('Wait until previous process complete.', show_alert=True)
     msg = query.message
 
-    await query.answer('wait a minute...⏳', show_alert=True)
+    await query.answer('Processing...⏳', show_alert=True)
     if int(from_user) not in ADMINS:
         await bot.send_message(int(from_user),
-                               f'Y͟o͟u͟r͟ S͟u͟b͟m͟i͟s͟s͟i͟o͟n͟ f͟o͟r͟ i͟n͟d͟e͟x͟i͟n͟g͟  {chat} h͟a͟s͟ b͟e͟e͟n͟ d͟e͟c͟l͟i͟e͟n͟e͟d͟ b͟y͟ o͟u͟r͟ m͟o͟d͟e͟r͟a͟t͟o͟r͟s͟.',
+                               f'Your Submission for indexing {chat} has been accepted by our moderators and will be added soon.',
                                reply_to_message_id=int(lst_msg_id))
     await msg.edit(
-        "S͟t͟a͟r͟t͟i͟n͟g͟ I͟n͟d͟e͟x͟i͟n͟g͟",
+        "Starting Indexing",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
         )
@@ -49,18 +49,18 @@ async def index_files(bot, query):
     await index_files_to_db(int(lst_msg_id), chat, msg, bot)
 
 
-@Client.on_message((filters.forwarded | (filters.regex("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")) & filters.text ) & filters.private & filters.incoming)
+@Client.on_message((filters.forwarded | (filters.regex(r"(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")) & filters.text ) & filters.private & filters.incoming)
 async def send_for_index(bot, message):
     if message.text:
-        regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
+        regex = re.compile(r"(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
         match = regex.match(message.text)
         if not match:
-            return await message.reply('What?')
+            return await message.reply('Invalid link')
         chat_id = match.group(4)
         last_msg_id = int(match.group(5))
         if chat_id.isnumeric():
             chat_id  = int(("-100" + chat_id))
-    elif message.forward_from_chat.type == 'channel':
+    elif message.forward_from_chat.type == enums.ChatType.CHANNEL:
         last_msg_id = message.forward_from_message_id
         chat_id = message.forward_from_chat.username or message.forward_from_chat.id
     else:
@@ -110,7 +110,7 @@ async def send_for_index(bot, message):
         ],
         [
             InlineKeyboardButton('Reject Index',
-                                 callback_data=f'index#reject#{chat_id}#{message.message_id}#{message.from_user.id}'),
+                                 callback_data=f'index#reject#{chat_id}#{message.id}#{message.from_user.id}'),
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -150,7 +150,7 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                     await msg.edit(f"Successfully Cancelled!!\n\nSaved <code>{total_files}</code> files to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>")
                     break
                 current += 1
-                if current % 20 == 0:
+                if current % 60 == 0:
                     can = [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
                     reply = InlineKeyboardMarkup(can)
                     await msg.edit_text(
@@ -162,14 +162,14 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                 elif not message.media:
                     no_media += 1
                     continue
-                elif message.media not in ['audio', 'video', 'document']:
+                elif message.media not in [enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO, enums.MessageMediaType.DOCUMENT]:
                     unsupported += 1
                     continue
-                media = getattr(message, message.media, None)
+                media = getattr(message, message.media.value, None)
                 if not media:
                     unsupported += 1
                     continue
-                media.file_type = message.media
+                media.file_type = message.media.value
                 media.caption = message.caption
                 aynav, vnay = await save_file(media)
                 if aynav:

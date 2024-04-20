@@ -1,6 +1,5 @@
 import logging
 import logging.config
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
@@ -10,18 +9,18 @@ logging.getLogger("imdbpy").setLevel(logging.ERROR)
 
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
-from pyrogram.types import ChatPermissions
 from database.ia_filterdb import Media
 from database.users_chats_db import db
 from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
-from plugins.index import index_files_to_db
+from typing import Union, Optional, AsyncGenerator
+from pyrogram import types
 
 class Bot(Client):
 
     def __init__(self):
         super().__init__(
-            session_name=SESSION,
+            name=SESSION,
             api_id=API_ID,
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
@@ -35,29 +34,34 @@ class Bot(Client):
         temp.BANNED_USERS = b_users
         temp.BANNED_CHATS = b_chats
         await super().start()
-        await Media.ensure_indexes() 
-        btn = [
-        [
-            InlineKeyboardButton('⚡️ ℂ𝕀ℕ𝔼𝕄𝔸 ℍ𝕌𝔹 ⚡️', url=f'https://t.me/cinemahub02')
-        ]
-        ]
-        #m = await self.send_message(
-           # chat_id=-1001308633613,
-         #   text="🧭🧭 GROUP OPENED 🧭🧭\n\n🤖 Bot started.\n\n🪶 Group unlocked.\n\n✅ Requests are allowed, Let's start.", 
-         #   reply_markup=InlineKeyboardMarkup(btn)
-       # )
-        #await m.pin()
+        await Media.ensure_indexes()
         me = await self.get_me()
         temp.ME = me.id
         temp.U_NAME = me.username
         temp.B_NAME = me.first_name
         self.username = '@' + me.username
-        logging.info(f"{me.username} with Pyrogram v{__version__} (Layer {layer}) started by {me.first_name}.")
+        logging.info(f"{me.first_name}  started with Pyrogram v{__version__} (Layer {layer}) successfully.")
         logging.info(LOG_STR)
 
     async def stop(self, *args):
         await super().stop()
         logging.info("Bot stopped. Bye.")
+    
+    async def iter_messages(
+        self,
+        chat_id: Union[int, str],
+        limit: int,
+        offset: int = 0,
+    ) -> Optional[AsyncGenerator["types.Message", None]]:
+        current = offset
+        while True:
+            new_diff = min(200, limit - current)
+            if new_diff <= 0:
+                return
+            messages = await self.get_messages(chat_id, list(range(current, current+new_diff+1)))
+            for message in messages:
+                yield message
+                current += 1
 
 
 app = Bot()
