@@ -7,7 +7,7 @@ umongo==3.0.1
 requests
 bs4
 imdbpy==2021.4.18
-#telegraph==1.4.1
+telegraph==1.4.1
 #googletrans==3.1.0a0
 #gTTS
 aiohttp==3.7.4
@@ -21,3 +21,5 @@ aiofiles
 #ytthumb
 tglogging
 #apscheduler
+beautifulsoup4
+cinemagoer
