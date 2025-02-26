@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Many Of You May Not Know That You Can Customize Your Bot A Lot(without editing Code). - Eva_cinemaHub</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Eva_cinemaHub</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#many-of-you-may-not-know-that-you-can-customize-your-bot-a-lotwithout-editing-code" class="nav-link">Many Of You May Not Know That You Can Customize Your Bot A Lot(without editing Code).</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="many-of-you-may-not-know-that-you-can-customize-your-bot-a-lotwithout-editing-code">Many Of You May Not Know That You Can Customize Your Bot A Lot(without editing Code).</h1>
+<p>The following config vars can be used to do so.</p>
+<ol>
+<li>
+<p>IMDB_TEMPLATE - To Customize (https://t.me/TeamEvamaria/9) imdb data.</p>
+</li>
+<li>
+<p>SUPPORT_CHAT - Add your own chat as a support chat instead of @EvamariaSupport.</p>
+</li>
+<li>
+<p>P_TTI_SHOW_OFF - (Use True or False) - Users will be redirected to send /start to Bot PM if set to True else files will be sent directly to users PM.</p>
+</li>
+<li>
+<p>IMDB - (Use True or False) - To disable or enable imdb data.</p>
+</li>
+<li>
+<p>SINGLE_BUTTON - (Use True or False) - If set True, file name and files size will be shown in a single button instead of two separate button.</p>
+</li>
+<li>
+<p>CUSTOM_FILE_CAPTION - Same as IMDB template , you can customize the caption for files (available keys , file_name, file_size, file_caption )</p>
+</li>
+</ol>
+<p>Example: <b>Join <a href="https://t.me/teamevamaria">Here</a></b> </p>
+<p>FILE : <code>{file_name}</code> </p>
+<p>Size : <i>{file_size}</i></p>
+<p>CAPTION: {file_caption}</p>
+<ol>
+<li>
+<p>LONG_IMDB_DESCRIPTION - (Use True or False) Long IMDB story line will be used if enabled.</p>
+</li>
+<li>
+<p>SPELL_CHECK_REPLY - (Use True or False) - if enabled, bot will be suggesting related movies if keyword not found in database.</p>
+</li>
+<li>
+<p>MAX_LIST_ELM - long lists like long casts list can be shortened using this value. list will be shortened to first n elements where n is the value for this config var. For example if 4 is used list will be shortened to foist 4 elements.</p>
+</li>
+<li>
+<p>AUTH_CHANNEL - To enable force subscribe. Delete this var if you do not need fsub.</p>
+</li>
+<li>
+<p>AUTH_USERS - To restrict the use of inline queries to specified users.</p>
+</li>
+<li>
+<p>UPSTREAM_REPO - If you want to use a customized fork of Evamaria (https://github.com/EvamariaTG/EvaMaria), You can fill this config with github url of your fork.</p>
+</li>
+<li>
+<p>BATCH_FILE_CAPTION - Same as CUSTOM_FILE_CAPTION , use in case you want separate captions for batch files.</p>
+</li>
+<li>
+<p>MELCOW_NEW_USERS - Use False if you want the bot to not to welcome new users in groups.</p>
+</li>
+<li>
+<p>PROTECT_CONTANT = Use True / False . If set to true files from bot cannot be forwarded to any chat.</p>
+</li>
+<li>
+<p>PUBLIC_FILE_STORE = Use False if you don't want your bot to be used as a filestore bot by others.</p>
+</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
