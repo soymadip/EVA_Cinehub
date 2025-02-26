@@ -8,11 +8,11 @@
   [![Size](https://img.shields.io/github/repo-size/soymadip/EVA_Cinehub?style=flat-square&color=green)](https://github.com/soymadip/EVA_Cinehub.git) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/soymadip/EVA_Cinehub.git)
   [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter&count_bg=%23FF9008&title_bg=%23555555&icon=probot.svg&icon_color=%23E7E7E7&title=EVA&edge_flat=false)](https://github.com/soymadip/EVA_Cinehub)
 
-!!! warinig
-  Development stopped.
-
-
 ## Features--
+
+> [!WARNING]
+> Development stopped
+
 ✗ STOCK:-
 - [x] Filter (Manual & Auto)
 - [x] IMDB poster search
@@ -45,9 +45,8 @@
 - [ ] FUTURE PLAN : Improve PM guide to enable or disable PM result.
 - [ ] ~~Many others coming.....~~
 
-## Read [this](https://soymadip.me/EVA_Cinehub/customise) before you start messing up with <b>stock codes</b>.
-
 ### Variables--
+
 * `BOT_TOKEN`: Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token.
 * `API_ID`: Get this value from [telegram.org](https://my.telegram.org/apps)
 * `API_HASH`: Get this value from [telegram.org](https://my.telegram.org/apps)
