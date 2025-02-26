@@ -10,7 +10,8 @@
 
 ## Features--
 
-<b>(development stopped)</b>
+> [!WARNING]
+> Development stopped
 
 ✗ STOCK:-
 - [x] Filter (Manual & Auto)
@@ -42,7 +43,7 @@
 - [x] Users who banned bot, will be deleted automatically from db.
 - [x] Added forward with quote support. use /qbroadcast to.....
 - [ ] FUTURE PLAN : Improve PM guide to enable or disable PM result.
-- [ ] Many others coming.....
+- [ ] ~~Many others coming.....~~
 
 ## Read [this](https://graph.org/Many-Of-You-May-Not-Be-Knowing-That-You-Can-Customize-Your-Bot-A-Lot-02-03) before you start messing up with <b>stock codes</b>.
 
@@ -64,7 +65,6 @@
 
 <b>𝕺𝖊𝖕𝖑𝖔𝖞 𝕿𝖔 𝕳𝖊𝖗𝖔𝖐𝖚</b>:-
 <p>
-<br>
 <a href="https://heroku.com/deploy?template=https://github.com/soymadip/EVA_Cinehub.git">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
