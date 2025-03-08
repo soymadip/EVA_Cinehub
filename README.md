@@ -1,16 +1,29 @@
-<h1 align="center">
-  <b>𝐶𝐼𝑁𝐸𝑀𝐴𝐻𝑈𝐵 𝑣𝑒𝑟𝑠𝑖𝑜𝑚 𝑜𝑓 𝐸𝑣𝑎𝑀𝑎𝑟𝑖𝑎 𝐵𝑜𝑡</b>
-</h1>
+<div align="center">
+    <h1>
+        <b>𝐶𝐼𝑁𝐸𝑀𝐴𝐻𝑈𝐵 𝑣𝑒𝑟𝑠𝑖𝑜𝑛 𝑜𝑓 𝐸𝑣𝑎𝑀𝑎𝑟𝑖𝑎 𝐵𝑜𝑡</b>
+    </h1>
+    <p>
+        A fully functional Group Management Bot with Auto Filter and File Store Feature.
+    </p>
+  <br>
+    <a href="https://github.com/soymadip/EVA_Cinehub.git">
+        <img src="https://img.shields.io/github/repo-size/soymadip/EVA_Cinehub?style=flat-square&color=green" alt="Size">
+    </a>
+    <a href="https://github.com/soymadip/EVA_Cinehub.git">
+        <img src="https://badges.frapsoft.com/os/v2/open-source.svg?v=103" alt="Open Source">
+    </a>
+    <a href="https://github.com/soymadip/EVA_Cinehub">
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter&count_bg=%23FF9008&title_bg=%23555555&icon=probot.svg&icon_color=%23E7E7E7&title=EVA&edge_flat=false" alt="Hits">
+    </a>
+</div>
 
 
-## A fully functional Group Management Bot with Auto Filter and File store Feature.
+>[!WARNING]
+>Development stopped.<br>
+>Pyrogram is no longer maintained.<br>
+>Porting to telethon may be done in future, not in my priority list now.
 
-  [![Size](https://img.shields.io/github/repo-size/soymadip/EVA_Cinehub?style=flat-square&color=green)](https://github.com/soymadip/EVA_Cinehub.git) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/soymadip/EVA_Cinehub.git)
-  [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter&count_bg=%23FF9008&title_bg=%23555555&icon=probot.svg&icon_color=%23E7E7E7&title=EVA&edge_flat=false)](https://github.com/soymadip/EVA_Cinehub)
-
-!!! warinig
-  Development stopped.
-
+<br>
 
 ## Features--
 ✗ STOCK:-
