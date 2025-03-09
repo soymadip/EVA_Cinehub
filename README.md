@@ -1,4 +1,5 @@
 <div align="center">
+    <img src="./Assets/icon.png" width=130>
     <h1>
         <b>EVA_cinemahub</b>
     </h1>
