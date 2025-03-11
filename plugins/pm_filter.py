@@ -471,7 +471,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         [
         InlineKeyboardButton('𝔸𝕓𝕠𝕦𝕥', callback_data='about'),
         InlineKeyboardButton('𝕊𝕠𝕦𝕣𝕔𝕖', callback_data='source')
-        ],[InlineKeyboardButton('ℹ️ ℂ𝕠𝕞𝕞𝕒𝕟𝕕𝕤 ℹ️', url='https://tnlink.in/st?api=ea95aad94bdb11a4c3703275264f4406d9240276&url=https://telegra.ph/All-Commands-For-Eva-Cinehub-02-24')] 
+        ],[InlineKeyboardButton('ℹ️ ℂ𝕠𝕞𝕞𝕒𝕟𝕕𝕤 ℹ️', url='https://tnlink.in/st?api=ea95aad94bdb11a4c3703275264f4406d9240276&url=https://soymadip.github.io/Regis/commands')] 
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(

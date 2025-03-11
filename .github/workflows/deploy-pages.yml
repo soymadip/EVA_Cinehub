@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - 'docs/**'
-      - '.github/workflows/doploy-pages.yml'
     branches:
       - main
 
