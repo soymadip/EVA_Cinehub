@@ -1,0 +1,51 @@
+#===========================================
+# REQUIRED VARIABLES - Must be filled
+#===========================================
+
+# Bot Credentials
+API_ID = '12345'                                      # Get from my.telegram.org
+API_HASH = '0123456789abcdef0123456789abcdef'         # Get from my.telegram.org
+BOT_TOKEN = '123456:ABC-DEF1234ghIkl-zyx57W2v1u123'   # Get from @BotFather
+
+# User & Admin Settings
+ADMINS = '1234567 7654321 user123'                    # Bot admins' IDs or usernames
+AUTH_USERS = '1234567 7654321'                        # Users allowed to use inline queries
+CHANNELS = '-100123456789 -100987654321 channelname'  # Channels to index content from
+SUPPORT_CHAT = 'https://t.me/your_support_group'      # Support chat link
+
+# Database Settings
+DATABASE_URI = 'mongodb://username:password@host:port/database?retryWrites=true&w=majority'
+DATABASE_NAME = 'Telegram'                            # Database name
+COLLECTION_NAME = 'channel_files'                     # Collection name
+
+# Storage & Logs
+LOG_CHANNEL = '-100123456789'                         # Channel ID for bot logs
+FILE_STORE_CHANNEL = '-100123456789 -100987654321'    # Channels used for storing files
+
+
+
+#===========================================
+# OPTIONAL VARIABLES - Can be customized
+#===========================================
+
+MAINTENANCE_MODE = 'False'              # Enable/Disable maintenance mode
+
+# Authentication
+# AUTH_CHANNEL = '-100123456789'               # Force users to join this channel
+# AUTH_GROUPS = '-100123456789 -100987654321'  # Groups where bot can be used
+
+# Bot Behavior
+# SESSION = 'Regis'                       # Pyrogram session name
+# CAPTION_FILTER = 'True'                 # Enable/Disable caption filtering
+# PUBLIC_FILE_STORE = 'False'             # Allow public access to stored files
+# PROTECT_CONTENT = 'True'                # Prevent forwarding of files
+# PM_FILTER = 'True'                      # Enable filtering in private messages
+
+# User Experience
+# AUTO_MESSAGE_DELETE_TIME = '300'        # Time in seconds to auto-delete messages
+
+# Media Features
+# SPELL_CHECK_REPLY = 'True'              # Enable spell check suggestions
+# SINGLE_BUTTON = 'False'                 # Show file info in single button
+# MAX_LIST_ELM = '10'                     # Maximum results in search results
+# IGNORE_WORDS = 'link|subscribe|join'    # Words to ignore in searches
